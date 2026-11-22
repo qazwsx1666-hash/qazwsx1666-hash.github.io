@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>자소서 글자수 세기·바이트 계산기 | 공백 포함·제외, 원고지 매수</title>
+<meta name="description" content="자소서 글자수를 공백 포함·제외로 동시에 세고 EUC-KR 2바이트·UTF-8 3바이트, 원고지 매수까지 확인하세요. 목표 글자수 게이지와 줄바꿈 정리 기능으로 제출 직전 실수를 줄입니다.">
+<meta name="keywords" content="자소서 글자수, 글자수 세기, 글자수 계산기, 바이트 계산, 네이버 글자수, 원고지 매수, 자기소개서 글자수, 공백 제외 글자수">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="직장인 계산기">
+<meta name="theme-color" content="#3182f6">
+<meta name="google-adsense-account" content="ca-pub-6515548213411698">
+<link rel="canonical" href="https://qazwsx1666-hash.github.io/career-tools/char-count.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="직장인 계산기">
+<meta property="og:title" content="자소서 글자수 세기·바이트 계산기 | 공백 포함·제외, 원고지 매수">
+<meta property="og:description" content="공백 포함·제외 글자수와 EUC-KR·UTF-8 바이트, 원고지 매수, 목표 글자수 게이지를 한 화면에서 확인하세요.">
+<meta property="og:url" content="https://qazwsx1666-hash.github.io/career-tools/char-count.html">
+<meta property="og:image" content="https://qazwsx1666-hash.github.io/career-tools/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="자소서 글자수 세기·바이트 계산기 | 공백 포함·제외, 원고지 매수">
+<meta name="twitter:description" content="공백 포함·제외 글자수와 바이트, 원고지 매수를 한 번에 계산합니다.">
+<meta name="twitter:image" content="https://qazwsx1666-hash.github.io/career-tools/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233182f6'/%3E%3Ctext x='32' y='44' font-size='28' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%EA%B3%84%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css?v=20261122a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "자소서 글자수·바이트 계산기",
+  "url": "https://qazwsx1666-hash.github.io/career-tools/char-count.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "requires JavaScript",
+  "inLanguage": "ko-KR",
+  "description": "자기소개서·자소서의 공백 포함·제외 글자수, EUC-KR 2바이트와 UTF-8 3바이트, 원고지 매수를 계산하는 무료 도구",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": ["공백 포함 글자수", "공백 제외 글자수", "EUC-KR 바이트", "UTF-8 바이트", "원고지 매수", "목표 글자수 게이지", "줄바꿈 정리"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "자소서 글자수는 공백을 포함해서 세나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기업마다 다릅니다. 대부분의 채용 사이트 입력창은 공백과 줄바꿈을 포함한 글자수를 세지만, 일부 공공기관과 대기업은 공백 제외 기준을 씁니다. 두 수치를 함께 확인하고, 지원하는 기업의 입력창에 직접 붙여넣어 실제 카운터와 일치하는지 보는 것이 가장 확실합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "한글 1,000자는 몇 바이트인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EUC-KR 기준으로 한글 한 글자는 2바이트라서 한글만 1,000자면 2,000바이트입니다. UTF-8 기준으로는 한글 한 글자가 3바이트라 3,000바이트가 됩니다. 영문과 숫자는 두 방식 모두 1바이트이므로 한글이 섞인 비율에 따라 결과가 달라집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "줄바꿈과 엔터도 글자수에 포함되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "대부분의 입력창은 줄바꿈을 1자로 셉니다. 바이트 기준에서는 윈도우 방식의 줄바꿈(CRLF)을 2바이트로 계산하는 곳도 있습니다. 문단을 나누면 글자수와 바이트가 함께 늘어나므로, 제한에 바짝 붙였을 때는 빈 줄을 정리하는 것만으로도 여유가 생깁니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "이모지나 특수문자는 어떻게 계산되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이모지는 글자수 기준으로 2자로 세는 경우가 많고, UTF-8 바이트로는 4바이트입니다. EUC-KR에는 이모지가 없어 실제 저장 시 깨질 수 있으므로 자기소개서에는 쓰지 않는 편이 안전합니다. 특수문자는 대부분 1바이트입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "입력한 자소서 내용이 저장되거나 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 모든 계산은 현재 브라우저의 자바스크립트로만 처리되며 서버로 전송하거나 저장하지 않습니다. 새로고침하면 작성한 내용은 사라지므로, 실제 원고는 메모장이나 문서 프로그램에 따로 보관하세요."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로 가기</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./index.html">
+      <span class="brand-logo" aria-hidden="true">계</span>
+      <span class="brand-name">직장인 계산기</span>
+    </a>
+    <nav class="nav" aria-label="도구 목록">
+      <a href="./char-count.html" class="is-active" aria-current="page">자소서 글자수</a>
+      <a href="./weekly-pay.html">시급·주휴수당</a>
+      <a href="./annual-leave.html">연차·수당</a>
+      <a href="./salary-hour.html">연봉 시급</a>
+      <a href="./unemployment.html">실업급여</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">공백 포함·제외 · EUC-KR·UTF-8 · 원고지</span>
+      <h1>자소서 글자수·바이트 세기</h1>
+      <p class="lead">자기소개서를 붙여넣으면 공백 포함·제외 글자수, 한글 2바이트(EUC-KR)와 3바이트(UTF-8) 기준, 원고지 매수까지 한 번에 계산합니다. 목표 글자수를 정하면 남은 글자수가 게이지로 표시됩니다.</p>
+      <ul class="hero-points">
+        <li>입력 즉시 반영</li>
+        <li>줄바꿈·공백 정리</li>
+        <li>원고지 매수 환산</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title"><span class="dot" aria-hidden="true"></span>자소서 본문 붙여넣기</h2>
+          <span class="card-sub" id="savedhint">입력값은 저장되지 않습니다</span>
+        </div>
+
+        <div class="field">
+          <span class="field-label">목표 글자수</span>
+          <div class="chips" id="targetChips">
+            <button type="button" class="chip" data-target="500">500자</button>
+            <button type="button" class="chip is-on" data-target="1000">1,000자</button>
+            <button type="button" class="chip" data-target="1500">1,500자</button>
+            <button type="button" class="chip" data-target="2000">2,000자</button>
+            <button type="button" class="chip" data-target="3000">3,000자</button>
+          </div>
+        </div>
+
+        <label class="sr-only" for="content">자소서 본문</label>
+        <textarea id="content" class="input-area" placeholder="자기소개서 본문을 여기에 붙여넣으세요. (Ctrl+V / 길게 눌러 붙여넣기)" spellcheck="false"></textarea>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-ghost" id="btnClean">줄바꿈·공백 정리</button>
+          <button type="button" class="btn btn-ghost" id="btnCopy">결과 복사</button>
+          <button type="button" class="btn btn-ghost" id="btnClear">지우기</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="result-card">
+        <div class="result-label">공백 포함 글자수</div>
+        <div class="result-value"><span id="rChars">0</span><span class="won">자</span></div>
+        <div class="result-sub" id="rSub">글을 입력하면 바로 계산됩니다.</div>
+        <dl class="result-mini">
+          <div>
+            <dt>공백 제외</dt>
+            <dd><span id="rNoSpace">0</span>자</dd>
+          </div>
+          <div>
+            <dt>EUC-KR</dt>
+            <dd><span id="rEuc">0</span>B</dd>
+          </div>
+          <div>
+            <dt>원고지</dt>
+            <dd><span id="rPaper">0</span>매</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <div class="card-head">
+          <h2 class="card-title"><span class="dot" aria-hidden="true"></span>목표 글자수 게이지</h2>
+          <span class="card-sub">목표 <span id="rTarget">1,000</span>자</span>
+        </div>
+        <div class="gauge">
+          <div class="gauge-head">
+            <span>달성률 <b id="rPct">0%</b></span>
+            <span id="rRemain">1,000자 남음</span>
+          </div>
+          <div class="gauge-track"><div class="gauge-fill" id="gaugeFill"></div></div>
+          <div class="gauge-foot">
+            <span>0자</span>
+            <span>목표 1,000자</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <div class="card-head">
+          <h2 class="card-title"><span class="dot" aria-hidden="true"></span>상세 계산 내역</h2>
+        </div>
+        <div class="rows">
+          <div class="row"><span class="k">줄바꿈 제외 글자수</span><span class="v"><span id="rNoNL">0</span>자</span></div>
+          <div class="row"><span class="k">공백(스페이스) 개수</span><span class="v"><span id="rSpaces">0</span>개</span></div>
+          <div class="row"><span class="k">단어 수 (공백 기준)</span><span class="v"><span id="rWords">0</span>개</span></div>
+          <div class="row"><span class="k">줄 수</span><span class="v"><span id="rLines">0</span>줄</span></div>
+          <div class="row"><span class="k">UTF-8 바이트 <span class="tag">한글 3B</span></span><span class="v"><span id="rUtf">0</span>B</span></div>
+          <div class="row"><span class="k">EUC-KR 바이트 <span class="tag">한글 2B</span></span><span class="v"><span id="rEuc2">0</span>B</span></div>
+          <div class="row"><span class="k">200자 원고지 매수</span><span class="v"><span id="rPaper2">0.00</span>매</span></div>
+          <div class="row is-strong"><span class="k">바이트 제한 1,000B 기준</span><span class="v" id="rLimit">여유 1,000B</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot" aria-hidden="true">광고 영역</div>
+
+    <section class="guide">
+      <h2>기업마다 다른 글자수 기준, 먼저 확인할 세 가지</h2>
+      <p>자기소개서를 다 쓰고 나서 입력창에 붙여넣었더니 &ldquo;1,000자를 초과했습니다&rdquo;라는 경고가 뜨는 경험은 생각보다 흔합니다. 이유는 채용 사이트마다 글자수를 세는 방식이 다르기 때문입니다. 크게 세 가지 기준만 알아두면 이런 낭패를 거의 없앨 수 있습니다.</p>
+      <p><strong>첫 번째는 공백 포함 여부입니다.</strong> 대다수 채용 사이트는 공백과 줄바꿈을 포함해 셉니다. 반면 일부 공공기관과 대기업은 &ldquo;공백 제외 800자&rdquo;처럼 안내합니다. 이 사이트는 두 수치를 동시에 보여주므로, 공백 제외 기준을 요구하는 기업이라면 오른쪽 위의 &lsquo;공백 제외&rsquo; 숫자를 기준으로 삼으면 됩니다.</p>
+      <p><strong>두 번째는 바이트 기준입니다.</strong> 2,000바이트 이내처럼 바이트로 제한하는 기업이 있습니다. 이때 한글을 2바이트로 세는지(EUC-KR·CP949), 3바이트로 세는지(UTF-8)에 따라 결과가 크게 달라집니다. 한글 1,000자라면 전자는 2,000바이트, 후자는 3,000바이트가 됩니다. 국내 기업 채용 시스템은 아직 EUC-KR 기준이 많은 편이지만, 최근 개편된 시스템은 UTF-8을 쓰기도 하므로 입력창에 직접 붙여넣어 남은 바이트를 확인하는 것이 가장 정확합니다.</p>
+      <p><strong>세 번째는 줄바꿈 처리입니다.</strong> 엔터를 한 번 누르면 대부분 1자로 계산되지만, 바이트 기준에서는 2바이트로 세는 경우도 있습니다. 문단을 여럿 나눠 놓은 글은 이 차이만으로도 수십 바이트가 늘어납니다. 제한에 바짝 붙였다면 빈 줄을 지우고 문단 사이를 한 줄로 정리하는 것만으로 여유가 생깁니다.</p>
+
+      <div class="callout">
+        <p class="t">제출 직전 3초 체크</p>
+        <p>지원 기업의 입력창에 그대로 붙여넣고, 안내된 제한의 95%를 넘지 않게 맞추세요. 제한을 꽉 채우는 것보다 여유를 남기는 편이 오탈자를 잡기 쉽고, 시스템이 줄바꿈을 더 세는 경우에도 안전합니다.</p>
+      </div>
+
+      <h2>바이트를 직접 계산하는 방법</h2>
+      <p>계산 원리는 단순합니다. EUC-KR에서는 영문·숫자·공백·일반 특수문자가 1바이트, 한글과 한자 등 2바이트 문자 영역이 2바이트입니다. UTF-8에서는 ASCII 영역이 1바이트, 유럽 문자권이 2바이트, 한글·한자·일본어가 3바이트, 이모지처럼 유니코드가 큰 문자는 4바이트입니다. 이 계산기는 문자를 하나씩 확인해 그 합을 보여주므로, 한글이 섞인 정도에 따른 차이까지 그대로 반영됩니다.</p>
+      <p>주의할 점은 이모지입니다. 이모지는 글자수 기준으로 2자로 세는 경우가 많고, EUC-KR에는 아예 없는 문자라 실제 저장 과정에서 깨질 수 있습니다. 자기소개서에는 이모지와 특수기호 장식을 쓰지 않는 편이 안전합니다. 비슷한 이유로 &lsquo;✓&rsquo;, &lsquo;★&rsquo; 같은 기호도 기업 시스템에서 물음표로 바뀌는 경우가 있습니다.</p>
+
+      <h2>원고지 매수로 환산하면 얼마인가</h2>
+      <p>200자 원고지 한 장은 20&times;10칸으로 이루어집니다. 글자수 1,200자라면 원고지 6매, 1,000자라면 5매입니다. 이 계산기는 글자수를 200으로 나눈 값을 소수 둘째 자리까지 보여주는데, 예를 들어 1,347자라면 6.74매가 됩니다. 공모전이나 대학 과제에서 &lsquo;원고지 몇 매 이상&rsquo;을 요구받았을 때 감으로 세는 대신 이 수치를 기준으로 삼으면 됩니다. 참고로 원고지는 한 칸에 한 글자씩 쓰는 방식이라 줄바꿈과 띄어쓰기도 칸을 차지하므로, 공백 포함 글자수와 거의 일치합니다.</p>
+
+      <h2>글자수를 채우면서 밀도를 높이는 방법</h2>
+      <p>글자수 제한이 있는 자기소개서에서 가장 흔한 실수는 분량을 채우려고 같은 말을 반복하는 것입니다. 채용 담당자는 반복을 금방 알아차립니다. 대신 다음 세 가지를 활용해 보세요. 첫째, 경험을 &lsquo;상황-행동-결과&rsquo; 순서로 나누고 결과에 숫자를 붙입니다. &ldquo;매출이 늘었다&rdquo;보다 &ldquo;3개월 만에 재방문율을 12%에서 21%로 올렸다&rdquo;가 같은 글자수로 더 많은 정보를 전달합니다. 둘째, 문장을 짧게 끊고 접속어를 줄입니다. &lsquo;그리고&rsquo;와 &lsquo;또한&rsquo;을 빼는 것만으로 같은 내용을 10~15% 짧게 쓸 수 있습니다. 셋째, 직무와 직접 연결되지 않는 이야기는 과감히 덜어냅니다.</p>
+      <p>반대로 분량이 모자랄 때는 추상적인 포부를 늘리기보다 구체적인 사례를 하나 더 넣는 편이 낫습니다. 갈등을 해결한 과정, 실수를 수습한 방식, 지원 직무와 관련된 학습 이력은 짧게 쓰기 어려운 소재라 자연스럽게 분량이 채워집니다.</p>
+
+      <h2>제출 전에 확인할 것들</h2>
+      <ul>
+        <li>문단 첫머리 공백과 문장 끝의 불필요한 스페이스를 정리했는지</li>
+        <li>줄임표(&hellip;)나 물결표를 특수문자로 쓰지 않았는지</li>
+        <li>지원 기업 입력창에서 실제 카운터와 이 계산기의 숫자가 같은지</li>
+        <li>공백 제외 기준이라면 띄어쓰기를 줄여 분량을 늘렸을 때 가독성이 무너지지 않았는지</li>
+        <li>복사·붙여넣기 과정에서 들여쓰기나 글머리 기호가 깨지지 않았는지</li>
+      </ul>
+      <p>마지막으로, 이 페이지에 붙여넣은 내용은 서버로 전송되지 않고 브라우저 안에서만 처리됩니다. 다만 새로고침하면 사라지므로 원본은 반드시 워드나 메모장에 따로 보관하세요. 맞춤법은 계산기로 잡을 수 없으니, 제출 전 소리 내어 한 번 읽어 보는 것이 가장 확실한 검사 방법입니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>자소서 글자수는 공백을 포함해서 세나요?</summary>
+        <div class="answer">기업마다 다릅니다. 대부분의 채용 사이트 입력창은 공백과 줄바꿈을 포함한 글자수를 세지만, 일부 공공기관과 대기업은 공백 제외 기준을 씁니다. 두 수치를 함께 확인하고, 지원하는 기업의 입력창에 직접 붙여넣어 실제 카운터와 일치하는지 보는 것이 가장 확실합니다.</div>
+      </details>
+      <details>
+        <summary>한글 1,000자는 몇 바이트인가요?</summary>
+        <div class="answer">EUC-KR 기준으로 한글 한 글자는 2바이트라서 한글만 1,000자면 2,000바이트입니다. UTF-8 기준으로는 한글 한 글자가 3바이트라 3,000바이트가 됩니다. 영문과 숫자는 두 방식 모두 1바이트이므로 한글이 섞인 비율에 따라 결과가 달라집니다.</div>
+      </details>
+      <details>
+        <summary>줄바꿈과 엔터도 글자수에 포함되나요?</summary>
+        <div class="answer">대부분의 입력창은 줄바꿈을 1자로 셉니다. 바이트 기준에서는 윈도우 방식의 줄바꿈(CRLF)을 2바이트로 계산하는 곳도 있습니다. 문단을 나누면 글자수와 바이트가 함께 늘어나므로, 제한에 바짝 붙였을 때는 빈 줄을 정리하는 것만으로도 여유가 생깁니다.</div>
+      </details>
+      <details>
+        <summary>이모지나 특수문자는 어떻게 계산되나요?</summary>
+        <div class="answer">이모지는 글자수 기준으로 2자로 세는 경우가 많고, UTF-8 바이트로는 4바이트입니다. EUC-KR에는 이모지가 없어 실제 저장 시 깨질 수 있으므로 자기소개서에는 쓰지 않는 편이 안전합니다. 특수문자는 대부분 1바이트입니다.</div>
+      </details>
+      <details>
+        <summary>입력한 자소서 내용이 저장되거나 전송되나요?</summary>
+        <div class="answer">아니요. 모든 계산은 현재 브라우저의 자바스크립트로만 처리되며 서버로 전송하거나 저장하지 않습니다. 새로고침하면 작성한 내용은 사라지므로, 실제 원고는 메모장이나 문서 프로그램에 따로 보관하세요.</div>
+      </details>
+    </section>
+
+    <section class="related">
+      <h2>함께 쓰면 좋은 계산기</h2>
+      <div class="related-list">
+        <a class="related-link" href="./weekly-pay.html"><span>시급·주휴수당 계산기</span><span>→</span></a>
+        <a class="related-link" href="./annual-leave.html"><span>연차·미사용 수당 계산기</span><span>→</span></a>
+        <a class="related-link" href="./salary-hour.html"><span>연봉 시급 환산기</span><span>→</span></a>
+        <a class="related-link" href="./unemployment.html"><span>실업급여 모의계산기</span><span>→</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <nav class="footer-links" aria-label="사이트 링크">
+      <a href="./index.html">홈</a>
+      <a href="./char-count.html">자소서 글자수</a>
+      <a href="./weekly-pay.html">시급·주휴수당</a>
+      <a href="./annual-leave.html">연차·수당</a>
+      <a href="./salary-hour.html">연봉 시급</a>
+      <a href="./unemployment.html">실업급여</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+    </nav>
+    <p class="footer-note">이 사이트의 모든 계산은 브라우저에서만 처리되며 입력값을 서버로 전송하지 않습니다. 결과는 참고용 추정치입니다. 문의: qazwsx1666@gmail.com</p>
+    <p class="footer-copy">© 직장인 계산기</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ta = document.getElementById('content');
+  var targetInput = null;
+  var target = 1000;
+  var chips = document.querySelectorAll('#targetChips .chip');
+  var el = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return Number(n).toLocaleString('ko-KR'); };
+
+  function eucBytes(t) {
+    var b = 0;
+    for (var i = 0; i < t.length; i++) {
+      b += t.charCodeAt(i) < 128 ? 1 : 2;
+    }
+    return b;
+  }
+  function utf8Bytes(t) {
+    var b = 0;
+    for (var i = 0; i < t.length; i++) {
+      var c = t.charCodeAt(i);
+      if (c < 128) b += 1;
+      else if (c < 2048) b += 2;
+      else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; }
+      else b += 3;
+    }
+    return b;
+  }
+
+  function render() {
+    var t = ta.value;
+    var chars = t.length;
+    var noSpace = t.replace(/\s/g, '').length;
+    var noNL = t.replace(/[\r\n]/g, '').length;
+    var spaces = (t.match(/ /g) || []).length;
+    var words = t.trim() ? t.trim().split(/\s+/).length : 0;
+    var lines = t.length ? t.split(/\r\n|\r|\n/).length : 0;
+    var euc = eucBytes(t);
+    var utf = utf8Bytes(t);
+    var paper = chars / 200;
+
+    el('rChars').textContent = fmt(chars);
+    el('rNoSpace').textContent = fmt(noSpace);
+    el('rEuc').textContent = fmt(euc);
+    el('rPaper').textContent = paper.toFixed(2);
+    el('rNoNL').textContent = fmt(noNL);
+    el('rSpaces').textContent = fmt(spaces);
+    el('rWords').textContent = fmt(words);
+    el('rLines').textContent = fmt(lines);
+    el('rUtf').textContent = fmt(utf);
+    el('rEuc2').textContent = fmt(euc);
+    el('rPaper2').textContent = paper.toFixed(2);
+
+    var diff = 1000 - euc;
+    el('rLimit').textContent = diff >= 0 ? '여유 ' + fmt(diff) + 'B' : fmt(Math.abs(diff)) + 'B 초과';
+
+    var pct = target > 0 ? (chars / target) * 100 : 0;
+    var fill = el('gaugeFill');
+    fill.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    fill.classList.toggle('is-over', pct > 100);
+    el('rPct').textContent = (pct >= 100 ? Math.round(pct) : pct.toFixed(1)) + '%';
+    el('rTarget').textContent = fmt(target);
+
+    var over = chars - target;
+    var remainEl = el('rRemain');
+    if (over > 0) {
+      remainEl.textContent = fmt(over) + '자 초과';
+      remainEl.style.color = '#ffe0e3';
+    } else {
+      remainEl.textContent = fmt(target - chars) + '자 남음';
+      remainEl.style.color = '';
+    }
+
+    var sub = el('rSub');
+    if (!chars) {
+      sub.textContent = '글을 입력하면 바로 계산됩니다.';
+    } else if (over > 0) {
+      sub.textContent = '목표보다 ' + fmt(over) + '자 많습니다 · 공백 제외 ' + fmt(noSpace) + '자';
+    } else {
+      sub.textContent = '목표까지 ' + fmt(-over) + '자 남았습니다 · 공백 제외 ' + fmt(noSpace) + '자';
+    }
+  }
+
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      target = parseInt(c.getAttribute('data-target'), 10) || 1000;
+      chips.forEach(function (x) { x.classList.toggle('is-on', x === c); });
+      render();
+    });
+  });
+
+  ta.addEventListener('input', render);
+
+  el('btnClean').addEventListener('click', function () {
+    var t = ta.value;
+    t = t.replace(/[ \t]+$/gm, '');          // 줄 끝 공백 제거
+    t = t.replace(/^\s*\n/gm, '\n');          // 공백만 있는 줄 정리
+    t = t.replace(/\n{3,}/g, '\n\n');         // 3줄 이상 빈 줄 → 1줄
+    t = t.replace(/\n+$/, '');                // 끝 빈 줄 제거
+    ta.value = t;
+    render();
+  });
+
+  el('btnClear').addEventListener('click', function () {
+    ta.value = '';
+    ta.focus();
+    render();
+  });
+
+  el('btnCopy').addEventListener('click', function () {
+    var t = ta.value;
+    var text = '공백 포함 ' + fmt(t.length) + '자 / 공백 제외 ' +
+      fmt(t.replace(/\s/g, '').length) + '자 / EUC-KR ' + fmt(eucBytes(t)) +
+      '바이트 / UTF-8 ' + fmt(utf8Bytes(t)) + '바이트 / 원고지 ' + (t.length / 200).toFixed(2) + '매';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        el('savedhint').textContent = '계산 결과를 복사했습니다';
+        setTimeout(function () { el('savedhint').textContent = '입력값은 저장되지 않습니다'; }, 2200);
+      }, function () { window.prompt('아래 결과를 복사하세요', text); });
+    } else {
+      window.prompt('아래 결과를 복사하세요', text);
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

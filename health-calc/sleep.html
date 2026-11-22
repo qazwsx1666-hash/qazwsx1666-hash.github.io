@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>수면시간 계산기 | 90분 수면 사이클로 취침·기상 시각 역산</title>
+<meta name="description" content="90분 수면 사이클과 잠드는 데 걸리는 15분을 반영해, 기상 시간에 맞는 취침 시각과 취침 시간에 맞는 기상 시각을 4·5·6주기로 나눠 보여 줍니다. 개운하게 일어나는 시각을 찾고 친구에게 공유해 보세요.">
+<meta name="keywords" content="수면시간 계산기, 수면 사이클, 90분 수면, 취침 시간 계산, 기상 시간 계산, 알람 역산, 적정 수면시간, 렘수면, 숙면 방법, 몇 시에 자야 하나">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="건강·다이어트·수면 계산기">
+<meta name="theme-color" content="#14b8a6">
+<meta name="google-adsense-account" content="ca-pub-6515548213411698">
+<link rel="canonical" href="https://qazwsx1666-hash.github.io/health-calc/sleep.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="건강·다이어트·수면 계산기">
+<meta property="og:title" content="수면시간 계산기 | 90분 수면 사이클로 취침·기상 시각 역산">
+<meta property="og:description" content="90분 수면 사이클과 잠드는 데 걸리는 15분을 반영해, 기상 시간에 맞는 취침 시각과 취침 시간에 맞는 기상 시각을 4·5·6주기로 나눠 보여 줍니다. 개운하게 일어나는 시각을 찾고 친구에게 공유해 보세요.">
+<meta property="og:url" content="https://qazwsx1666-hash.github.io/health-calc/sleep.html">
+<meta property="og:image" content="https://qazwsx1666-hash.github.io/health-calc/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="건강·다이어트·수면 계산기 미리보기 이미지">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="수면시간 계산기 | 90분 수면 사이클로 취침·기상 시각 역산">
+<meta name="twitter:description" content="90분 수면 사이클과 잠드는 데 걸리는 15분을 반영해, 기상 시간에 맞는 취침 시각과 취침 시간에 맞는 기상 시각을 4·5·6주기로 나눠 보여 줍니다. 개운하게 일어나는 시각을 찾고 친구에게 공유해 보세요.">
+<meta name="twitter:image" content="https://qazwsx1666-hash.github.io/health-calc/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314b8a6'/%3E%3Ctext x='32' y='45' font-size='30' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%EA%B1%B4%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css?v=20261122a">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "적정 수면시간·기상 알람 역산 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/sleep.html", "applicationCategory": "HealthApplication", "operatingSystem": "All", "inLanguage": "ko-KR", "description": "90분 수면 사이클로 취침 시각과 기상 시각을 양방향으로 계산합니다.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "건강·다이어트·수면 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "90분 수면 사이클은 정확한가요?", "acceptedAnswer": {"@type": "Answer", "text": "평균값입니다. 사람마다 70~120분으로 차이가 나고, 같은 사람도 밤마다 조금씩 다릅니다. 알람을 맞출 때 기준으로 쓰기 좋은 숫자이고, 워치나 앱으로 자신의 평균 주기를 확인하면 더 정확해집니다."}}, {"@type": "Question", "name": "잠드는 시간 15분은 왜 더하나요?", "acceptedAnswer": {"@type": "Answer", "text": "누워서 실제로 잠들기까지 평균 10~20분이 걸리기 때문입니다. 7시간 30분 수면을 원하면 침대에 7시간 45분 전에 눕는 것이 계산입니다. 스마트폰을 보다 눕거나 잠들기 어려운 편이라면 20~30분으로 늘려 잡으세요."}}, {"@type": "Question", "name": "5주기와 6주기 중 무엇이 좋나요?", "acceptedAnswer": {"@type": "Answer", "text": "성인에게는 5주기(7시간 30분)가 가장 무난합니다. 6주기(9시간)는 평소 수면 부족이 쌓였거나 회복이 필요할 때, 4주기(6시간)는 시간이 없을 때의 최소선입니다. 꾸준히 4주기만 자면 만성 수면 부족이 됩니다."}}, {"@type": "Question", "name": "주말에 몰아서 자도 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "2시간 안쪽의 보충은 괜찮지만 3시간 이상 늦게 일어나면 생체시계가 뒤로 밀려 월요일이 더 힘들어집니다. 부족한 잠은 주말 몰아자기보다 평일 취침을 30분씩 앞당겨 채우는 편이 효과적입니다."}}, {"@type": "Question", "name": "알람을 여러 개 맞추면 덜 피곤한가요?", "acceptedAnswer": {"@type": "Answer", "text": "아닙니다. 5분 간격 알람은 잠을 다시 끊어 얕은 잠을 반복시키고 수면 관성을 키웁니다. 알람은 한 번만, 주기 경계에 맞춰 두는 것이 좋습니다. 일어난 뒤에는 5분 안에 커튼을 열고 물을 마시면 각성이 빨라집니다."}}, {"@type": "Question", "name": "커피를 마시면 잠이 안 오는 이유는 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "카페인은 뇌의 아데노신 수용체를 막아 졸음을 늦춥니다. 반감기가 5시간 안팎이라 오후 3시에 마신 커피의 절반은 밤 8시에도 남아 있습니다. 잠들기 8시간 전부터 카페인을 끊으면 잠드는 시간이 짧아집니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "전체 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/"}, {"@type": "ListItem", "position": 2, "name": "적정 수면시간·기상 알람 역산 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/sleep.html"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">
+      <span class="brand-mark" aria-hidden="true">건</span>
+      <span class="brand-name">건강 계산기<small>다이어트·수면 도구 5종</small></span>
+    </a>
+    <span class="header-note">입력값 저장 없음</span>
+  </div>
+</header>
+
+<nav class="calc-nav" aria-label="계산기 바로가기">
+  <div class="wrap calc-nav-inner">
+    <a href="./">전체 계산기</a>
+    <a href="./bmi.html">BMI</a>
+    <a href="./bmr-calorie.html">칼로리</a>
+    <a href="./sleep.html" aria-current="page">수면</a>
+    <a href="./caffeine.html">카페인</a>
+    <a href="./water.html">물·단백질</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="wrap">
+    <div class="intro">
+      <nav class="crumb" aria-label="현재 위치"><a href="./">전체 계산기</a><span aria-hidden="true">›</span><span>적정 수면시간·기상 알람 역산 계산기</span></nav>
+      <h1>적정 수면시간·기상 알람 역산 계산기</h1>
+      <p class="lead">몇 시에 자야 몇 시에 개운하게 일어날 수 있을까요. 90분 수면 사이클에 잠드는 시간 15분을 더해 기상 시각과 취침 시각을 양방향으로 계산합니다. 4~6주기 선택지와 공유 기능까지.</p>
+      <p class="meta">90분 사이클 + 입면 15분 · 회원가입 없이 무료 · 입력값은 브라우저에서만 계산됩니다</p>
+    </div>
+
+    <section class="panel is-active" id="panel-sleep">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>무엇을 기준으로 맞출까요?</h2>
+            <p>일어날 시각과 잘 시각 중 하나를 고르세요.</p>
+          </div>
+          <span class="step">90분 사이클</span>
+        </div>
+
+        <div class="subtabs" role="tablist" aria-label="계산 방식" data-seg="sleepMode">
+          <button type="button" data-sub="wake" role="tab" aria-selected="true">기상 시간 기준</button>
+          <button type="button" data-sub="bed" role="tab" aria-selected="false">취침 시간 기준</button>
+        </div>
+
+        <div class="subpanel is-active" id="sub-wake">
+          <div class="field">
+            <label class="field-label" for="inSleepWake">일어나야 하는 시각</label>
+            <div class="input-box">
+              <input type="time" id="inSleepWake" value="07:00" step="300">
+            </div>
+            <div class="chips" data-chips="inSleepWake">
+              <button type="button" class="chip" data-value="06:00">06:00</button>
+              <button type="button" class="chip" data-value="06:30">06:30</button>
+              <button type="button" class="chip" data-value="07:00">07:00</button>
+              <button type="button" class="chip" data-value="07:30">07:30</button>
+            </div>
+            <p class="hint plain">잠드는 데 걸리는 15분을 자동으로 더해 계산합니다.</p>
+          </div>
+        </div>
+
+        <div class="subpanel" id="sub-bed">
+          <div class="field">
+            <label class="field-label" for="inSleepBed">잠들 시각</label>
+            <div class="input-box">
+              <input type="time" id="inSleepBed" value="23:30" step="300">
+            </div>
+            <div class="chips" data-chips="inSleepBed">
+              <button type="button" class="chip" data-value="22:30">22:30</button>
+              <button type="button" class="chip" data-value="23:00">23:00</button>
+              <button type="button" class="chip" data-value="23:30">23:30</button>
+              <button type="button" class="chip" data-value="00:30">00:30</button>
+            </div>
+            <div class="share-row">
+              <button type="button" class="btn ghost" id="btnSleepNow">지금 잠들면?</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary">
+          <span class="s-icon" aria-hidden="true">☾</span>
+          <p id="outSleepSummary">일어날 시각을 고르면 취침 시각을 계산합니다.</p>
+        </div>
+
+        <div class="time-list" id="outSleepList" aria-live="polite"></div>
+
+        <div class="share-row">
+          <button type="button" class="btn mint" id="btnSleepShare">공유하기</button>
+          <span class="subtle" id="outSleepToast" role="status"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="sec-title">수면 사이클이란</h2>
+        <p class="subtle mt-8">잠은 얕은 잠 → 깊은 잠 → 렘수면의 한 묶음(약 90분)을 밤새 4~6번 반복합니다.
+          이 묶음이 끝나는 지점에서 깨야 몽롱함이 적습니다. 5주기(7시간 30분)가 성인에게 가장 무난합니다.</p>
+        <div class="table-wrap mt-12">
+          <table class="tbl-tight">
+            <caption>기상 07:00 기준 취침 시각 예시</caption>
+            <thead><tr><th scope="col">주기</th><th scope="col">취침</th><th scope="col">수면 시간</th><th scope="col">특징</th></tr></thead>
+            <tbody>
+              <tr><td>6주기</td><td>21:45</td><td>9시간</td><td>주말·회복기</td></tr>
+              <tr class="is-best"><td>5주기</td><td><strong>23:15</strong></td><td>7시간 30분</td><td>성인 권장</td></tr>
+              <tr><td>4주기</td><td>00:45</td><td>6시간</td><td>최소선</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+<div class="ad-slot" aria-hidden="true"><b>AD</b><span>광고 영역</span></div>
+<section class="card guide" aria-label="자세한 안내">
+<h2>잠은 90분짜리 묶음으로 반복됩니다</h2>
+<p>사람의 수면은 한 번에 깊어졌다 얕아지는 것이 아니라, <strong>비렘수면과 렘수면이 한 묶음으로 반복되는 주기</strong>로 이어집니다. 잠이 들면 얕은 잠(N1)에서 시작해 점점 깊은 잠(N2, N3)으로 내려가고, 다시 얕아지면서 렘수면(꿈을 꾸는 단계)으로 끝나는 한 주기가 평균 90분입니다. 이 주기가 밤새 4~6번 반복되고, 새벽으로 갈수록 깊은 잠은 줄고 렘수면이 늘어납니다. 그래서 7시간을 자도 어느 지점에서 깨느냐에 따라 개운함이 크게 달라집니다.</p>
+<p>주기 길이는 사람마다 70~120분으로 차이가 있습니다. 90분은 평균값일 뿐이지만, 알람을 맞출 때 기준으로 삼기에 가장 무난한 숫자입니다. 수면 추적 앱이나 워치를 쓴다면 자신의 평균 주기를 확인해 그 값에 맞춰도 좋습니다. 중요한 것은 <strong>깊은 잠 한가운데서 알람에 깨지 않는 것</strong>입니다.</p>
+<h2>왜 90분 경계에서 깨야 개운한가</h2>
+<p>깊은 잠(서파수면) 중에 깨면 수면 관성(sleep inertia)이 커져 30분~1시간 동안 머리가 멍하고 판단이 느려집니다. 반대로 얕은 잠이나 렘수면 단계에서 깨면 비교적 맑게 시작할 수 있습니다. 알람은 주기를 정확히 알 수 없으니 확률을 높이는 방법을 쓰는 것입니다. <strong>주기의 배수에 맞춰 알람을 맞추고, 잠드는 데 걸리는 시간을 더하는 것</strong>이 그 방법입니다.</p>
+<p>잠드는 데는 평소 10~20분이 걸립니다. 누우면 바로 잠드는 사람도 있지만, 스마트폰을 보다 눕는 경우 더 오래 걸립니다. 이 계산기는 <strong>15분</strong>을 기본값으로 더합니다. 실제로 잠드는 데 30분쯤 걸린다면 계산 결과보다 15분 늦게 눕거나, 알람을 그만큼 늦추세요.</p>
+<div class="notice good">예를 들어 07:00에 일어나려면 5주기(450분) + 15분 = 7시간 45분 전인 <strong>23:15</strong>에 눕는 것이 가장 무난합니다. 조금 더 자고 싶다면 21:45(6주기), 늦게 잤다면 00:45(4주기)가 선택지입니다.</div>
+<h2>성인에게 필요한 수면 시간</h2>
+<p>미국수면학회(AASM)와 수면연구학회는 성인에게 <strong>하루 7시간 이상</strong>을 권고합니다. 7~9시간이 적정 범위이고, 6시간 미만이 만성화되면 집중력 저하, 면역력 감소, 혈압 상승, 체중 증가 위험이 커집니다. 청소년은 8~10시간, 어린이는 9~12시간, 노인도 7~8시간을 권장합니다. 다만 필요한 시간은 개인차가 있어, 7시간으로 충분한 사람도 8시간 반을 자야 컨디션이 좋은 사람도 있습니다. 휴일에 자연스럽게 깨는 시간이 내 몸이 원하는 수면 시간에 가깝습니다.</p>
+<p>수면 시간만큼 <strong>규칙성</strong>이 중요합니다. 주중 6시간, 주말 10시간처럼 들쭉날쭉하면 사회적 시차(social jetlag)가 생겨 월요일 아침이 특히 힘들어집니다. 주말에도 평소 기상 시간에서 1~2시간 안쪽으로 유지하는 것이 좋습니다. 부족한 잠은 주말에 몰아자기보다 20~30분 일찍 자는 쪽으로 채우세요.</p>
+<h2>잠들기까지 걸리는 시간을 줄이는 방법</h2>
+<ul><li><strong>기상 시간 고정</strong> — 취침 시간은 자연히 따라옵니다. 주말에도 ±1시간 안으로 유지하세요.</li><li><strong>아침 햇빛 10분</strong> — 기상 후 창가나 밖에서 빛을 쬐면 생체시계가 앞당겨져 밤에 졸음이 빨리 옵니다.</li><li><strong>카페인 마감 시각</strong> — 반감기가 5시간 안팎이라 오후 2시 이후 커피는 밤잠에 영향을 줄 수 있습니다. 민감하면 정오 이후로 당기세요.</li><li><strong>알코올은 수면제가 아닙니다</strong> — 잠드는 데는 도움이 되지만 깊은 잠과 렘수면을 줄여 새벽에 깨기 쉽습니다.</li><li><strong>침실은 어둡고 서늘하게</strong> — 18~20도, 빛과 소음을 차단하고, 침대는 잠과 성생활에만 쓰세요.</li><li><strong>20분 규칙</strong> — 누워서 20분이 지나도 잠이 안 오면 일어나 어둑한 곳에서 조용히 있다가 졸리면 다시 눕습니다. 침대에서 뒤척이는 시간이 길수록 잠과 침대가 나쁘게 연결됩니다.</li></ul>
+<h2>낮잠과 주말 보충, 이렇게 하세요</h2>
+<p>낮잠은 <strong>20분</strong>이 가장 효율적입니다. 깊은 잠에 들어가기 전에 깨면 멍함이 없고 집중력이 회복됩니다. 90분을 잘 시간이 있다면 한 주기를 끝까지 채우는 것도 방법입니다. 오후 3시 이후의 낮잠은 밤잠을 밀어내므로 피하세요. 커피를 마시고 바로 20분 자는 '커피 낮잠'은 카페인이 흡수되는 시간과 겹쳐 각성 효과가 커집니다.</p>
+<p>밤샘 후 주말에 10시간씩 자는 것은 피로를 모두 회복시키지 못합니다. 수면 부채는 하루아침에 갚기 어렵고, 오히려 생체시계를 흔들어 일요일 밤 불면을 만듭니다. 부족한 날이 이어지면 하루 30분씩 일찍 자는 것을 2주간 반복하세요.</p>
+<h2>수면 시간과 체중은 연결되어 있습니다</h2>
+<p>잠이 부족하면 식욕을 올리는 그렐린이 늘고 포만감을 주는 렙틴이 줄어듭니다. 같은 음식도 더 먹게 되고, 특히 고칼로리 간식에 손이 갑니다. 수면 부족은 인슐린 감수성도 떨어뜨려 혈당 관리에 불리합니다. 다이어트 중이라면 칼로리를 세는 것만큼 <strong>7시간 이상 자는 것</strong>이 중요합니다. 수면 시간을 1시간 늘리는 것만으로 하루 200~300kcal 섭취가 줄었다는 연구도 있습니다.</p>
+<div class="notice warn"><strong>이럴 때는 진료가 필요합니다</strong> — 코골이가 심하고 주간 졸림이 크다면 수면무호흡증, 잠들기까지 30분 이상 걸리는 날이 3개월 이상 이어지면 불면증, 다리가 저절로 움직여 잠을 깬다면 하지불안증후군을 의심해 보세요. 계산기로 해결되지 않는 문제는 수면클리닉 상담이 빠릅니다.</div>
+</section>
+<section class="card" aria-labelledby="faq-title">
+      <h2 class="sec-title" id="faq-title">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>90분 수면 사이클은 정확한가요?</summary>
+          <div class="a"><p>평균값입니다. 사람마다 70~120분으로 차이가 나고, 같은 사람도 밤마다 조금씩 다릅니다. 알람을 맞출 때 기준으로 쓰기 좋은 숫자이고, 워치나 앱으로 자신의 평균 주기를 확인하면 더 정확해집니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>잠드는 시간 15분은 왜 더하나요?</summary>
+          <div class="a"><p>누워서 실제로 잠들기까지 평균 10~20분이 걸리기 때문입니다. 7시간 30분 수면을 원하면 침대에 7시간 45분 전에 눕는 것이 계산입니다. 스마트폰을 보다 눕거나 잠들기 어려운 편이라면 20~30분으로 늘려 잡으세요.</p></div>
+        </details>
+        <details class="faq">
+          <summary>5주기와 6주기 중 무엇이 좋나요?</summary>
+          <div class="a"><p>성인에게는 5주기(7시간 30분)가 가장 무난합니다. 6주기(9시간)는 평소 수면 부족이 쌓였거나 회복이 필요할 때, 4주기(6시간)는 시간이 없을 때의 최소선입니다. 꾸준히 4주기만 자면 만성 수면 부족이 됩니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>주말에 몰아서 자도 괜찮나요?</summary>
+          <div class="a"><p>2시간 안쪽의 보충은 괜찮지만 3시간 이상 늦게 일어나면 생체시계가 뒤로 밀려 월요일이 더 힘들어집니다. 부족한 잠은 주말 몰아자기보다 평일 취침을 30분씩 앞당겨 채우는 편이 효과적입니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>알람을 여러 개 맞추면 덜 피곤한가요?</summary>
+          <div class="a"><p>아닙니다. 5분 간격 알람은 잠을 다시 끊어 얕은 잠을 반복시키고 수면 관성을 키웁니다. 알람은 한 번만, 주기 경계에 맞춰 두는 것이 좋습니다. 일어난 뒤에는 5분 안에 커튼을 열고 물을 마시면 각성이 빨라집니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>커피를 마시면 잠이 안 오는 이유는 무엇인가요?</summary>
+          <div class="a"><p>카페인은 뇌의 아데노신 수용체를 막아 졸음을 늦춥니다. 반감기가 5시간 안팎이라 오후 3시에 마신 커피의 절반은 밤 8시에도 남아 있습니다. 잠들기 8시간 전부터 카페인을 끊으면 잠드는 시간이 짧아집니다.</p></div>
+        </details>
+      </div>
+    </section>
+<section class="card" aria-labelledby="related-title">
+      <h2 class="sec-title" id="related-title">함께 쓰면 좋은 계산기</h2>
+      <div class="related">
+        <a href="./caffeine.html"><strong>카페인 반감기 계산기</strong><span>잠들기 전 마지막 커피 시각 확인</span></a>
+        <a href="./bmr-calorie.html"><strong>기초대사량·권장 칼로리 계산기</strong><span>수면 부족이 식욕을 키우는 이유</span></a>
+        <a href="./bmi.html"><strong>BMI 비만도 계산기</strong><span>체중과 수면의 관계 확인</span></a>
+        <a href="./water.html"><strong>물·단백질 섭취량 계산기</strong><span>저녁 수분 조절과 숙면</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="disclaimer">
+      <b>참고용 안내</b><br>
+      이 사이트의 모든 계산 결과는 입력값을 바탕으로 한 추정치이며 진단이나 처방이 아닙니다.
+      질환이 있거나 약을 복용 중이라면 식사·운동·수면 계획을 세우기 전에 의사·영양사와 상담하세요.
+      키·체중·수면 같은 값은 브라우저 밖으로 전송되지 않습니다.
+    </div>
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">건</span>
+      <span>건강·다이어트·수면 계산기</span>
+    </div>
+    <div class="foot-links">
+      <a href="./">홈</a>
+      <a href="./bmi.html">BMI</a>
+      <a href="./bmr-calorie.html">칼로리</a>
+      <a href="./sleep.html">수면</a>
+      <a href="./caffeine.html">카페인</a>
+      <a href="./water.html">물·단백질</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+      <a href="https://qazwsx1666-hash.github.io/">전체 사이트</a>
+    </div>
+    <p class="copy">© 건강·다이어트·수면 계산기. 모든 계산은 사용자의 브라우저에서만 이뤄집니다.</p>
+  </div>
+</footer>
+
+<script src="./app.js?v=20261122a"></script>
+</body>
+</html>

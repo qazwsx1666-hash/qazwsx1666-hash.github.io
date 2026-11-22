@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연차 발생일수·미사용 연차수당 계산기 | 근로기준법 기준</title>
+<meta name="description" content="입사일과 기준일만 넣으면 1년 미만 월차와 1년 이상 연차 발생일수를 근로기준법 기준으로 계산합니다. 통상임금으로 미사용 연차수당까지 환산하고 다음 발생일도 확인하세요.">
+<meta name="keywords" content="연차 계산기, 연차 발생일수, 연차수당 계산, 미사용 연차, 월차, 근로기준법 연차, 통상임금, 연차 소멸">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="직장인 계산기">
+<meta name="theme-color" content="#3182f6">
+<meta name="google-adsense-account" content="ca-pub-6515548213411698">
+<link rel="canonical" href="https://qazwsx1666-hash.github.io/career-tools/annual-leave.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="직장인 계산기">
+<meta property="og:title" content="연차 발생일수·미사용 연차수당 계산기 | 근로기준법 기준">
+<meta property="og:description" content="입사일 기준으로 연차 발생일수와 미사용 연차수당을 계산합니다. 1년 미만 월차와 3년 이상 가산까지 반영.">
+<meta property="og:url" content="https://qazwsx1666-hash.github.io/career-tools/annual-leave.html">
+<meta property="og:image" content="https://qazwsx1666-hash.github.io/career-tools/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="연차 발생일수·미사용 연차수당 계산기">
+<meta name="twitter:description" content="근로기준법 기준 연차 발생일수와 미사용 연차수당을 계산합니다.">
+<meta name="twitter:image" content="https://qazwsx1666-hash.github.io/career-tools/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233182f6'/%3E%3Ctext x='32' y='44' font-size='28' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%EA%B3%84%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css?v=20261122a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "연차 발생일수·미사용 수당 계산기",
+  "url": "https://qazwsx1666-hash.github.io/career-tools/annual-leave.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "requires JavaScript",
+  "inLanguage": "ko-KR",
+  "description": "입사일과 기준일로 근로기준법상 연차 발생일수를 계산하고 미사용 연차수당을 통상임금으로 환산하는 무료 도구",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": ["1년 미만 월차 계산", "1년 이상 연차 계산", "3년 이상 가산휴가", "다음 연차 발생일", "미사용 연차수당 환산"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "입사 1년 미만인데 연차는 며칠인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1개월을 개근할 때마다 1일씩 발생해 최대 11일입니다. 입사 후 1년이 되기 전까지 매달 같은 날짜를 기준으로 한 달씩 채운 개월 수만큼 발생하며, 12개월째에는 1년 이상 근로자에게 주는 15일로 전환됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "3년 넘게 다니면 연차가 어떻게 늘어나나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "최초 1년을 초과하는 계속 근로연수 매 2년마다 1일이 가산됩니다. 3년차에 16일, 5년차에 17일이 되는 방식이고, 총 25일을 한도로 멈춥니다. 21년차에 25일에 도달합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "연차수당은 어떤 임금으로 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1일 통상임금으로 계산합니다. 통상임금은 기본급과 매달 고정적으로 지급되는 수당을 포함한 금액이고, 월 통상임금을 209시간으로 나눈 통상시급에 8시간을 곱해 1일분을 구합니다. 사업장에 따라 26일 기준으로 나누는 관행도 있으므로 취업규칙을 확인해야 합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "연차는 언제 소멸하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1년 미만 근로자의 월차는 입사 1년이 되는 날까지 사용하지 않으면 소멸하고, 1년 이상 근로자의 연차는 발생일로부터 1년이 지나면 소멸합니다. 다만 회사가 사용 촉진 절차를 밟지 않았다면 소멸을 주장하기 어려우며, 퇴직 시에는 미사용 연차 전부를 수당으로 청구할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "5인 미만 사업장도 연차가 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "연차휴가 규정은 상시근로자 5인 이상 사업장에 적용됩니다. 5인 미만 사업장은 근로기준법상 연차휴가 의무가 없어 근로계약이나 취업규칙에 정한 휴가만 적용됩니다. 다만 주휴수당은 5인 미만에서도 지급해야 합니다."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로 가기</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./index.html">
+      <span class="brand-logo" aria-hidden="true">계</span>
+      <span class="brand-name">직장인 계산기</span>
+    </a>
+    <nav class="nav" aria-label="도구 목록">
+      <a href="./char-count.html">자소서 글자수</a>
+      <a href="./weekly-pay.html">시급·주휴수당</a>
+      <a href="./annual-leave.html" class="is-active" aria-current="page">연차·수당</a>
+      <a href="./salary-hour.html">연봉 시급</a>
+      <a href="./unemployment.html">실업급여</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">1년 미만 월차 · 3년 이상 가산 · 미사용 수당</span>
+      <h1>연차 발생일수·미사용 수당 계산기</h1>
+      <p class="lead">입사일과 기준일을 넣으면 근로기준법 제60조 기준으로 지금까지 발생한 연차 일수를 계산합니다. 통상임금을 입력하면 사용하지 못한 연차의 수당 환산액까지 바로 나옵니다.</p>
+      <ul class="hero-points">
+        <li>월차 11일 한도</li>
+        <li>가산휴가 25일 한도</li>
+        <li>퇴직 정산 대비</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="grid-2">
+        <div class="col-form">
+          <div class="card">
+            <div class="card-head">
+              <h2 class="card-title"><span class="dot" aria-hidden="true"></span>근속 정보 입력</h2>
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label for="hireDate">입사일</label>
+                <div class="input-shell">
+                  <input type="date" id="hireDate">
+                </div>
+              </div>
+              <div class="field">
+                <label for="baseDate">기준일</label>
+                <div class="input-shell">
+                  <input type="date" id="baseDate">
+                </div>
+                <p class="field-hint">오늘 기준으로 계산하려면 그대로 두세요.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="monthWage">월 통상임금</label>
+              <div class="input-shell">
+                <input type="text" id="monthWage" value="2,500,000" inputmode="numeric" autocomplete="off">
+                <span class="unit">원</span>
+              </div>
+              <p class="field-hint">기본급과 매달 고정 수당을 포함한 금액. 미사용 수당 계산에 쓰입니다.</p>
+            </div>
+
+            <div class="field">
+              <span class="field-label">1일 통상임금 산정 방식</span>
+              <div class="seg" id="basisSeg" role="group" aria-label="통상임금 산정 방식">
+                <button type="button" data-basis="209" aria-pressed="true">209시간 기준</button>
+                <button type="button" data-basis="26" aria-pressed="false">26일 기준</button>
+              </div>
+              <p class="field-hint">209시간은 주 40시간·주휴 포함 월 소정근로시간입니다. 26일은 월~토 근무 관행 사업장에서 쓰는 방식입니다.</p>
+            </div>
+
+            <div class="field">
+              <label for="unusedDays">미사용 연차 일수</label>
+              <div class="input-shell">
+                <input type="number" id="unusedDays" min="0" step="0.5" placeholder="미입력 시 전체" inputmode="decimal">
+                <span class="unit">일</span>
+              </div>
+              <p class="field-hint">퇴직 정산이라면 남은 연차 일수를 직접 입력하세요.</p>
+            </div>
+
+            <details style="margin-top:14px">
+              <summary style="font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer">고급 설정 · 1년 미만 기간에 사용한 월차</summary>
+              <div class="field" style="margin-top:10px">
+                <label for="preUsed">이미 사용한 월차 일수</label>
+                <div class="input-shell">
+                  <input type="number" id="preUsed" value="0" min="0" max="11" step="1" inputmode="numeric">
+                  <span class="unit">일</span>
+                </div>
+                <p class="field-hint">1년 이상 근로자의 첫 15일에서 사용한 월차를 공제하는 사업장이 있습니다.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="col-result">
+          <div class="result-card">
+            <div class="result-label">현재까지 발생한 연차</div>
+            <div class="result-value"><span id="rDays">0</span><span class="won">일</span></div>
+            <div class="result-sub" id="rSub">입사일을 입력하면 계산됩니다.</div>
+            <dl class="result-mini">
+              <div>
+                <dt>근속기간</dt>
+                <dd id="rService">-</dd>
+              </div>
+              <div>
+                <dt>1일 통상임금</dt>
+                <dd><span id="rDayWage">0</span>원</dd>
+              </div>
+              <div>
+                <dt>미사용 수당</dt>
+                <dd><span id="rAllowance">0</span>원</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <div class="card-head">
+              <h2 class="card-title"><span class="dot" aria-hidden="true"></span>산정 내역</h2>
+              <span class="card-sub" id="rStage">-</span>
+            </div>
+            <div class="rows">
+              <div class="row"><span class="k">근속기간</span><span class="v" id="rService2">-</span></div>
+              <div class="row"><span class="k">적용 기준</span><span class="v" id="rRule">-</span></div>
+              <div class="row"><span class="k">기본 연차</span><span class="v"><span id="rBaseDays">0</span>일</span></div>
+              <div class="row"><span class="k">가산 연차 (3년 이상, 2년마다 1일)</span><span class="v"><span id="rAddDays">0</span>일</span></div>
+              <div class="row"><span class="k">월차 공제</span><span class="v" id="rUsedWrap"><span id="rUsedDays">0</span>일</span></div>
+              <div class="row is-strong"><span class="k">발생 연차 합계</span><span class="v"><span id="rTotalDays">0</span>일</span></div>
+              <div class="row"><span class="k">다음 발생일</span><span class="v" id="rNextDate">-</span></div>
+              <div class="row"><span class="k">다음 발생 예정</span><span class="v"><span id="rNextDays">0</span>일</span></div>
+              <div class="row"><span class="k">통상시급 (1일 환산 기준)</span><span class="v"><span id="rHourWage">0</span>원</span></div>
+              <div class="row"><span class="k">1일 통상임금</span><span class="v"><span id="rDayWage2">0</span>원</span></div>
+              <div class="row"><span class="k">미사용 일수</span><span class="v"><span id="rUnused">0</span>일</span></div>
+              <div class="row is-strong"><span class="k">미사용 연차수당</span><span class="v"><span id="rAllowance2">0</span>원</span></div>
+            </div>
+            <div class="note" id="leaveNote">
+              <span class="ico" aria-hidden="true">i</span>
+              <span id="leaveNoteText">1년 미만 근로자는 1개월 개근마다 1일의 유급휴가가 발생합니다.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot" aria-hidden="true">광고 영역</div>
+
+    <section class="guide">
+      <h2>연차는 두 개의 제도로 나뉘어 있습니다</h2>
+      <p>근로기준법 제60조는 연차 유급휴가를 두 갈래로 규정합니다. 하나는 1년 이상 근로자에게 주는 연차, 다른 하나는 1년 미만 근로자에게 주는 월 단위 휴가입니다. 흔히 둘을 모두 &lsquo;연차&rsquo;라고 부르지만 발생 규칙이 완전히 다르기 때문에 계산할 때 헷갈리기 쉽습니다.</p>
+      <p><strong>1년 미만 근로자</strong>는 1개월을 개근할 때마다 1일의 유급휴가가 발생합니다. 입사 후 11개월이 지나면 최대 11일까지 쌓이고, 12개월을 채우는 날부터는 이 규칙이 끝나면서 1년 이상 근로자에게 주는 15일로 전환됩니다. 이때 1년 미만 기간에 이미 사용한 월차 일수를 15일에서 공제하는 것이 판례의 태도이므로, 첫해에 월차를 모두 썼다면 1년 도래 시점에 새로 받는 연차는 15일에서 사용분을 뺀 만큼이 될 수 있습니다. 사업장마다 처리 방식이 다르므로 취업규칙을 확인하는 것이 좋습니다.</p>
+      <p><strong>1년 이상 근로자</strong>는 1년간 80% 이상 출근하면 15일의 연차를 받습니다. 여기서 80%는 출근율이고, 소정근로일을 기준으로 계산합니다. 3년 이상 계속 근로하면 최초 1년을 초과하는 계속 근로연수 매 2년마다 1일이 가산되어 3년차 16일, 5년차 17일, 7년차 18일 순으로 늘어나며, 총 25일을 한도로 멈춥니다. 21년차에 25일에 도달하고, 그 이후로는 더 늘지 않습니다.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>근속연수별 연차 발생일수 (1년 이상, 80% 이상 출근 기준)</caption>
+          <thead>
+            <tr><th>계속 근로연수</th><th>연차 일수</th><th>비고</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1년 이상 ~ 3년 미만</td><td>15일</td><td>기본 연차</td></tr>
+            <tr><td>3년 이상 ~ 5년 미만</td><td>16일</td><td>1일 가산</td></tr>
+            <tr><td>5년 이상 ~ 7년 미만</td><td>17일</td><td>2일 가산</td></tr>
+            <tr><td>7년 이상 ~ 9년 미만</td><td>18일</td><td>3일 가산</td></tr>
+            <tr><td>9년 이상 ~ 11년 미만</td><td>19일</td><td>4일 가산</td></tr>
+            <tr><td>21년 이상</td><td>25일</td><td>가산 한도</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>입사일 기준과 회계연도 기준</h2>
+      <p>법은 입사일 기준을 원칙으로 합니다. 입사일부터 1년이 되는 날을 기준으로 연차를 부여하고 관리하는 방식입니다. 반면 많은 회사가 회계연도 기준을 취업규칙으로 정해 1월 1일부터 12월 31일까지를 연차 산정 기간으로 씁니다. 이 경우 입사 첫해에는 입사일부터 연말까지의 개월 수에 비례해 연차를 계산하고, 다음 해 1월 1일에 15일을 일괄 부여합니다.</p>
+      <p>어느 방식을 택하든 근로자에게 불리하지 않아야 하고, 회계연도 기준으로 운영하면서 입사일 기준보다 총 연차가 적어지는 근로자에게는 차이를 보전해야 합니다. 이 계산기는 입사일 기준으로 산정합니다. 회사가 회계연도 기준이라면 결과가 몇 일 차이 날 수 있으니 인사팀에 확인하세요.</p>
+
+      <h2>미사용 연차수당은 어떻게 계산하나</h2>
+      <p>사용하지 못한 연차는 원칙적으로 수당으로 보상합니다. 기준이 되는 금액은 1일 통상임금입니다. 통상임금은 기본급과 매달 고정적으로 지급되는 수당(직책수당, 기술수당 등)을 포함한 금액이고, 매달 변동하는 성과급·연장근로수당·식대 일부는 제외되는 경우가 많습니다.</p>
+      <p>월 통상임금을 1일분으로 환산하는 방법은 두 가지가 관행으로 쓰입니다. 하나는 월 통상임금을 209시간으로 나눈 통상시급에 8시간을 곱하는 방식이고, 다른 하나는 월 통상임금을 26일로 나누는 방식입니다. 209시간 기준은 주 40시간 근무와 주휴시간을 반영한 월 소정근로시간이고, 26일 기준은 월~토 근무 관행에서 유래한 계산법입니다. 어느 쪽이 맞는지는 취업규칙과 근로계약에 달려 있고, 실무에서는 두 방식을 함께 검토해 근로자에게 유리한 쪽을 적용하는 사례도 있습니다. 이 계산기에서는 두 방식을 선택해 비교할 수 있습니다.</p>
+      <div class="callout">
+        <p class="t">퇴직 정산에서 자주 놓치는 것</p>
+        <p>퇴직할 때 사용하지 못한 연차는 전부 수당으로 청구할 수 있습니다. 1년 미만 기간의 월차도 마찬가지입니다. 퇴직일로부터 14일 이내에 지급해야 하며, 이를 어기면 지연이자가 붙습니다. 회사가 연차 사용을 촉진하는 절차(서면 통지, 사용 시기 지정 요청 등)를 제대로 밟지 않았다면 연차가 소멸했다고 주장하기 어렵습니다.</p>
+      </div>
+
+      <h2>연차가 소멸하는 시점</h2>
+      <p>1년 미만 근로자의 월차는 입사 1년이 되는 날까지 쓰지 않으면 소멸합니다. 1년 이상 근로자의 연차는 발생일로부터 1년 동안 사용할 수 있고, 그 기간이 지나면 소멸합니다. 회계연도 기준이라면 12월 31일까지 쓰지 못한 연차가 다음 해로 넘어가지 않고 사라지는 구조입니다.</p>
+      <p>다만 회사가 근로기준법 제61조의 연차 사용 촉진 절차를 밟지 않았다면 연차가 소멸했다고 주장하기 어렵습니다. 사용 촉진은 연차 발생일부터 6개월이 지난 시점에 사용하지 않은 연차 일수를 서면으로 통지하고, 근로자가 사용 시기를 정하지 않으면 회사가 직접 시기를 지정해 통지하는 절차입니다. 이 절차 없이 연차를 없앴다면 미사용 수당을 청구할 여지가 있습니다.</p>
+
+      <h2>계산 결과를 확인할 때 유의할 점</h2>
+      <ul>
+        <li>이 계산기는 <strong>개근과 80% 이상 출근</strong>을 가정합니다. 결근·휴직·병가가 있었다면 실제 일수는 줄어들 수 있습니다.</li>
+        <li>5인 미만 사업장은 연차휴가 규정이 적용되지 않습니다. 근로계약에 정한 휴가만 적용됩니다.</li>
+        <li>육아휴직, 군 복무, 산재 요양 기간은 근속기간에 포함되지만 출근율 계산에서는 제외하는 등 별도 규정이 적용됩니다.</li>
+        <li>연차수당은 통상임금 기준이므로, 성과급이 통상임금에 포함되는지에 따라 금액이 크게 달라질 수 있습니다.</li>
+      </ul>
+      <p>이 페이지의 계산은 공개된 법령을 단순화해 적용한 참고용 추정치입니다. 실제 정산 금액은 인사팀의 연차 대장과 급여명세서를 기준으로 확인하시고, 분쟁이 있다면 노무사나 근로감독관 상담을 권합니다.</p>
+    </section>
+
+    <section class="faq">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>입사 1년 미만인데 연차는 며칠인가요?</summary>
+        <div class="answer">1개월을 개근할 때마다 1일씩 발생해 최대 11일입니다. 입사 후 1년이 되기 전까지 매달 같은 날짜를 기준으로 한 달씩 채운 개월 수만큼 발생하며, 12개월째에는 1년 이상 근로자에게 주는 15일로 전환됩니다.</div>
+      </details>
+      <details>
+        <summary>3년 넘게 다니면 연차가 어떻게 늘어나나요?</summary>
+        <div class="answer">최초 1년을 초과하는 계속 근로연수 매 2년마다 1일이 가산됩니다. 3년차에 16일, 5년차에 17일이 되는 방식이고 총 25일을 한도로 멈춥니다. 21년차에 25일에 도달합니다.</div>
+      </details>
+      <details>
+        <summary>연차수당은 어떤 임금으로 계산하나요?</summary>
+        <div class="answer">1일 통상임금으로 계산합니다. 통상임금은 기본급과 매달 고정적으로 지급되는 수당을 포함한 금액이고, 월 통상임금을 209시간으로 나눈 통상시급에 8시간을 곱해 1일분을 구합니다. 사업장에 따라 26일 기준으로 나누는 관행도 있으므로 취업규칙을 확인해야 합니다.</div>
+      </details>
+      <details>
+        <summary>연차는 언제 소멸하나요?</summary>
+        <div class="answer">1년 미만 근로자의 월차는 입사 1년이 되는 날까지 사용하지 않으면 소멸하고, 1년 이상 근로자의 연차는 발생일로부터 1년이 지나면 소멸합니다. 다만 회사가 사용 촉진 절차를 밟지 않았다면 소멸을 주장하기 어려우며, 퇴직 시에는 미사용 연차 전부를 수당으로 청구할 수 있습니다.</div>
+      </details>
+      <details>
+        <summary>5인 미만 사업장도 연차가 있나요?</summary>
+        <div class="answer">연차휴가 규정은 상시근로자 5인 이상 사업장에 적용됩니다. 5인 미만 사업장은 근로기준법상 연차휴가 의무가 없어 근로계약이나 취업규칙에 정한 휴가만 적용됩니다. 다만 주휴수당은 5인 미만에서도 지급해야 합니다.</div>
+      </details>
+    </section>
+
+    <section class="related">
+      <h2>함께 쓰면 좋은 계산기</h2>
+      <div class="related-list">
+        <a class="related-link" href="./weekly-pay.html"><span>시급·주휴수당 계산기</span><span>→</span></a>
+        <a class="related-link" href="./salary-hour.html"><span>연봉 시급 환산기</span><span>→</span></a>
+        <a class="related-link" href="./unemployment.html"><span>실업급여 모의계산기</span><span>→</span></a>
+        <a class="related-link" href="./char-count.html"><span>자소서 글자수 세기</span><span>→</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <nav class="footer-links" aria-label="사이트 링크">
+      <a href="./index.html">홈</a>
+      <a href="./char-count.html">자소서 글자수</a>
+      <a href="./weekly-pay.html">시급·주휴수당</a>
+      <a href="./annual-leave.html">연차·수당</a>
+      <a href="./salary-hour.html">연봉 시급</a>
+      <a href="./unemployment.html">실업급여</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+    </nav>
+    <p class="footer-note">이 사이트의 모든 계산은 브라우저에서만 처리되며 입력값을 서버로 전송하지 않습니다. 결과는 참고용 추정치입니다. 문의: qazwsx1666@gmail.com</p>
+    <p class="footer-copy">© 직장인 계산기</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return Math.round(n).toLocaleString('ko-KR'); };
+  var basis = 209;
+
+  function todayUTC() {
+    var d = new Date();
+    return new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  }
+  function parseDate(v) {
+    if (!v) return null;
+    var p = v.split('-');
+    if (p.length !== 3) return null;
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function iso(d) {
+    var m = d.getUTCMonth() + 1, day = d.getUTCDate();
+    return d.getUTCFullYear() + '-' + (m < 10 ? '0' + m : m) + '-' + (day < 10 ? '0' + day : day);
+  }
+  function diffYMD(a, b) {
+    var y = b.getUTCFullYear() - a.getUTCFullYear();
+    var m = b.getUTCMonth() - a.getUTCMonth();
+    var d = b.getUTCDate() - a.getUTCDate();
+    if (d < 0) {
+      m -= 1;
+      var pm = new Date(Date.UTC(b.getUTCFullYear(), b.getUTCMonth(), 0)).getUTCDate();
+      d += pm;
+    }
+    if (m < 0) { y -= 1; m += 12; }
+    return { y: y, m: m, d: d };
+  }
+  function annualDays(years) {
+    var base = 15;
+    var add = years >= 3 ? Math.min(10, Math.floor((years - 1) / 2)) : 0;
+    return Math.min(25, base + add);
+  }
+  function fmtDate(d) {
+    return d.getUTCFullYear() + '.' + (d.getUTCMonth() + 1 < 10 ? '0' : '') + (d.getUTCMonth() + 1) +
+      '.' + (d.getUTCDate() < 10 ? '0' : '') + d.getUTCDate();
+  }
+
+  function init() {
+    var hire = $('hireDate');
+    var base = $('baseDate');
+    var t = todayUTC();
+    if (!base.value) base.value = iso(t);
+    if (!hire.value) {
+      var h = new Date(Date.UTC(t.getUTCFullYear() - 3, t.getUTCMonth(), t.getUTCDate()));
+      hire.value = iso(h);
+    }
+  }
+
+  function calc() {
+    var hire = parseDate($('hireDate').value);
+    var base = parseDate($('baseDate').value);
+    var monthWage = Math.max(0, parseFloat(String($('monthWage').value).replace(/[^0-9.]/g, '')) || 0);
+    var preUsedRaw = $('preUsed').value;
+    var preUsed = Math.max(0, Math.min(11, parseInt(preUsedRaw, 10) || 0));
+
+    if (!hire || !base || base < hire) {
+      $('rDays').textContent = '0';
+      $('rSub').textContent = '입사일과 기준일을 확인해 주세요.';
+      $('rService').textContent = '-';
+      $('rService2').textContent = '-';
+      return;
+    }
+
+    var d = diffYMD(hire, base);
+    var months = d.y * 12 + d.m;
+    var under1 = months < 12;
+    var rule, baseDays, addDays, total, stage;
+
+    if (under1) {
+      baseDays = Math.min(11, months);
+      addDays = 0;
+      total = baseDays;
+      rule = '1개월 개근 시 1일 (최대 11일)';
+      stage = '1년 미만';
+    } else {
+      baseDays = 15;
+      addDays = d.y >= 3 ? Math.min(10, Math.floor((d.y - 1) / 2)) : 0;
+      total = Math.min(25, baseDays + addDays) - preUsed;
+      if (total < 0) total = 0;
+      rule = '1년 이상 80% 출근 시 15일';
+      stage = d.y + '년차';
+    }
+
+    var dayWage = basis === 209 ? (monthWage / 209) * 8 : monthWage / 26;
+    var hourWage = basis === 209 ? monthWage / 209 : dayWage / 8;
+
+    var unusedRaw = $('unusedDays').value;
+    var unused = unusedRaw === '' ? total : Math.max(0, parseFloat(unusedRaw) || 0);
+    var allowance = dayWage * unused;
+
+    var nextDate = new Date(Date.UTC(hire.getUTCFullYear() + d.y + 1, hire.getUTCMonth(), hire.getUTCDate()));
+    var nextYears = d.y + 1;
+    var nextDays = nextYears < 1 ? 11 : annualDays(nextYears);
+
+    $('rDays').textContent = total % 1 === 0 ? total : total.toFixed(1);
+    $('rService').textContent = d.y + '년 ' + d.m + '개월';
+    $('rService2').textContent = d.y + '년 ' + d.m + '개월 ' + d.d + '일';
+    $('rStage').textContent = stage;
+    $('rRule').textContent = rule;
+    $('rBaseDays').textContent = baseDays;
+    $('rAddDays').textContent = addDays;
+    $('rUsedWrap').innerHTML = preUsed > 0
+      ? '-<span id="rUsedDays">' + preUsed + '</span>일'
+      : '<span id="rUsedDays">0</span>일';
+    $('rTotalDays').textContent = total % 1 === 0 ? total : total.toFixed(1);
+    $('rNextDate').textContent = fmtDate(nextDate);
+    $('rNextDays').textContent = nextDays;
+    $('rHourWage').textContent = fmt(hourWage);
+    $('rDayWage').textContent = fmt(dayWage);
+    $('rDayWage2').textContent = fmt(dayWage);
+    $('rUnused').textContent = unused % 1 === 0 ? unused : unused.toFixed(1);
+    $('rAllowance').textContent = fmt(allowance);
+    $('rAllowance2').textContent = fmt(allowance);
+
+    if (under1) {
+      $('rSub').textContent = '입사 ' + (months) + '개월차 · 개근을 가정한 월차 계산입니다.';
+      $('leaveNoteText').textContent = '1년 미만 근로자는 1개월을 개근할 때마다 1일의 유급휴가가 발생하며 최대 11일입니다. 입사 1년이 되는 날부터는 15일 기준으로 전환됩니다.';
+    } else {
+      $('rSub').textContent = '근속 ' + d.y + '년 ' + d.m + '개월 · 1년 이상 ' + rule.replace('1년 이상 80% 출근 시 ', '') + ' 기준';
+      $('leaveNoteText').textContent = (addDays > 0
+        ? '3년 이상 근속으로 가산휴가 ' + addDays + '일이 더해졌습니다 (최대 25일). '
+        : '') +
+        '미사용 연차 ' + (unused % 1 === 0 ? unused : unused.toFixed(1)) + '일 × 1일 통상임금 ' +
+        fmt(dayWage) + '원 = ' + fmt(allowance) + '원입니다.';
+    }
+  }
+
+  document.querySelectorAll('#basisSeg button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('#basisSeg button').forEach(function (x) {
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      basis = parseInt(b.getAttribute('data-basis'), 10);
+      calc();
+    });
+  });
+
+  $('monthWage').addEventListener('input', function () {
+    var d = String(this.value).replace(/[^0-9]/g, '');
+    this.value = d ? Number(d).toLocaleString('ko-KR') : '';
+  });
+
+  ['hireDate', 'baseDate', 'monthWage', 'unusedDays', 'preUsed'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+    $(id).addEventListener('change', calc);
+  });
+
+  init();
+  calc();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>목표 수익률·매도가·손절가 계산기 | 수수료·거래세 반영</title>
+<meta name="description" content="매수가와 수량, 증권사 수수료, 거래세를 반영해 실제로 손에 남는 순수익과 실수익률을 계산합니다. 원하는 수익률을 만드는 매도가, 손실을 제한하는 손절가, 본전 매도가까지 한 번에 확인하세요.">
+<meta name="keywords" content="매도가 계산기, 손절가 계산기, 목표 수익률 계산, 주식 수수료 계산, 증권거래세 0.20%, 본전 매도가, 실수익률, 주식 세금 계산">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="주식·투자 계산기">
+<meta name="theme-color" content="#3182f6">
+<meta name="google-adsense-account" content="ca-pub-6515548213411698">
+<link rel="canonical" href="https://qazwsx1666-hash.github.io/invest-tools/yield.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="주식·투자 계산기">
+<meta property="og:title" content="목표 수익률·매도가·손절가 계산기 | 수수료·거래세 반영">
+<meta property="og:description" content="수수료와 거래세를 뺀 실수령 순수익, 목표 수익률별 매도가와 손절가를 계산합니다.">
+<meta property="og:url" content="https://qazwsx1666-hash.github.io/invest-tools/yield.html">
+<meta property="og:image" content="https://qazwsx1666-hash.github.io/invest-tools/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="목표 수익률·매도가·손절가 계산기">
+<meta name="twitter:description" content="수수료와 거래세를 반영한 실제 순수익과 본전 매도가를 확인하세요.">
+<meta name="twitter:image" content="https://qazwsx1666-hash.github.io/invest-tools/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233182f6'/%3E%3Ctext x='32' y='45' font-size='30' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%ED%88%AC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css?v=20261122a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "목표 수익률·매도가·손절가 계산기",
+  "url": "https://qazwsx1666-hash.github.io/invest-tools/yield.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "inLanguage": "ko-KR",
+  "description": "매수가·수량·수수료·거래세를 반영해 실수령 순수익과 목표 수익률별 매도가, 손절가를 계산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "publisher": { "@type": "Organization", "name": "주식·투자 계산기", "url": "https://qazwsx1666-hash.github.io/invest-tools/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "주식을 팔면 세금과 수수료가 얼마나 빠지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "매도 금액의 0.20%가 거래세로 빠집니다. 코스피는 증권거래세 0.05%와 농어촌특별세 0.15%의 합이고, 코스닥은 증권거래세 0.20%입니다. 여기에 증권사 수수료(온라인 0.015% 안팎)가 매수와 매도 양쪽에 붙습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "본전 매도가는 어떻게 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "매수 금액에 매수 수수료를 더한 총 투자금을, 수량 × (1 − 수수료율 − 거래세율)로 나눕니다. 5만 원에 100주를 사고 수수료 0.015%, 거래세 0.20%라면 본전 매도가는 약 5만 116원입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "+10% 수익이라고 해도 실제 수익률은 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "매수·매도 수수료와 거래세가 빠지므로 실제 수익률은 목표보다 낮습니다. 5만 원에 사서 5만 5천 원에 팔면 겉으로는 10%지만, 비용을 빼면 실수익률은 약 9.75%입니다. 거래가 잦을수록 이 차이가 누적됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "손절가는 어떻게 정하는 게 좋나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "진입 전에 손실 허용 범위를 정하고 그 금액으로 가격을 역산하는 방식이 일관됩니다. 계좌의 1~2% 이내로 손실을 제한하거나, 최근 지지선·평균 변동성 아래로 잡습니다. 감정적으로 -5%를 반복해서 옮기면 손실만 커집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "코스피와 코스닥의 거래세가 같은가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "매도 금액 기준으로 둘 다 0.20%입니다. 코스피는 증권거래세 0.05%에 농어촌특별세 0.15%가 더해지고, 코스닥은 증권거래세 0.20% 단일 세율입니다. 코넥스는 0.10%, 비상장주식은 0.35%입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "전체 계산기", "item": "https://qazwsx1666-hash.github.io/invest-tools/" },
+    { "@type": "ListItem", "position": 2, "name": "매도가·손절가", "item": "https://qazwsx1666-hash.github.io/invest-tools/yield.html" }
+  ]
+}
+</script>
+</head>
+
+<body data-page="yield">
+<a class="skip" href="#main">본문으로 바로가기</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">
+      <span class="brand-mark" aria-hidden="true">투</span>
+      <span class="brand-name">주식·투자 계산기<small>투자 계산기 5종</small></span>
+    </a>
+    <span class="header-note">수수료·세금 반영</span>
+  </div>
+</header>
+
+<nav class="calc-nav" aria-label="계산기 바로가기">
+  <div class="wrap calc-nav-inner">
+    <a href="./">전체 계산기</a>
+    <a href="./averaging.html">물타기</a>
+    <a href="./dividend.html">월 배당</a>
+    <a href="./compound.html">복리</a>
+    <a href="./yield.html" aria-current="page">매도·손절</a>
+    <a href="./isa-pension.html">ISA·연금</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="wrap">
+
+    <div class="intro">
+      <div class="crumb"><a href="./">전체 계산기</a> <span aria-hidden="true">›</span> <span>매도가·손절가</span></div>
+      <h1>목표 수익률·매도가·손절가 계산기</h1>
+      <p class="lead">10% 올랐다고 팔아도 통장에 남는 돈은 10%가 아닙니다. 수수료와 거래세가 빠지기 때문입니다. 지금 팔면 실제로 얼마가 남는지, 원하는 수익률을 만들려면 얼마에 팔아야 하는지, 손실을 정해 둔 범위로 막으려면 어디에 걸어야 하는지 계산합니다.</p>
+      <p class="meta">거래세 0.20%·수수료 0.015% 기본값 · 회원가입 없이 무료</p>
+    </div>
+
+    <div class="ad-slot" aria-hidden="true"><b>AD</b><span>광고 영역</span></div>
+
+    <section class="panel is-active" aria-label="매도가·손절가 계산">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>매수 조건과 매도 계획</h2>
+            <p>체결된 매수가와 수량을 넣으세요.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label class="field-label" for="inBp">매수가</label>
+            <div class="input-box">
+              <input id="inBp" class="js-money" inputmode="numeric" autocomplete="off" value="50000">
+              <span class="unit">원</span>
+            </div>
+            <div class="chips" data-chips="inBp">
+              <button type="button" class="chip" data-value="10000">1만</button>
+              <button type="button" class="chip" data-value="50000">5만</button>
+              <button type="button" class="chip" data-value="100000">10만</button>
+              <button type="button" class="chip" data-value="200000">20만</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inBq">수량</label>
+            <div class="input-box">
+              <input id="inBq" class="js-money" inputmode="numeric" autocomplete="off" value="100">
+              <span class="unit">주</span>
+            </div>
+            <div class="chips" data-chips="inBq">
+              <button type="button" class="chip" data-value="10">10주</button>
+              <button type="button" class="chip" data-value="50">50주</button>
+              <button type="button" class="chip" data-value="100">100주</button>
+              <button type="button" class="chip" data-value="500">500주</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inSp">매도가 <span class="opt">현재가 또는 지정가</span></label>
+            <div class="input-box">
+              <input id="inSp" class="js-money" inputmode="numeric" autocomplete="off" value="55000">
+              <span class="unit">원</span>
+            </div>
+            <div class="chips" data-chips="inSp">
+              <button type="button" class="chip" data-value="50500">+1%</button>
+              <button type="button" class="chip" data-value="52500">+5%</button>
+              <button type="button" class="chip" data-value="55000">+10%</button>
+              <button type="button" class="chip" data-value="60000">+20%</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inFee">증권사 수수료율 <span class="opt">편도</span></label>
+            <div class="input-box">
+              <input id="inFee" class="js-dec" inputmode="decimal" autocomplete="off" value="0.015">
+              <span class="unit">%</span>
+            </div>
+            <p class="hint plain">온라인 기준 0.015% 안팎, 이벤트·우대 요율은 직접 확인하세요.</p>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inMarket">시장 (거래세)</label>
+            <div class="input-box">
+              <select id="inMarket">
+                <option value="kospi" selected>코스피 · 0.20%</option>
+                <option value="kosdaq">코스닥 · 0.20%</option>
+                <option value="konex">코넥스 · 0.10%</option>
+                <option value="unlisted">비상장·장외 · 0.35%</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inTargetR">목표 수익률</label>
+            <div class="input-box">
+              <input id="inTargetR" class="js-dec" inputmode="decimal" autocomplete="off" value="10">
+              <span class="unit">%</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inStopR">손절 기준 <span class="opt">손실률</span></label>
+            <div class="input-box">
+              <input id="inStopR" class="js-dec" inputmode="decimal" autocomplete="off" value="8">
+              <span class="unit">%</span>
+            </div>
+            <p class="hint plain">투자 원금 대비 허용 손실률입니다.</p>
+          </div>
+        </div>
+
+        <div class="result mt-16" id="outYResultBox" aria-live="polite">
+          <div class="res-label">지금 팔면 남는 순수익 (수수료·세금 차감)</div>
+          <div class="res-value" id="outYProfit">0 원</div>
+          <div class="res-sub" id="outYRead">0 원</div>
+          <div class="res-grid">
+            <div><span>실수익률</span><strong id="outYReturn">0%</strong></div>
+            <div><span>매도 실수령액</span><strong id="outYNet">0 원</strong></div>
+            <div><span>매수 총액 (수수료 포함)</span><strong id="outYBuy">0 원</strong></div>
+            <div><span>수수료 합계</span><strong id="outYFeeSum">0 원</strong></div>
+            <div><span>거래세</span><strong id="outYTax">0 원</strong></div>
+            <div><span>본전 매도가</span><strong id="outYBreak">-</strong></div>
+          </div>
+        </div>
+
+        <div class="verdict" id="outYVerdict" aria-live="polite"></div>
+
+        <div class="kpis">
+          <div class="kpi blue"><span>목표 수익률 매도가</span><strong id="outYTargetPrice">-</strong></div>
+          <div class="kpi green"><span>목표 순수익</span><strong id="outYTargetProfit">-</strong></div>
+          <div class="kpi red"><span>손절가</span><strong id="outYStopPrice">-</strong></div>
+          <div class="kpi"><span>손절 시 손실액</span><strong id="outYStopLoss">-</strong></div>
+        </div>
+
+        <div class="table-wrap mt-16">
+          <table>
+            <caption>목표 수익률별 필요 매도가 (수수료·거래세 반영)</caption>
+            <thead>
+              <tr><th scope="col">목표 수익률</th><th scope="col">매도가</th><th scope="col">순수익</th></tr>
+            </thead>
+            <tbody id="outYTargetRows"></tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap mt-16">
+          <table>
+            <caption>손실률별 손절가</caption>
+            <thead>
+              <tr><th scope="col">손실률</th><th scope="col">손절가</th><th scope="col">손실액</th></tr>
+            </thead>
+            <tbody id="outYStopRows"></tbody>
+          </table>
+        </div>
+        <p class="table-note" id="outYTaxNote">코스피 0.20% (거래세 0.05% + 농특세 0.15%)</p>
+        <p class="table-note">매도가는 1원 단위로 올림했습니다. 실제 체결 금액과 세금은 증권사 정산 기준에 따라 몇 원 차이가 날 수 있습니다.</p>
+
+        <p class="notice info">국내 상장주식의 매매차익은 대주주가 아니면 양도소득세가 없습니다. 다만 해외주식은 22%, 국내 ETF·펀드의 매매차익과 배당은 15.4%가 별도로 과세되므로, 해당 상품은 <a href="./isa-pension.html">ISA·연금 절세 계산기</a>를 함께 확인하세요.</p>
+      </div>
+    </section>
+
+    <section class="card guide" aria-label="매도가와 손절가 계산 기준">
+      <h2>수익률과 실수익률은 다릅니다</h2>
+      <p>주식을 사고팔 때는 네 가지 비용이 발생합니다. 살 때 수수료, 팔 때 수수료, 팔 때 거래세, 그리고 상품에 따라 붙는 세금입니다. 5만 원에 100주를 사서 5만 5천 원에 팔면 겉으로는 <strong>10%</strong> 수익이지만, 매수 수수료 750원, 매도 수수료 825원, 거래세 1만 1천 원을 빼면 순수익은 48만 7,425원으로 실수익률은 <strong>9.75%</strong>입니다. 0.25%p 차이는 작아 보이지만, 한 달에 두세 번 회전하는 계좌라면 연 5~10%p까지 벌어집니다.</p>
+      <div class="formula">
+        매수 총액 = 매수가 × 수량 + 매수 수수료<br>
+        매도 실수령액 = 매도가 × 수량 − 매도 수수료 − 거래세<br>
+        실수익 = 매도 실수령액 − 매수 총액<br>
+        본전 매도가 = 매수 총액 ÷ (수량 × (1 − 수수료율 − 거래세율))
+      </div>
+      <p>본전 매도가는 계산기 위쪽에 표시됩니다. 5만 원에 100주를 사고 수수료 0.015%, 거래세 0.20%라면 약 <strong>5만 116원</strong>입니다. 주가가 0.23%만 올라도 본전이 되는 셈인데, 이 정도는 장중에 흔히 움직이는 폭이라 "본전에 팔았다"는 착각이 생기기 쉽습니다. 실제로는 매수·매도 비용을 회수한 것뿐입니다.</p>
+
+      <h2>거래세는 시장마다 다릅니다</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>매도 시 거래 비용 (매도 금액 기준)</caption>
+          <thead><tr><th scope="col">시장</th><th scope="col">증권거래세</th><th scope="col">농어촌특별세</th><th scope="col">합계</th></tr></thead>
+          <tbody>
+            <tr><td>코스피</td><td>0.05%</td><td>0.15%</td><td><strong>0.20%</strong></td></tr>
+            <tr><td>코스닥</td><td>0.20%</td><td>-</td><td><strong>0.20%</strong></td></tr>
+            <tr><td>코넥스</td><td>0.10%</td><td>-</td><td><strong>0.10%</strong></td></tr>
+            <tr><td>비상장·장외</td><td>0.35%</td><td>-</td><td><strong>0.35%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>증권거래세법 시행령의 탄력세율이 적용된 결과로, 코스피는 거래세율이 낮아진 대신 농어촌특별세가 붙어 결과적으로 코스닥과 같아졌습니다. ETF와 ETN은 증권거래세가 면제되지만 매매차익에 15.4%가 과세되고, 해외주식은 거래세 대신 양도소득세(연 250만 원 기본공제 후 22%)가 붙습니다. 상품이 다르면 비용 구조가 달라지므로 계산기의 거래세 항목을 실제 상품에 맞춰 판단해야 합니다.</p>
+
+      <h2>목표가와 손절가는 진입 전에 정합니다</h2>
+      <p>매수한 뒤에 목표가를 정하면 현재 수익 상태에 끌려 판단이 흐려집니다. 진입 전에 <strong>손실 허용 금액</strong>과 <strong>목표 수익 금액</strong>을 먼저 정하고, 그것을 가격으로 환산하는 순서가 일관됩니다. 예를 들어 100만 원어치를 사면서 계좌의 1%인 10만 원까지만 잃겠다고 정했다면 손절가는 −10% 지점입니다. 목표를 +20%로 잡으면 손익비는 2:1이 됩니다. 손익비가 1:1보다 낮으면 승률이 60%를 넘어도 계좌가 줄어듭니다.</p>
+      <ul>
+        <li><strong>손실 기준</strong> — 계좌 전체의 1~2% 이내, 또는 최근 지지선 아래. 변동성이 큰 종목은 −5%보다 넓게 잡아야 잡음에 털리지 않습니다.</li>
+        <li><strong>목표 기준</strong> — 직전 고점, 저항선, 또는 예상 실적 대비 밸류에이션. 목표까지의 거리가 손절까지의 2배 이상인지 확인합니다.</li>
+        <li><strong>분할 매도</strong> — 목표를 하나로 두기보다 +10%, +20%처럼 나눠 절반씩 파는 방식은 심리적 부담을 줄여 줍니다. 계산기의 표에서 각 단계의 순수익을 미리 확인할 수 있습니다.</li>
+      </ul>
+
+      <h2>세금을 빼고 나면 전략이 달라집니다</h2>
+      <p>단기 매매는 비용에 민감합니다. 하루나 며칠 안에 사고파는 전략은 왕복 비용이 0.23% 안팎이라, 한 달에 10번 회전하면 연 20%가 넘는 비용이 발생합니다. 반면 몇 달에서 몇 년을 보유하면 비용 비중이 0.1% 아래로 떨어집니다. 같은 실력이라면 회전을 줄이는 쪽이 유리합니다. ISA에서는 매매차익과 배당이 비과세·9.9% 분리과세로 처리되므로, 자주 사고파는 종목을 ISA 안에서 운용하면 비용 차이가 커집니다.</p>
+      <p>이 계산기는 매도 시점의 비용만 봅니다. 실제로는 배당을 받았다면 배당소득세 15.4%가 이미 원천징수되었고, 여러 종목을 섞어 손익통산이 필요한 경우도 있습니다. 숫자가 예상과 다르면 증권사 앱의 <strong>예상 정산 금액</strong>과 실제 체결 내역을 비교해 보세요. 계산기는 판단을 돕는 도구이고, 최종 금액은 증권사 정산이 기준입니다.</p>
+
+      <h2>분할 매도는 계산을 여러 번 나누는 일입니다</h2>
+      <p>목표가에 한 번에 팔면 감정적으로 어렵습니다. 오르는 중에 팔면 더 오를 것 같고, 내리면 본전을 기다리게 됩니다. 분할 매도는 이 부담을 줄이는 방법입니다. 100주를 +10%에서 50주, +20%에서 50주로 나누면 각 단계의 실수령액과 수익률을 미리 계산해 둘 수 있습니다. 계산기의 표에 나오는 목표 수익률별 매도가를 그대로 주문 가격으로 쓰면 됩니다.</p>
+      <p>분할 매도의 단점은 수수료가 두 번 발생하고, 큰 상승이 왔을 때 절반만 실현된다는 점입니다. 수수료는 0.015% 수준이라 두 번 나눠도 0.03%에 불과해 부담이 작습니다. 반면 큰 상승을 놓치는 비용은 클 수 있으므로, 변동성이 큰 종목은 2~3회, 완만한 종목은 한 번에 정리하는 식으로 종목 성격에 맞추는 편이 좋습니다.</p>
+
+      <h2>비용을 줄이는 네 가지 방법</h2>
+      <ul>
+        <li><strong>수수료 협의</strong> — 온라인 0.015%가 기본이지만, 거래 금액이 크거나 우대 이벤트를 쓰면 0.01% 아래로 낮출 수 있습니다. 1억 원 거래에서 0.005%p 차이는 5,000원입니다.</li>
+        <li><strong>회전 줄이기</strong> — 왕복 비용 0.23%는 한 달에 네 번만 돌려도 연 11%가 넘습니다. 매매 횟수를 줄이는 것이 가장 확실한 비용 절감입니다.</li>
+        <li><strong>상품 선택</strong> — ETF·ETN은 증권거래세가 면제되지만 매매차익에 15.4%가 과세됩니다. 단기 매매라면 거래세가, 장기 보유라면 양도차익 과세가 더 클 수 있습니다.</li>
+        <li><strong>절세 계좌</strong> — ISA는 순수익 200만 원까지 비과세, 초과분 9.9%입니다. 자주 사고파는 전략을 ISA 안에서 운용하면 세금 차이가 커집니다.</li>
+      </ul>
+      <p>손절가를 정할 때는 수수료와 세금까지 포함한 <strong>실질 손실률</strong>로 보세요. 원금 대비 -8%로 정했다면 그 금액이 실제로 빠져나가는 손실입니다. 여기에 심리적 손실 회피가 더해져 손절선을 계속 미루면, 한 번의 큰 손실이 여러 번의 작은 수익을 덮어 버립니다.</p>
+    </section>
+
+    <section class="card" aria-labelledby="faq-title">
+      <h2 class="sec-title" id="faq-title">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>주식을 팔면 세금과 수수료가 얼마나 빠지나요?</summary>
+          <div class="a"><p>매도 금액의 0.20%가 거래세로 빠집니다. 코스피는 증권거래세 0.05%와 농어촌특별세 0.15%의 합이고, 코스닥은 증권거래세 0.20%입니다. 여기에 증권사 수수료(온라인 0.015% 안팎)가 매수와 매도 양쪽에 붙습니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>본전 매도가는 어떻게 계산하나요?</summary>
+          <div class="a"><p>매수 금액에 매수 수수료를 더한 총 투자금을, 수량 × (1 − 수수료율 − 거래세율)로 나눕니다. 5만 원에 100주를 사고 수수료 0.015%, 거래세 0.20%라면 본전 매도가는 약 5만 116원입니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>+10% 수익이라고 해도 실제 수익률은 다른가요?</summary>
+          <div class="a"><p>매수·매도 수수료와 거래세가 빠지므로 실제 수익률은 목표보다 낮습니다. 5만 원에 사서 5만 5천 원에 팔면 겉으로는 10%지만, 비용을 빼면 실수익률은 약 9.75%입니다. 거래가 잦을수록 이 차이가 누적됩니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>손절가는 어떻게 정하는 게 좋나요?</summary>
+          <div class="a"><p>진입 전에 손실 허용 범위를 정하고 그 금액으로 가격을 역산하는 방식이 일관됩니다. 계좌의 1~2% 이내로 손실을 제한하거나, 최근 지지선·평균 변동성 아래로 잡습니다. 감정적으로 -5%를 반복해서 옮기면 손실만 커집니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>코스피와 코스닥의 거래세가 같은가요?</summary>
+          <div class="a"><p>매도 금액 기준으로 둘 다 0.20%입니다. 코스피는 증권거래세 0.05%에 농어촌특별세 0.15%가 더해지고, 코스닥은 증권거래세 0.20% 단일 세율입니다. 코넥스는 0.10%, 비상장주식은 0.35%입니다.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="related-title">
+      <h2 class="sec-title" id="related-title">함께 쓰면 좋은 계산기</h2>
+      <div class="related">
+        <a href="./averaging.html"><strong>물타기 평단가 계산기</strong><span>손실 구간에서 추가 매수 전 평단가 확인</span></a>
+        <a href="./dividend.html"><strong>월 배당금 시뮬레이터</strong><span>배당으로 현금흐름을 만들 때 필요한 원금</span></a>
+        <a href="./compound.html"><strong>복리 적립식 계산기</strong><span>회전을 줄였을 때 장기 결과 비교</span></a>
+        <a href="./isa-pension.html"><strong>ISA·연금 절세 계산기</strong><span>매매차익·배당에 붙는 세금 줄이기</span></a>
+      </div>
+    </section>
+
+    <div class="ad-slot" aria-hidden="true"><b>AD</b><span>광고 영역</span></div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="disclaimer">
+      <b>면책 안내</b><br>
+      계산 결과는 입력한 수수료율과 거래세율을 가정한 참고용 추정치이며 투자 권유가 아닙니다. 실제 정산 금액은 증권사 기준에 따라 달라지고, 상품 유형(ETF·해외주식 등)에 따라 과세 방식이 다릅니다.
+    </div>
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">투</span>
+      <span>주식·투자 계산기</span>
+    </div>
+    <div class="foot-links">
+      <a href="./">홈</a>
+      <a href="./averaging.html">물타기</a>
+      <a href="./dividend.html">월 배당</a>
+      <a href="./compound.html">복리</a>
+      <a href="./yield.html">매도·손절</a>
+      <a href="./isa-pension.html">ISA·연금</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+      <a href="https://qazwsx1666-hash.github.io/">전체 사이트</a>
+    </div>
+    <p class="copy">© 주식·투자 계산기. 모든 계산은 사용자의 브라우저에서만 이뤄집니다.</p>
+  </div>
+</footer>
+
+<script src="./app.js?v=20261122a"></script>
+</body>
+</html>

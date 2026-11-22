@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>기초대사량 계산기 | BMR·하루 권장 칼로리(TDEE)와 탄단지</title>
+<meta name="description" content="성별·나이·키·체중·활동량을 넣으면 Mifflin-St Jeor 공식으로 기초대사량(BMR)과 하루 소비 칼로리(TDEE), 유지·감량·증량 목표별 칼로리와 탄수화물·단백질·지방 배분을 계산합니다.">
+<meta name="keywords" content="기초대사량 계산기, BMR 계산, TDEE 계산기, 하루 권장 칼로리, 활동대사량, 다이어트 칼로리, 탄단지 계산, Mifflin-St Jeor, 유지 칼로리, 감량 칼로리">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="건강·다이어트·수면 계산기">
+<meta name="theme-color" content="#14b8a6">
+<meta name="google-adsense-account" content="ca-pub-6515548213411698">
+<link rel="canonical" href="https://qazwsx1666-hash.github.io/health-calc/bmr-calorie.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="건강·다이어트·수면 계산기">
+<meta property="og:title" content="기초대사량 계산기 | BMR·하루 권장 칼로리(TDEE)와 탄단지">
+<meta property="og:description" content="성별·나이·키·체중·활동량을 넣으면 Mifflin-St Jeor 공식으로 기초대사량(BMR)과 하루 소비 칼로리(TDEE), 유지·감량·증량 목표별 칼로리와 탄수화물·단백질·지방 배분을 계산합니다.">
+<meta property="og:url" content="https://qazwsx1666-hash.github.io/health-calc/bmr-calorie.html">
+<meta property="og:image" content="https://qazwsx1666-hash.github.io/health-calc/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="건강·다이어트·수면 계산기 미리보기 이미지">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="기초대사량 계산기 | BMR·하루 권장 칼로리(TDEE)와 탄단지">
+<meta name="twitter:description" content="성별·나이·키·체중·활동량을 넣으면 Mifflin-St Jeor 공식으로 기초대사량(BMR)과 하루 소비 칼로리(TDEE), 유지·감량·증량 목표별 칼로리와 탄수화물·단백질·지방 배분을 계산합니다.">
+<meta name="twitter:image" content="https://qazwsx1666-hash.github.io/health-calc/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314b8a6'/%3E%3Ctext x='32' y='45' font-size='30' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%EA%B1%B4%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css?v=20261122a">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "기초대사량(BMR)·하루 권장 칼로리(TDEE) 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/bmr-calorie.html", "applicationCategory": "HealthApplication", "operatingSystem": "All", "inLanguage": "ko-KR", "description": "성별·나이·키·체중·활동량으로 기초대사량과 하루 소비 칼로리, 목표별 탄단지 섭취량을 계산합니다.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "건강·다이어트·수면 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "기초대사량과 활동대사량은 어떻게 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "기초대사량은 아무것도 하지 않아도 생명 유지에 쓰는 에너지이고, 활동대사량은 걷기·운동·집안일처럼 몸을 움직이며 쓰는 에너지입니다. 둘을 합치고 소화에 쓰는 에너지(약 10%)를 더한 것이 하루 총 소비 칼로리(TDEE)입니다."}}, {"@type": "Question", "name": "하루 1,200kcal 다이어트는 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "단기간에야 체중이 줄지만 오래 유지하기 어렵고 근손실·영양 결핍·생리 불순 위험이 있습니다. 특별한 지시가 없다면 여성 1,200kcal, 남성 1,500kcal 아래로 내려가지 않는 것이 안전합니다. 감량은 하루 500kcal 적자, 주 0.5kg 속도가 현실적입니다."}}, {"@type": "Question", "name": "운동을 하면 칼로리를 더 먹어야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "활동계수에 운동이 이미 반영되어 있으므로 중복해서 더하지 않습니다. 다만 평소보다 운동량이 크게 늘었거나 육체노동을 시작했다면 계수를 한 단계 올리세요. 운동 후 극심한 배고픔이 온다면 단백질과 채소를 먼저 채우는 편이 좋습니다."}}, {"@type": "Question", "name": "계산한 칼로리와 실제 체중 변화가 안 맞아요.", "acceptedAnswer": {"@type": "Answer", "text": "개인차가 ±10%는 흔합니다. 2주 동안 같은 조건으로 체중을 재고 평균을 내 보세요. 변화가 없으면 하루 200kcal를 줄이거나 활동량을 늘리고, 너무 빨리 빠지면 100~200kcal를 되돌립니다. 수면 부족과 스트레스도 소비량과 식욕을 바꿉니다."}}, {"@type": "Question", "name": "단백질은 얼마나 먹어야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "일반 성인은 체중 1kg당 0.9~1.0g이면 충분하고, 운동을 하거나 감량 중이라면 1.6~2.0g까지 올리는 것이 좋습니다. 72kg 기준 115~144g입니다. 한 번에 30g 안팎씩 3~4끼로 나눠 먹고, 신장 질환이 있다면 의사와 상의하세요."}}, {"@type": "Question", "name": "나이가 들면 기초대사량이 왜 줄어드나요?", "acceptedAnswer": {"@type": "Answer", "text": "근육량이 줄고 활동량이 함께 줄기 때문입니다. 최근 연구에서는 20~60세의 기초대사량이 비교적 안정적이고 60세 이후 감소가 뚜렷해진다고 봅니다. 근력 운동으로 근육량을 유지하고 단백질을 충분히 먹으면 감소 속도를 늦출 수 있습니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "전체 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/"}, {"@type": "ListItem", "position": 2, "name": "기초대사량(BMR)·하루 권장 칼로리 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/bmr-calorie.html"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">
+      <span class="brand-mark" aria-hidden="true">건</span>
+      <span class="brand-name">건강 계산기<small>다이어트·수면 도구 5종</small></span>
+    </a>
+    <span class="header-note">입력값 저장 없음</span>
+  </div>
+</header>
+
+<nav class="calc-nav" aria-label="계산기 바로가기">
+  <div class="wrap calc-nav-inner">
+    <a href="./">전체 계산기</a>
+    <a href="./bmi.html">BMI</a>
+    <a href="./bmr-calorie.html" aria-current="page">칼로리</a>
+    <a href="./sleep.html">수면</a>
+    <a href="./caffeine.html">카페인</a>
+    <a href="./water.html">물·단백질</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="wrap">
+    <div class="intro">
+      <nav class="crumb" aria-label="현재 위치"><a href="./">전체 계산기</a><span aria-hidden="true">›</span><span>기초대사량(BMR)·하루 권장 칼로리 계산기</span></nav>
+      <h1>기초대사량(BMR)·하루 권장 칼로리 계산기</h1>
+      <p class="lead">가만히 있어도 쓰는 에너지가 기초대사량, 하루에 실제로 태우는 에너지가 TDEE입니다. Mifflin-St Jeor 공식으로 두 값을 계산하고, 유지·감량·증량 목표별 칼로리와 탄단지 배분까지 한 화면에서 확인하세요.</p>
+      <p class="meta">Mifflin-St Jeor 공식 · 회원가입 없이 무료 · 입력값은 브라우저에서만 계산됩니다</p>
+    </div>
+
+    <section class="panel is-active" id="panel-bmr">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>내 몸의 에너지 조건</h2>
+            <p>성별·나이·키·체중과 하루 활동량을 넣으세요.</p>
+          </div>
+          <span class="step">Mifflin-St Jeor</span>
+        </div>
+
+        <div class="field">
+          <span class="field-label">성별</span>
+          <div class="seg" data-seg="bmrGender">
+            <button type="button" data-value="male" aria-pressed="true">남성</button>
+            <button type="button" data-value="female" aria-pressed="false">여성</button>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label class="field-label" for="inBmrAge">나이 <span class="opt">세</span></label>
+            <div class="input-box">
+              <input id="inBmrAge" inputmode="numeric" autocomplete="off" value="30">
+              <span class="unit">세</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="inBmrHeight">키 <span class="opt">cm</span></label>
+            <div class="input-box">
+              <input id="inBmrHeight" inputmode="decimal" autocomplete="off" value="175">
+              <span class="unit">cm</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="inBmrWeight">체중 <span class="opt">kg</span></label>
+            <div class="input-box">
+              <input id="inBmrWeight" inputmode="decimal" autocomplete="off" value="72">
+              <span class="unit">kg</span>
+            </div>
+            <div class="chips" data-chips="inBmrWeight">
+              <button type="button" class="chip" data-value="55">55</button>
+              <button type="button" class="chip" data-value="65">65</button>
+              <button type="button" class="chip" data-value="72">72</button>
+              <button type="button" class="chip" data-value="85">85</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="inBmrActivity">활동량 <span class="opt">주당 운동 횟수</span></label>
+            <div class="input-box">
+              <select id="inBmrActivity">
+                <option value="1.2">거의 움직이지 않음 (주 0회)</option>
+                <option value="1.375">가벼운 활동 (주 1~3회)</option>
+                <option value="1.55" selected>보통 활동 (주 3~5회)</option>
+                <option value="1.725">활발한 활동 (주 6~7회)</option>
+                <option value="1.9">매우 활발 (운동선수·육체노동)</option>
+              </select>
+            </div>
+            <p class="hint plain">대부분의 사무직은 가벼운 활동(1.375)이 실제에 가깝습니다.</p>
+          </div>
+        </div>
+
+        <div class="result mt-16" aria-live="polite">
+          <div class="res-label">하루 총 소비 칼로리 (TDEE)</div>
+          <div class="res-value" id="outTdee">—</div>
+          <div class="res-sub">이만큼 먹으면 체중이 그대로 유지됩니다. 여기서 500kcal를 줄이면 주 0.5kg 감량.</div>
+          <div class="res-grid">
+            <div><span>기초대사량 (BMR)</span><strong id="outBmr">—</strong></div>
+            <div><span>활동 수준</span><strong id="outBmrAct">—</strong></div>
+            <div><span>체중 1kg당 BMR</span><strong id="outBmrPerKg">—</strong></div>
+            <div><span>참고: Harris-Benedict</span><strong id="outBmrHb">—</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>목표별 칼로리와 탄단지</h2>
+            <p>세 가지 목표를 같은 조건에서 비교했습니다.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="tbl-tight">
+            <caption>하루 섭취 목표 (탄수화물·단백질 4kcal/g, 지방 9kcal/g)</caption>
+            <thead>
+              <tr><th scope="col">목표</th><th scope="col">칼로리</th><th scope="col">탄수화물</th><th scope="col">단백질</th><th scope="col">지방</th></tr>
+            </thead>
+            <tbody id="outGoalRows"></tbody>
+          </table>
+        </div>
+        <p class="table-note">감량은 하루 500kcal 적자, 증량은 300kcal 흑자 기준입니다. 최소 섭취선(남 1,500kcal·여 1,200kcal)보다 낮아지면 그 선에서 멈춥니다.</p>
+
+        <h3 class="mt-16" style="font-size:14px;font-weight:800;">유지 칼로리의 탄단지 비율</h3>
+        <div class="macro-bar" role="img" aria-label="탄수화물 50%, 단백질 20%, 지방 30% 비율 막대">
+          <span class="m-carb" id="macroCarb" style="width:50%"></span>
+          <span class="m-prot" id="macroProt" style="width:20%"></span>
+          <span class="m-fat" id="macroFat" style="width:30%"></span>
+        </div>
+        <div class="macro-legend">
+          <span><i class="m-carb"></i>탄수화물 <b id="macroCarbG">—</b> (50%)</span>
+          <span><i class="m-prot"></i>단백질 <b id="macroProtG">—</b> (20%)</span>
+          <span><i class="m-fat"></i>지방 <b id="macroFatG">—</b> (30%)</span>
+        </div>
+
+        <div class="metrics">
+          <div class="metric is-key"><span>체중 기준 단백질</span><strong id="outBmrProtein">—</strong><small>1.6~2.0g/kg</small></div>
+          <div class="metric"><span>한 끼 단백질 (3끼)</span><strong id="outBmrMeal">—</strong><small>한 번에 30g 안팎</small></div>
+          <div class="metric"><span>계산 기준</span><strong>BMR × 활동계수</strong><small>Mifflin-St Jeor</small></div>
+        </div>
+        <p class="notice info" id="outBmrNote"></p>
+      </div>
+    </section>
+
+<div class="ad-slot" aria-hidden="true"><b>AD</b><span>광고 영역</span></div>
+<section class="card guide" aria-label="자세한 안내">
+<h2>기초대사량은 아무것도 하지 않아도 쓰는 에너지입니다</h2>
+<p>기초대사량(Basal Metabolic Rate, BMR)은 누워서 아무것도 하지 않아도 생명을 유지하기 위해 쓰는 에너지입니다. 심장이 뛰고, 폐가 숨을 쉬고, 체온을 유지하고, 세포가 단백질을 만들고 분해하는 데 드는 비용입니다. 성인의 하루 에너지 소비 중 기초대사량이 차지하는 비중은 대략 60~70%입니다. 나머지는 음식의 소화·흡수에 쓰는 식사성 발열(약 10%)과 몸을 움직이는 활동대사(20~30%)로 나뉩니다. 그래서 굶는 다이어트가 오래가지 못합니다. 먹는 양을 줄여도 기초대사량은 그대로 나가기 때문입니다.</p>
+<p>기초대사량은 나이, 성별, 체중, 근육량에 따라 달라집니다. 같은 체중이라도 근육이 많을수록 높습니다. 나이에 따른 변화는 최근 연구에서 20~60세에는 비교적 안정적이고 60세 이후 감소가 뚜렷해지는 것으로 보고됩니다. 노년의 감소는 근육량과 활동량 저하가 겹친 결과가 큽니다. 같은 조건에서 남성이 여성보다 높은 이유도 근육량과 체성분 차이입니다.</p>
+<h2>Mifflin-St Jeor 공식이 가장 무난합니다</h2>
+<p>이 계산기는 <strong>Mifflin-St Jeor 공식</strong>을 씁니다. 1990년에 발표된 이래 가장 정확도가 높은 추정식으로 평가받고, 미국 영양사협회 등에서도 체중 관리 상담에 널리 쓰도록 권장합니다. 식은 다음과 같습니다.</p>
+<ul><li><strong>남성</strong> = 10 × 체중(kg) + 6.25 × 키(cm) − 5 × 나이 + 5</li><li><strong>여성</strong> = 10 × 체중(kg) + 6.25 × 키(cm) − 5 × 나이 − 161</li></ul>
+<p>예를 들어 30세 남성, 키 175cm, 체중 72kg이면 720 + 1,093.75 − 150 + 5 = <strong>1,669kcal</strong>가 기초대사량입니다. 여기에 활동계수 1.55를 곱하면 하루 총 소비 칼로리(TDEE)는 약 2,587kcal가 됩니다. 같은 조건의 여성은 720 + 1,093.75 − 150 − 161 = 1,503kcal로, 남성보다 160kcal가량 낮습니다. 참고로 함께 보여 주는 Harris-Benedict 값은 1919년에 만들어진 오래된 공식으로, 실제보다 5% 안팎 높게 나오는 경향이 있습니다.</p>
+<p>어떤 공식도 정확하지는 않습니다. 개인차가 ±10%는 얼마든지 생깁니다. 같은 키·체중이라도 장기 크기, 갑상선 기능, 근육량, 유전자에 따라 소비량이 다르기 때문입니다. 그래서 계산 결과는 <strong>출발점</strong>으로 삼고, 2주 동안 실제 체중 변화를 보며 내 몸에 맞게 고쳐 나가는 것이 정석입니다.</p>
+<h2>활동계수는 대부분 과대평가됩니다</h2>
+<div class="table-wrap"><table><caption>활동 수준별 계수</caption><thead><tr><th scope="col">활동 수준</th><th scope="col">계수</th><th scope="col">해당하는 생활</th></tr></thead><tbody><tr><td>거의 움직이지 않음</td><td>1.2</td><td>재택근무, 하루 대부분 앉아서 지냄, 운동 없음</td></tr><tr><td>가벼운 활동</td><td>1.375</td><td>주 1~3회 가벼운 운동, 출퇴근 걷기 정도</td></tr><tr><td>보통 활동</td><td>1.55</td><td>주 3~5회 30~60분 운동, 서서 일하는 직업</td></tr><tr><td>활발한 활동</td><td>1.725</td><td>주 6~7회 강도 높은 운동, 배달·물류 등 육체노동</td></tr><tr><td>매우 활발</td><td>1.9</td><td>하루 두 번 훈련하는 선수, 건설 현장 노동</td></tr></tbody></table></div><p class="table-note">운동을 주 3회 해도 나머지 23시간을 앉아서 보낸다면 1.375가 더 정확합니다. 계수를 한 단계 낮춰 잡으면 다이어트가 수월해집니다.</p>
+<p>활동계수는 하루 종일의 움직임을 반영합니다. 운동 시간만 보고 고르면 실제보다 높게 잡기 쉽습니다. 주 3회 1시간 운동을 해도 나머지 시간을 책상에 앉아 보낸다면 1.55보다 1.375가 맞습니다. 계산 결과가 실제와 맞지 않으면 계수를 낮춰 보세요. 1.55에서 1.375로 내리면 하루 300kcal 안팎이 줄어듭니다.</p>
+<h2>유지·감량·증량 칼로리를 정하는 방법</h2>
+<p>체지방 1kg을 태우려면 약 7,700kcal의 적자가 필요합니다. 하루 500kcal씩 덜 먹으면 일주일에 3,500kcal, 즉 0.45kg가량이 빠집니다. 이 정도 속도가 근육 손실과 요요 위험을 줄이는 무난한 출발점입니다. 한 달에 2kg 정도를 목표로 잡으면 옷이 달라지는 변화를 체감할 수 있습니다. 반대로 증량은 하루 300kcal 흑자면 한 달에 1kg 안팎의 근육·체중 증가를 기대할 수 있습니다. 더 빠르게 늘리면 지방으로 붙기 쉽습니다.</p>
+<div class="notice warn"><strong>최소 섭취선</strong> — 일반적으로 여성 1,200kcal, 남성 1,500kcal 아래로 내려가지 않는 것이 권장됩니다. 이보다 적게 먹으면 영양소 결핍, 근손실, 생리 불순, 담석 위험이 커집니다. 이 계산기도 이 선 아래로는 내려가지 않게 막아 둡니다.</div>
+<p>감량이 정체될 때는 곧바로 칼로리를 더 줄이지 마세요. 체중이 줄면 기초대사량도 함께 줄고, 신체 활동량이 무의식적으로 감소합니다. 이른바 적응성 열생성입니다. 2주 이상 정체가 이어지면 하루 100~200kcal만 조정하거나, 1~2주 유지 칼로리로 쉬어 가는 다이어트 브레이크를 넣는 편이 효과적입니다.</p>
+<h2>탄수화물·단백질·지방, 몇 g을 먹어야 하나</h2>
+<p>칼로리만 맞추면 체중은 줄지만, 무엇을 먹느냐에 따라 근육과 건강이 달라집니다. 탄수화물과 단백질은 1g당 4kcal, 지방은 1g당 9kcal입니다. 이 계산기는 유지 50:20:30, 감량 40:30:30, 증량 55:20:25의 비율을 기본으로 씁니다. 감량할 때 단백질 비중을 30%로 올리는 이유는 포만감과 근육 보존 때문입니다.</p>
+<ul><li><strong>단백질</strong> — 체중 1kg당 1.6~2.0g. 72kg이면 115~144g으로, 닭가슴살 100g(약 23g) 기준 하루 5~6조각 분량입니다. 한 끼에 30g 안팎으로 나눠 먹어야 근합성이 고르게 일어납니다.</li><li><strong>지방</strong> — 최소 체중 1kg당 0.8g은 필요합니다. 호르몬 생성과 지용성 비타민 흡수에 필수라 지나치게 줄이면 생리 불순이나 피부 건조가 올 수 있습니다.</li><li><strong>탄수화물</strong> — 남은 칼로리를 채웁니다. 운동을 한다면 운동 전후에 몰아 주고, 가공당 대신 잡곡·감자·고구마·과일로 채우세요.</li><li><strong>식이섬유</strong> — 하루 25~30g. 채소 두 주먹, 통곡물, 콩류로 채우면 포만감과 혈당 안정에 도움이 됩니다.</li></ul>
+<h2>계산보다 중요한 것은 2주 피드백입니다</h2>
+<p>계산한 칼로리를 2주 먹어 보고 체중 변화를 확인하세요. 아침 공복, 화장실 다녀온 뒤 같은 조건에서 재고 7일 평균을 냅니다. 체중은 하루에 1~2kg씩 흔들리므로 하루 수치에 일희일비하면 안 됩니다. 2주 동안 주당 0.5kg 이상 빠지면 계획이 맞는 것이고, 변화가 없으면 하루 200kcal를 줄이거나 활동량을 늘립니다. 반대로 너무 빨리 빠지면 100~200kcal를 되돌리세요.</p>
+<p>기록은 음식 무게를 재는 것보다 <strong>같은 음식을 같은 양으로</strong> 먹었는지 확인하는 데 목적이 있습니다. 눈대중으로도 충분합니다. 다만 견과류, 기름, 소스, 음료는 눈대중이 어긋나기 쉬우니 처음 2주만이라도 계량해 보세요. 한 끼에 300~500kcal를 넘게 차이 내는 범인은 대개 이 네 가지입니다.</p>
+</section>
+<section class="card" aria-labelledby="faq-title">
+      <h2 class="sec-title" id="faq-title">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>기초대사량과 활동대사량은 어떻게 다른가요?</summary>
+          <div class="a"><p>기초대사량은 아무것도 하지 않아도 생명 유지에 쓰는 에너지이고, 활동대사량은 걷기·운동·집안일처럼 몸을 움직이며 쓰는 에너지입니다. 둘을 합치고 소화에 쓰는 에너지(약 10%)를 더한 것이 하루 총 소비 칼로리(TDEE)입니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>하루 1,200kcal 다이어트는 괜찮나요?</summary>
+          <div class="a"><p>단기간에야 체중이 줄지만 오래 유지하기 어렵고 근손실·영양 결핍·생리 불순 위험이 있습니다. 특별한 지시가 없다면 여성 1,200kcal, 남성 1,500kcal 아래로 내려가지 않는 것이 안전합니다. 감량은 하루 500kcal 적자, 주 0.5kg 속도가 현실적입니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>운동을 하면 칼로리를 더 먹어야 하나요?</summary>
+          <div class="a"><p>활동계수에 운동이 이미 반영되어 있으므로 중복해서 더하지 않습니다. 다만 평소보다 운동량이 크게 늘었거나 육체노동을 시작했다면 계수를 한 단계 올리세요. 운동 후 극심한 배고픔이 온다면 단백질과 채소를 먼저 채우는 편이 좋습니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>계산한 칼로리와 실제 체중 변화가 안 맞아요.</summary>
+          <div class="a"><p>개인차가 ±10%는 흔합니다. 2주 동안 같은 조건으로 체중을 재고 평균을 내 보세요. 변화가 없으면 하루 200kcal를 줄이거나 활동량을 늘리고, 너무 빨리 빠지면 100~200kcal를 되돌립니다. 수면 부족과 스트레스도 소비량과 식욕을 바꿉니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>단백질은 얼마나 먹어야 하나요?</summary>
+          <div class="a"><p>일반 성인은 체중 1kg당 0.9~1.0g이면 충분하고, 운동을 하거나 감량 중이라면 1.6~2.0g까지 올리는 것이 좋습니다. 72kg 기준 115~144g입니다. 한 번에 30g 안팎씩 3~4끼로 나눠 먹고, 신장 질환이 있다면 의사와 상의하세요.</p></div>
+        </details>
+        <details class="faq">
+          <summary>나이가 들면 기초대사량이 왜 줄어드나요?</summary>
+          <div class="a"><p>근육량이 줄고 장기 대사가 느려지기 때문입니다. 20대 이후 10년마다 1~2%씩 감소합니다. 근력 운동으로 근육량을 유지하고 단백질을 충분히 먹으면 감소 속도를 늦출 수 있습니다. 같은 체중이라도 근육이 많으면 기초대사량이 높습니다.</p></div>
+        </details>
+      </div>
+    </section>
+<section class="card" aria-labelledby="related-title">
+      <h2 class="sec-title" id="related-title">함께 쓰면 좋은 계산기</h2>
+      <div class="related">
+        <a href="./bmi.html"><strong>BMI 비만도 계산기</strong><span>현재 체중이 어느 구간인지 먼저 확인</span></a>
+        <a href="./water.html"><strong>물·단백질 섭취량 계산기</strong><span>칼로리와 함께 맞춰야 하는 물·단백질</span></a>
+        <a href="./sleep.html"><strong>수면시간 계산기</strong><span>식욕 호르몬을 조절하는 수면</span></a>
+        <a href="./caffeine.html"><strong>카페인 반감기 계산기</strong><span>에너지음료 대신 잠을 고르는 기준</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="disclaimer">
+      <b>참고용 안내</b><br>
+      이 사이트의 모든 계산 결과는 입력값을 바탕으로 한 추정치이며 진단이나 처방이 아닙니다.
+      질환이 있거나 약을 복용 중이라면 식사·운동·수면 계획을 세우기 전에 의사·영양사와 상담하세요.
+      키·체중·수면 같은 값은 브라우저 밖으로 전송되지 않습니다.
+    </div>
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">건</span>
+      <span>건강·다이어트·수면 계산기</span>
+    </div>
+    <div class="foot-links">
+      <a href="./">홈</a>
+      <a href="./bmi.html">BMI</a>
+      <a href="./bmr-calorie.html">칼로리</a>
+      <a href="./sleep.html">수면</a>
+      <a href="./caffeine.html">카페인</a>
+      <a href="./water.html">물·단백질</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+      <a href="https://qazwsx1666-hash.github.io/">전체 사이트</a>
+    </div>
+    <p class="copy">© 건강·다이어트·수면 계산기. 모든 계산은 사용자의 브라우저에서만 이뤄집니다.</p>
+  </div>
+</footer>
+
+<script src="./app.js?v=20261122a"></script>
+</body>
+</html>
