@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qazwsx1666-hash.github.io/finance-tools/sitemap.xml
