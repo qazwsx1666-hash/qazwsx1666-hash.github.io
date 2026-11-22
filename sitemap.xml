@@ -4,48 +4,38 @@
     <loc>https://qazwsx1666-hash.github.io/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://qazwsx1666-hash.github.io/finance-tools/</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://qazwsx1666-hash.github.io/finance-tools/savings.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://qazwsx1666-hash.github.io/finance-tools/salary.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qazwsx1666-hash.github.io/finance-tools/refinance.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qazwsx1666-hash.github.io/finance-tools/severance.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qazwsx1666-hash.github.io/finance-tools/housing.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qazwsx1666-hash.github.io/finance-tools/privacy.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+  <!-- 금융 계산기 -->
+  <url><loc>https://qazwsx1666-hash.github.io/finance-tools/</loc><lastmod>2026-11-22</lastmod><priority>1.0</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/finance-tools/savings.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/finance-tools/salary.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/finance-tools/refinance.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/finance-tools/severance.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/finance-tools/housing.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/finance-tools/privacy.html</loc><lastmod>2026-11-22</lastmod><priority>0.3</priority></url>
+  <!-- 바이럴 심리테스트 -->
+  <url><loc>https://qazwsx1666-hash.github.io/viral-test/</loc><lastmod>2026-11-22</lastmod><priority>1.0</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/viral-test/egen-teto.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/viral-test/office-sbti.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/viral-test/love-type.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/viral-test/balance.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/viral-test/mbti-mini.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/viral-test/privacy.html</loc><lastmod>2026-11-22</lastmod><priority>0.3</priority></url>
+  <!-- 연말정산·부동산·세금 계산기 -->
+  <url><loc>https://qazwsx1666-hash.github.io/tax-tools/</loc><lastmod>2026-11-22</lastmod><priority>1.0</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/tax-tools/yearend-tax.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/tax-tools/brokerage.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/tax-tools/acquisition-tax.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/tax-tools/vat.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/tax-tools/fuel.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/tax-tools/privacy.html</loc><lastmod>2026-11-22</lastmod><priority>0.3</priority></url>
+  <!-- 무료 사주·오늘의 운세·로또 -->
+  <url><loc>https://qazwsx1666-hash.github.io/fortune-life/</loc><lastmod>2026-11-22</lastmod><priority>1.0</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/fortune-life/saju.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/fortune-life/today-fortune.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/fortune-life/chemistry.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/fortune-life/lotto.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/fortune-life/age-dday.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/fortune-life/privacy.html</loc><lastmod>2026-11-22</lastmod><priority>0.3</priority></url>
 </urlset>

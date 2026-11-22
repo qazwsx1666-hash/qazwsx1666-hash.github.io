@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유류비 계산기 | 주행거리·연비로 기름값과 1km당 비용</title>
+<meta name="description" content="주행거리와 연비, 유가를 넣으면 필요한 연료량과 유류비, 1km당·100km당 비용, 월 유류비를 계산합니다. 편도·왕복 구분과 연비별 비교표로 출퇴근 비용까지 확인하세요.">
+<meta name="keywords" content="유류비 계산기, 기름값 계산기, 연비 계산, 주행거리 유류비, 1km당 유류비, 출퇴근 기름값, 리터당 유가, 차량 운행비">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="부동산·세금 계산기">
+<meta name="theme-color" content="#3182f6">
+<meta name="google-adsense-account" content="ca-pub-6515548213411698">
+<link rel="canonical" href="https://qazwsx1666-hash.github.io/tax-tools/fuel.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="부동산·세금 계산기">
+<meta property="og:title" content="유류비 계산기 | 주행거리·연비로 기름값과 1km당 비용">
+<meta property="og:description" content="주행거리·연비·유가로 유류비, 1km당 비용, 월 유류비를 계산합니다.">
+<meta property="og:url" content="https://qazwsx1666-hash.github.io/tax-tools/fuel.html">
+<meta property="og:image" content="https://qazwsx1666-hash.github.io/tax-tools/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="유류비 계산기 | 주행거리·연비로 기름값 계산">
+<meta name="twitter:description" content="한 번 이동 비용과 월 유류비, 1km당 비용을 계산합니다.">
+<meta name="twitter:image" content="https://qazwsx1666-hash.github.io/tax-tools/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233182f6'/%3E%3Ctext x='32' y='45' font-size='30' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%EC%84%B8%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css?v=20261122a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "유류비·연비 계산기",
+  "url": "https://qazwsx1666-hash.github.io/tax-tools/fuel.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "inLanguage": "ko-KR",
+  "description": "주행거리와 연비, 유가로 유류비와 1km당 비용, 월 유류비를 계산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "publisher": { "@type": "Organization", "name": "부동산·세금 계산기", "url": "https://qazwsx1666-hash.github.io/tax-tools/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "유류비는 어떻게 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "주행거리를 연비로 나눠 필요한 연료량을 구한 뒤 리터당 유가를 곱합니다. 300km를 연비 12km/L로 달리면 25리터가 필요하고, 리터당 1,700원이면 42,500원입니다. 여기에 통행료와 주차비는 별도로 더해야 합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "공인연비와 실제 연비는 왜 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "공인연비는 규정된 시험 조건에서 측정한 값이라 실제 도로와 차이가 납니다. 시내 주행이 많거나 겨울철, 급가속이 잦으면 공인연비의 70~85% 수준으로 떨어지는 경우가 흔합니다. 계산할 때는 실제 주유 기록으로 계산한 연비를 쓰는 편이 정확합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "1km당 비용은 왜 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "거리가 다른 두 경로나 차량을 같은 기준으로 비교할 수 있기 때문입니다. 1km당 140원이면 20km 출퇴근에 2,800원, 40km면 5,600원입니다. 회사에 운행비를 청구하거나 가족과 차량 비용을 나눌 때도 기준이 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "월 유류비는 어떻게 추정하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "한 번 이동의 유류비에 월 운행일수를 곱합니다. 왕복 통근이라면 왕복을 선택하고 운행일수를 20일 안팎으로 넣으세요. 주말 나들이나 장거리 운행이 있으면 운행일수를 조금 늘리거나 별도로 더하면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "연비를 높이려면 어떻게 해야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "급출발·급제동을 줄이고 정속 주행을 유지하는 것만으로 10% 안팎의 차이가 납니다. 타이어 공기압을 적정하게 유지하고, 불필요한 짐을 내리고, 공회전을 줄이는 것도 도움이 됩니다. 고속도로에서는 90~100km/h 구간이 연비에 유리합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "전기차 충전비와 비교하려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "전기차는 리터 대신 kWh 단위를 씁니다. 이 계산기에서 유가 자리에 kWh당 충전 단가를, 연비 자리에 km/kWh를 넣으면 같은 방식으로 비교할 수 있습니다. 예를 들어 5km/kWh, kWh당 350원이면 1km당 70원입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "전체 계산기", "item": "https://qazwsx1666-hash.github.io/tax-tools/" },
+    { "@type": "ListItem", "position": 2, "name": "유류비", "item": "https://qazwsx1666-hash.github.io/tax-tools/fuel.html" }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">
+      <span class="brand-mark" aria-hidden="true">세</span>
+      <span class="brand-name">부동산·세금 계산기<small>생활비 계산기 5종</small></span>
+    </a>
+    <span class="header-note">법정 요율 반영</span>
+  </div>
+</header>
+
+<nav class="calc-nav" aria-label="계산기 바로가기">
+  <div class="wrap calc-nav-inner">
+    <a href="./">전체 계산기</a>
+    <a href="./yearend-tax.html">연말정산</a>
+    <a href="./brokerage.html">중개보수</a>
+    <a href="./acquisition-tax.html">취득세</a>
+    <a href="./vat.html">부가가치세</a>
+    <a href="./fuel.html" aria-current="page">유류비</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="wrap">
+
+    <div class="intro">
+      <h1>유류비·연비 계산기</h1>
+      <p class="lead">출퇴근 거리와 연비, 오늘의 유가만 넣으면 한 번 이동에 기름값이 얼마 드는지, 한 달이면 얼마인지 바로 나옵니다. 이사 갈 집을 고를 때 통근 비용을 비교하는 데도 쓸 수 있습니다.</p>
+      <p class="meta">휘발유·경유·LPG 공통 · 회원가입 없이 무료 · 입력값은 브라우저에서만 계산됩니다</p>
+    </div>
+
+    <section class="panel is-active" id="panel-fuel">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>주행 조건</h2>
+            <p>거리와 연비, 유가를 넣으세요.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">이동 기준</span>
+          <div class="seg" data-seg="fuelTrip">
+            <button type="button" data-value="one" aria-pressed="true">편도<small>한 방향</small></button>
+            <button type="button" data-value="round" aria-pressed="false">왕복<small>거리 × 2</small></button>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label class="field-label" for="inFuelDist">주행거리</label>
+            <div class="input-box">
+              <input id="inFuelDist" inputmode="decimal" autocomplete="off" value="20">
+              <span class="unit">km</span>
+            </div>
+            <div class="chips" data-chips="inFuelDist">
+              <button type="button" class="chip" data-value="5">5km</button>
+              <button type="button" class="chip" data-value="20">20km</button>
+              <button type="button" class="chip" data-value="50">50km</button>
+              <button type="button" class="chip" data-value="300">300km</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inFuelEff">연비 <span class="opt">km/L</span></label>
+            <div class="input-box">
+              <input id="inFuelEff" inputmode="decimal" autocomplete="off" value="12">
+              <span class="unit">km/L</span>
+            </div>
+            <p class="hint plain">차량 공인연비의 80~90% 수준을 넣으면 실제에 가깝습니다.</p>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inFuelPrice">유가</label>
+            <div class="input-box">
+              <input id="inFuelPrice" class="js-money" inputmode="numeric" autocomplete="off" value="1,700">
+              <span class="unit">원/L</span>
+            </div>
+            <p class="hint" id="readFuelPrice"></p>
+            <div class="chips" data-chips="inFuelPrice">
+              <button type="button" class="chip" data-value="1600">1,600</button>
+              <button type="button" class="chip" data-value="1700">1,700</button>
+              <button type="button" class="chip" data-value="1800">1,800</button>
+              <button type="button" class="chip" data-value="1900">1,900</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="inFuelDays">월 운행일수 <span class="opt">월 비용 계산용</span></label>
+            <div class="input-box">
+              <input id="inFuelDays" inputmode="numeric" autocomplete="off" value="22">
+              <span class="unit">일</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result mt-16" aria-live="polite">
+          <div class="res-label">한 번 이동 유류비</div>
+          <div class="res-value" id="outFuelCost">0 원</div>
+          <div class="res-sub" id="outFuelCostRead">0 원</div>
+          <div class="res-grid">
+            <div><span>주행거리</span><strong id="outFuelKm">0 km</strong></div>
+            <div><span>필요 연료량</span><strong id="outFuelLiter">0 L</strong></div>
+            <div><span>1km당 비용</span><strong id="outFuelPerKm">0 원</strong></div>
+            <div><span>100km당 비용</span><strong id="outFuelPer100">0 원</strong></div>
+            <div><span>월 유류비</span><strong id="outFuelMonth">-</strong></div>
+            <div><span>연간 유류비</span><strong id="outFuelYear">-</strong></div>
+          </div>
+        </div>
+
+        <div class="table-wrap mt-16">
+          <table>
+            <caption>연비에 따른 유류비 비교</caption>
+            <thead>
+              <tr><th scope="col">연비</th><th scope="col">필요 연료량</th><th scope="col">유류비</th><th scope="col">1km당</th></tr>
+            </thead>
+            <tbody id="outFuelRows"></tbody>
+          </table>
+        </div>
+        <p class="notice info" id="outFuelNote"></p>
+      </div>
+    </section>
+
+    <section class="card guide" aria-label="유류비 계산 기준과 절약 팁">
+      <h2>유류비는 "거리 ÷ 연비 × 유가" 하나로 끝납니다</h2>
+      <p>필요한 연료량은 <strong>주행거리 ÷ 연비</strong>, 유류비는 <strong>연료량 × 리터당 유가</strong>입니다. 300km를 연비 12km/L로 달리면 25리터가 필요하고, 리터당 1,700원이면 42,500원입니다. 여기에 통행료·주차비·세차비는 포함되지 않으니 실제 차량 유지비는 이보다 큽니다.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>거리별 유류비 (연비 12km/L, 리터당 1,700원 기준)</caption>
+          <thead><tr><th scope="col">주행거리</th><th scope="col">필요 연료</th><th scope="col">유류비</th><th scope="col">1km당</th></tr></thead>
+          <tbody>
+            <tr><td>10km</td><td>0.83L</td><td>1,417원</td><td>142원</td></tr>
+            <tr><td>20km</td><td>1.67L</td><td>2,833원</td><td>142원</td></tr>
+            <tr><td>50km</td><td>4.17L</td><td>7,083원</td><td>142원</td></tr>
+            <tr><td>300km</td><td>25L</td><td>42,500원</td><td>142원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>1km당 비용이 일정하게 유지되는 이유는 연비와 유가가 같기 때문입니다. 이 값만 알면 어떤 거리든 곱해서 계산할 수 있어, 이사 갈 집의 통근 비용을 비교할 때 편합니다. 1km당 142원이면 왕복 40km 출퇴근에 하루 5,680원, 월 22일이면 12만 5천 원 수준입니다.</p>
+
+      <h2>공인연비를 그대로 믿지 마세요</h2>
+      <p>공인연비는 규정된 시험 조건에서 잰 값입니다. 실제 도로에서는 시내 정체, 신호 대기, 냉난방 사용, 급가속 때문에 공인연비의 <strong>70~85%</strong> 수준으로 떨어지는 경우가 흔합니다. 공인연비 15km/L 차량이 실제로는 12km/L 정도인 식입니다. 가장 정확한 방법은 주유할 때마다 주행거리와 주유량을 기록해 <strong>실주행거리 ÷ 주유량</strong>으로 계산하는 것입니다. 세 번만 기록해도 자기 차의 실제 연비가 보입니다.</p>
+
+      <h2>유가가 오르면 얼마나 달라지나</h2>
+      <p>리터당 100원이 오르면 유류비는 같은 비율로 오릅니다. 월 300리터를 쓰는 차라면 월 3만 원, 연 36만 원이 늘어납니다. 반대로 연비를 10% 높이면 유류비도 10% 줄어듭니다. 유가를 바꿀 수는 없지만 연비는 운전 습관으로 바꿀 수 있습니다.</p>
+
+      <h2>연비를 높이는 다섯 가지</h2>
+      <ul>
+        <li><strong>정속 주행</strong> — 급출발·급제동을 줄이면 10% 안팎이 달라집니다. 고속도로에서는 90~100km/h 구간이 유리합니다.</li>
+        <li><strong>타이어 공기압</strong> — 적정보다 낮으면 구름저항이 커져 연비가 떨어집니다. 월 1회 확인하세요.</li>
+        <li><strong>불필요한 짐</strong> — 100kg을 줄이면 연비가 1~2% 개선됩니다. 트렁크를 창고로 쓰지 마세요.</li>
+        <li><strong>공회전 줄이기</strong> — 1분 이상 정차할 때는 시동을 끄는 편이 낫습니다.</li>
+        <li><strong>에어컨·히터 사용 조절</strong> — 냉방은 연비에 10% 이상 영향을 줄 수 있습니다. 26도 설정과 송풍 위주 사용이 도움이 됩니다.</li>
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="faq-title">
+      <h2 class="sec-title" id="faq-title">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>유류비는 어떻게 계산하나요?</summary>
+          <div class="a"><p>주행거리를 연비로 나눠 필요한 연료량을 구한 뒤 리터당 유가를 곱합니다. 300km를 연비 12km/L로 달리면 25리터가 필요하고, 리터당 1,700원이면 42,500원입니다. 여기에 통행료와 주차비는 별도로 더해야 합니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>공인연비와 실제 연비는 왜 다른가요?</summary>
+          <div class="a"><p>공인연비는 규정된 시험 조건에서 측정한 값이라 실제 도로와 차이가 납니다. 시내 주행이 많거나 겨울철, 급가속이 잦으면 공인연비의 70~85% 수준으로 떨어지는 경우가 흔합니다. 실제 주유 기록으로 계산한 연비를 쓰는 편이 정확합니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>1km당 비용은 왜 필요한가요?</summary>
+          <div class="a"><p>거리가 다른 두 경로나 차량을 같은 기준으로 비교할 수 있기 때문입니다. 1km당 140원이면 20km 출퇴근에 2,800원, 40km면 5,600원입니다. 회사에 운행비를 청구하거나 가족과 차량 비용을 나눌 때도 기준이 됩니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>월 유류비는 어떻게 추정하나요?</summary>
+          <div class="a"><p>한 번 이동의 유류비에 월 운행일수를 곱합니다. 왕복 통근이라면 왕복을 선택하고 운행일수를 20일 안팎으로 넣으세요. 주말 나들이나 장거리 운행이 있으면 운행일수를 조금 늘리거나 별도로 더하면 됩니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>연비를 높이려면 어떻게 해야 하나요?</summary>
+          <div class="a"><p>급출발·급제동을 줄이고 정속 주행을 유지하는 것만으로 10% 안팎의 차이가 납니다. 타이어 공기압을 적정하게 유지하고, 불필요한 짐을 내리고, 공회전을 줄이는 것도 도움이 됩니다. 고속도로에서는 90~100km/h 구간이 연비에 유리합니다.</p></div>
+        </details>
+        <details class="faq">
+          <summary>전기차 충전비와 비교하려면 어떻게 하나요?</summary>
+          <div class="a"><p>전기차는 리터 대신 kWh 단위를 씁니다. 이 계산기에서 유가 자리에 kWh당 충전 단가를, 연비 자리에 km/kWh를 넣으면 같은 방식으로 비교할 수 있습니다. 예를 들어 5km/kWh, kWh당 350원이면 1km당 70원입니다.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="related-title">
+      <h2 class="sec-title" id="related-title">함께 쓰면 좋은 계산기</h2>
+      <div class="related">
+        <a href="./acquisition-tax.html"><strong>주택 취득세 계산기</strong><span>이사 갈 집 살 때 드는 세금</span></a>
+        <a href="./brokerage.html"><strong>부동산 중개보수 계산기</strong><span>이사 전 복비 확인</span></a>
+        <a href="./yearend-tax.html"><strong>연말정산 환급액 계산기</strong><span>차량·카드 지출 공제 확인</span></a>
+        <a href="./vat.html"><strong>부가가치세 계산기</strong><span>차량 정비·부품 견적 검산</span></a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="disclaimer">
+      <b>면책 안내</b><br>
+      계산 결과는 참고용 추정치입니다. 실제 유류비는 도로 상황, 운전 습관, 차량 상태, 유가 변동에 따라 달라집니다. 통행료·주차비·정비비·보험료는 포함되지 않았습니다.
+    </div>
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">세</span>
+      <span>부동산·세금 계산기</span>
+    </div>
+    <div class="foot-links">
+      <a href="./">홈</a>
+      <a href="./yearend-tax.html">연말정산</a>
+      <a href="./brokerage.html">중개보수</a>
+      <a href="./acquisition-tax.html">취득세</a>
+      <a href="./vat.html">부가가치세</a>
+      <a href="./fuel.html">유류비</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+      <a href="https://qazwsx1666-hash.github.io/">전체 사이트</a>
+    </div>
+    <p class="copy">© 부동산·세금 계산기. 모든 계산은 사용자의 브라우저에서만 이뤄집니다.</p>
+  </div>
+</footer>
+
+<script src="./app.js?v=20261122a"></script>
+</body>
+</html>
