@@ -23,6 +23,7 @@
   };
   var STYLE_ID = 'visit-stats-style';
   var CACHE_TTL = 120000;
+  var RETRY_DELAYS = [500, 1100];
 
   function lsGet(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
@@ -56,7 +57,7 @@
         done = true;
         try { if (ctl) ctl.abort(); } catch (e) {}
         reject(new Error('timeout'));
-      }, 8000);
+      }, 6000);
       var opts = { method: 'GET', mode: 'cors', cache: 'no-store', credentials: 'omit' };
       if (ctl) opts.signal = ctl.signal;
 
@@ -81,11 +82,25 @@
     });
   }
 
-  function attempt(path) {
-    return request(path).catch(function () {
-      return new Promise(function (resolve) { setTimeout(resolve, 900); })
-        .then(function () { return request(path); });
+  // 일시적인 서버 오류(5xx·연결 끊김)가 있어 몇 번 다시 시도한다
+  function attempt(path, i) {
+    i = i || 0;
+    return request(path).catch(function (err) {
+      if (i >= RETRY_DELAYS.length) throw err;
+      return new Promise(function (resolve) { setTimeout(resolve, RETRY_DELAYS[i]); })
+        .then(function () { return attempt(path, i + 1); });
     });
+  }
+
+  function lastNumbers(sec, day) {
+    var raw = null;
+    try { raw = JSON.parse(lsGet('vs-last-' + sec) || 'null'); } catch (e) { raw = null; }
+    if (!raw || raw.day !== day) return null;
+    return raw;
+  }
+
+  function saveLastNumbers(sec, day, today, total) {
+    try { lsSet('vs-last-' + sec, JSON.stringify({ day: day, today: today, total: total })); } catch (e) {}
   }
 
   function addStyle() {
@@ -161,7 +176,12 @@
     work.then(function (v) {
       render(v[0], v[1]);
       ssSet(cacheKey, JSON.stringify({ day: day, today: v[0], total: v[1], at: Date.now() }));
-    }).catch(function () {});
+      saveLastNumbers(sec, day, v[0], v[1]);
+    }).catch(function () {
+      // 오늘 안에 성공했던 숫자가 있으면 그것을 그대로 보여 주고, 없으면 표시하지 않는다
+      var last = lastNumbers(sec, day);
+      if (last) render(last.today, last.total);
+    });
   }
 
   if (document.readyState === 'loading') {
