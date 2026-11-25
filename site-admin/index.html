@@ -456,11 +456,25 @@
     stamp.textContent = '갱신 ' + (LAST_LOAD ? kstLabel(LAST_LOAD.toISOString()) : '—') +
       (d.updated_at ? ' · 집계 ' + kstLabel(d.updated_at) : '');
 
-    renderGA(d.ga4 || {});
-    renderCounters(d);
-    renderTrend(d);
-    renderIndexing(d.indexing || {});
-    renderMoney(d.monetization || {});
+    var errs = [];
+    function safe(name, fn) {
+      try { fn(); } catch (e) { errs.push(name + ': ' + ((e && e.message) || e)); }
+    }
+    safe('GA4', function () { renderGA(d.ga4 || {}); });
+    safe('방문자', function () { renderCounters(d); });
+    safe('추이', function () { renderTrend(d); });
+    safe('색인', function () { renderIndexing(d.indexing || {}); });
+    safe('수익화', function () { renderMoney(d.monetization || {}); });
+
+    var old = document.getElementById('renderErr');
+    if (old) old.parentNode.removeChild(old);
+    if (errs.length) {
+      var box = el('div', 'warnbox');
+      box.id = 'renderErr';
+      box.textContent = '일부 항목을 그리지 못했습니다 — ' + errs.join(' / ');
+      var mainEl = document.querySelector('main');
+      if (mainEl) mainEl.insertBefore(box, mainEl.firstChild);
+    }
 
     document.getElementById('footMeta').textContent =
       '사이트: ' + (d.site || 'https://qazwsx1666-hash.github.io/') +
