@@ -105,14 +105,37 @@ def main() -> int:
         counters["date"] = today
         counters["fetched_at"] = now.isoformat(timespec="seconds")
 
+        # 10:00 에는 하루가 덜 끝나 있으므로, 어제 날짜의 마지막 값을 확정 기록하고
+        # 오늘 값은 '진행 중'으로 매번 덮어쓴다(다음 날 실행되면 완성된 값이 된다).
+        yesterday = (now - timedelta(days=1)).strftime("%Y%m%d")
         history = counters.get("history") or []
-        entry = {"date": today}
-        entry.update({k: (v or 0) for k, v in live.items()})
-        history = [h for h in history if h.get("date") != today]
-        history.append(entry)
-        history.sort(key=lambda h: h.get("date", ""))
-        counters["history"] = history[-30:]
-        changes.append(f"카운터({today}) " + ", ".join(f"{k}={entry[k]}" for k in live))
+        by_date = {}
+        for h in history:
+            k = "".join(ch for ch in str(h.get("date", "")) if ch.isdigit())
+            if len(k) == 8:
+                h = dict(h)
+                h["date"] = k
+                by_date[k] = h
+
+        y_entry = {"date": yesterday}
+        for key, label in SECTIONS:
+            v = get_counter(f"ghq1666-{key}-d-{yesterday}")
+            if v is not None:
+                y_entry[key] = v
+            elif yesterday in by_date:
+                y_entry[key] = by_date[yesterday].get(key, 0)
+            else:
+                y_entry[key] = 0
+        by_date[yesterday] = y_entry
+
+        t_entry = {"date": today}
+        t_entry.update({k: (v or 0) for k, v in live.items()})
+        by_date[today] = t_entry
+
+        counters["history"] = [by_date[k] for k in sorted(by_date)][-30:]
+        changes.append(f"카운터({today}) " + ", ".join(f"{k}={t_entry[k]}" for k in live))
+        if sum(y_entry[k] for k in live) > 0:
+            changes.append(f"전일({yesterday}) 확정 " + str(sum(y_entry[k] for k in live)))
 
     # ── 색인 ────────────────────────────────────────────────
     ix = doc.setdefault("indexing", {})

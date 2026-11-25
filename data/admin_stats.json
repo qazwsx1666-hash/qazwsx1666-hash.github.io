@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "site": "https://qazwsx1666-hash.github.io/",
-  "updated_at": "2026-11-26T00:06:46+09:00",
-  "updated_by": "Pickle GA4 실시간 수신 확인 후 갱신",
+  "updated_at": "2026-11-26T00:06:57+09:00",
+  "updated_by": "Pickle 검증(자정 넘김)",
   "ga4": {
     "connected": true,
     "account": "qazwsx1666",
@@ -24,32 +24,32 @@
   "counters": {
     "source": "countapi.mileshilliard.com (visitor-stats.js 브라우저 카운터)",
     "note": "브라우저당 하루 1회 집계. 같은 사람이 여러 섹션을 보면 섹션 수만큼 중복 집계됩니다.",
-    "date": "20261125",
-    "fetched_at": "2026-11-25T23:56:52+09:00",
+    "date": "20261126",
+    "fetched_at": "2026-11-26T00:06:57+09:00",
     "sections": {
       "root": {
         "label": "포털 홈",
-        "today": 34,
-        "total": 36
+        "today": 6,
+        "total": 41
       },
       "invest": {
         "label": "재테크 계산기",
-        "today": 14,
-        "total": 14
+        "today": 1,
+        "total": 15
       },
       "career": {
         "label": "직장·연봉 계산기",
-        "today": 15,
+        "today": 0,
         "total": 16
       },
       "health": {
         "label": "건강 계산기",
-        "today": 16,
+        "today": 0,
         "total": 15
       },
       "tax": {
         "label": "세금 계산기",
-        "today": 7,
+        "today": 0,
         "total": 6
       },
       "fortune": {
@@ -59,7 +59,7 @@
       },
       "viral": {
         "label": "심리테스트",
-        "today": 4,
+        "today": 0,
         "total": 3
       }
     },
@@ -73,6 +73,16 @@
         "tax": 7,
         "fortune": 0,
         "viral": 4
+      },
+      {
+        "date": "20261126",
+        "root": 6,
+        "invest": 1,
+        "career": 0,
+        "health": 0,
+        "tax": 0,
+        "fortune": 0,
+        "viral": 0
       }
     ]
   },
