@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "site": "https://qazwsx1666-hash.github.io/",
-  "updated_at": "2026-11-26T00:09:19+09:00",
-  "updated_by": "10:00 색인 점검 회차(테스트)",
+  "updated_at": "2026-11-26T00:09:34+09:00",
+  "updated_by": "Pickle 00:12 마지막 갱신",
   "ga4": {
     "connected": true,
     "account": "qazwsx1666",
@@ -25,7 +25,7 @@
     "source": "countapi.mileshilliard.com (visitor-stats.js 브라우저 카운터)",
     "note": "브라우저당 하루 1회 집계. 같은 사람이 여러 섹션을 보면 섹션 수만큼 중복 집계됩니다.",
     "date": "20261126",
-    "fetched_at": "2026-11-26T00:09:19+09:00",
+    "fetched_at": "2026-11-26T00:09:34+09:00",
     "sections": {
       "root": {
         "label": "포털 홈",
