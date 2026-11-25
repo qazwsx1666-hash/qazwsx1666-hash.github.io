@@ -6,7 +6,9 @@ data/products.json 한 곳만 고치고 이 스크립트를 돌리면
   - /picks/ 의 테마 목록·예정 테마
   - 각 페이지의 JSON-LD(ItemList, 가격 제외)
   - '마지막 갱신' 날짜
-가 다시 그려집니다. HTML 본문(체크리스트·예산표·FAQ)은 손으로 쓴 그대로 유지됩니다.
+가 다시 그려집니다. 페이지 본문(제목·탭·푸터)과 CSS는 손으로 쓴 그대로 유지됩니다.
+
+카드는 심플 규칙을 지킵니다: 썸네일 아이콘 + 배지 1개 + 상품명 + 한 줄 설명 + 가격대 + 버튼 1개.
 
 사용법:
     python3 scripts/build_picks.py            # 렌더링 + 검증
@@ -34,12 +36,12 @@ SEARCH_BASE = "https://www.coupang.com/np/search?q="
 
 CARD_TMPL = """\
       <article class="pcard" data-id="{id}">
-        <div class="pcard-thumb" aria-hidden="true"><span>{emoji}</span></div>
-        <div class="pcard-body">
-          <div class="pcard-badges">{badges}</div>
-          <h3 class="pcard-name">{name}</h3>
-          <p class="pcard-price">{price}</p>
-          <p class="pcard-note">{note}</p>
+        <div class="thumb" aria-hidden="true"><span>{emoji}</span></div>
+        <div class="body">
+          {badge}
+          <h3 class="name">{name}</h3>
+          <p class="line">{note}</p>
+          <p class="price">{price}</p>
           {action}
         </div>
       </article>"""
@@ -57,49 +59,37 @@ def won(value) -> str:
 
 
 def price_block(item: dict) -> str:
-    """정가/할인율 UI: 판매처 가격이 연결되면 자동으로 표시, 없으면 가격대만."""
-    parts: list[str] = []
-    if item.get("discount"):
-        parts.append(f'<span class="price-off">-{int(item["discount"])}%</span>')
-    if item.get("list_price"):
-        parts.append(f'<span class="price-was">{won(item["list_price"])}</span>')
+    """판매처 가격이 연결되면 실제 가격, 아니면 가격대 힌트만."""
     if item.get("price"):
-        parts.append(f'<span class="price-now">{won(item["price"])}</span>')
-        parts.append("<span>· 쿠팡에서 확인</span>")
-    else:
-        parts.append(f'<span class="price-now">{esc(item.get("price_hint")) or "가격대 미정"}</span>')
-        parts.append("<span>· 쿠팡에서 확인</span>")
-    if item.get("is_rocket"):
-        parts.append('<span class="chip chip-why">로켓배송</span>')
-    return "".join(parts)
+        parts: list[str] = []
+        if item.get("discount"):
+            parts.append(f'<span class="off">-{int(item["discount"])}%</span>')
+        if item.get("list_price"):
+            parts.append(f"<s>{won(item['list_price'])}</s>")
+        parts.append(f"<b>{won(item['price'])}</b>")
+        return "".join(parts)
+    return f"<b>{esc(item.get('price_hint')) or '가격 미정'}</b>"
 
 
-def badges(item: dict) -> str:
-    out = []
-    if item.get("category"):
-        out.append(f'<span class="chip chip-cat">{esc(item["category"])}</span>')
-    if item.get("badge"):
-        out.append(f'<span class="chip chip-why">{esc(item["badge"])}</span>')
-    if item.get("link"):
-        out.append('<span class="chip chip-ad">광고</span>')
-    return "".join(out)
+def badge(item: dict) -> str:
+    """카드 배지는 1개만 — 상품의 badge, 없으면 category."""
+    label = item.get("badge") or item.get("category")
+    return f'<span class="badge">{esc(label)}</span>' if label else ""
 
 
 def action_block(item: dict) -> str:
+    """버튼 1개. 제휴 링크가 없으면 가짜 링크 대신 쿠팡 검색으로 보낸다."""
     link = (item.get("link") or "").strip()
     query = (item.get("search_query") or item.get("name") or "").strip()
     search = SEARCH_BASE + urllib.parse.quote(query)
     if link:
         return (
-            f'<a class="pcard-btn" href="{esc(link)}" target="_blank" '
-            f'rel="sponsored nofollow noopener">쿠팡에서 보기 →</a>\n'
-            f'          <a class="pcard-sub" href="{esc(search)}" target="_blank" '
-            f'rel="nofollow noopener">다른 상품 검색</a>'
+            f'<a class="btn is-link" href="{esc(link)}" target="_blank" '
+            f'rel="sponsored nofollow noopener">쿠팡에서 보기</a>'
         )
     return (
-        '<span class="pcard-btn is-pending" aria-disabled="true">간편링크 준비 중</span>\n'
-        f'          <a class="pcard-sub" href="{esc(search)}" target="_blank" '
-        f'rel="nofollow noopener">판매처에서 검색해 보기</a>'
+        f'<a class="btn" href="{esc(search)}" target="_blank" '
+        f'rel="nofollow noopener">쿠팡에서 검색</a>'
     )
 
 
@@ -107,7 +97,7 @@ def render_card(item: dict) -> str:
     return CARD_TMPL.format(
         id=esc(item["id"]),
         emoji=esc(item.get("emoji") or "🛍️"),
-        badges=badges(item),
+        badge=badge(item),
         name=esc(item["name"]),
         price=price_block(item),
         note=esc(item.get("note")),
@@ -161,31 +151,28 @@ def theme_cards(themes: list[dict], data: dict) -> str:
     rows = []
     for theme in themes:
         items = visible_items(data, theme)
-        foot = [f"준비물 {len(items)}개", "체크리스트·예산표"]
-        if theme.get("tool_label"):
-            foot.append(esc(theme["tool_label"]))
         rows.append(
-            '      <a class="theme-card" href="./{href}">\n'
-            '        <div class="t-top"><h3>{title}</h3><span class="t-season">{season}</span></div>\n'
-            '        <p>{summary}</p>\n'
-            '        <div class="t-foot">{foot}</div>\n'
+            '      <a class="theme" href="./{href}">\n'
+            '        <div class="em" aria-hidden="true">{emoji}</div>\n'
+            '        <div class="tx"><h3>{title}</h3><p>{summary}</p></div>\n'
+            '        <div class="n">{count}개 →</div>\n'
             "      </a>".format(
                 href=esc(theme["page"].rsplit("/", 1)[-1]),
+                emoji=esc(theme.get("emoji") or "🛍️"),
                 title=esc(theme["title"]),
-                season=esc(theme.get("season") or "상시"),
                 summary=esc(theme.get("summary")),
-                foot="".join(f"<span>{f}</span>" for f in foot),
+                count=len(items),
             )
         )
-    return '    <div class="theme-list">\n' + "\n".join(rows) + "\n    </div>"
+    return '    <div class="themes">\n' + "\n".join(rows) + "\n    </div>"
 
 
 def planned_list(themes: list[dict]) -> str:
-    rows = [
-        '      <div><b>{title}</b><span>준비 중</span></div>'.format(title=esc(t["title"]))
-        for t in themes
-    ]
-    return '    <div class="planned">\n' + "\n".join(rows) + "\n    </div>"
+    """예정 테마는 목록이 아니라 한 줄로만."""
+    if not themes:
+        return '    <p class="planned"></p>'
+    names = " · ".join(esc(t["title"]) for t in themes)
+    return f'    <p class="planned"><b>준비 중</b> — {names}</p>'
 
 
 def check_links(items: list[dict]) -> list[str]:
@@ -270,6 +257,11 @@ def main() -> int:
     pending = [i["id"] for i in data["items"] if i.get("status") == "pending_link"]
     if pending:
         print(f"[대기] 간편링크 미연결 {len(pending)}건: {', '.join(pending)}")
+
+    # 심플 카드 규칙: 설명은 한 줄(60자 이내)
+    long_notes = [i["id"] for i in data["items"] if len(i.get("note") or "") > 60]
+    if long_notes:
+        print(f"[경고] 카드 설명이 60자를 넘습니다: {', '.join(long_notes)}")
 
     if args.check_links:
         problems = check_links(data["items"])
