@@ -499,7 +499,7 @@
     facts.style.marginBottom = '12px';
     [['측정 ID', ga.measurement_id || '—'],
      ['속성', ga.property || '—'],
-     ['데이터', ga.data_status === 'waiting' ? '0건 (대기)' : (ga.data_status || '—')]
+     ['데이터', ga.data_status_label || ga.data_status || '—']
     ].forEach(function (row) {
       var k = el('div', 'kpi');
       k.appendChild(el('p', 'k', row[0]));

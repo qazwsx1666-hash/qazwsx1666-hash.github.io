@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "site": "https://qazwsx1666-hash.github.io/",
-  "updated_at": "2026-11-25T23:57:16+09:00",
-  "updated_by": "Pickle 배포 직전 집계",
+  "updated_at": "2026-11-26T00:06:46+09:00",
+  "updated_by": "Pickle GA4 실시간 수신 확인 후 갱신",
   "ga4": {
     "connected": true,
     "account": "qazwsx1666",
@@ -11,14 +11,15 @@
     "stream_id": "16414151324",
     "stream_url": "https://qazwsx1666-hash.github.io",
     "tag_installed_at": "2026-11-25T23:57:16+09:00",
-    "data_status": "waiting",
-    "data_status_label": "수집 대기 중 (0건)",
-    "data_note": "태그를 2026-11-25 밤에 설치했습니다. GA4는 태그 설치 후 보통 24~48시간 뒤부터 보고서에 잡히며, 그 전에는 0건으로 표시됩니다.",
+    "data_status": "collecting",
+    "data_status_label": "수집 확인 · 리포트 집계 대기",
+    "data_note": "2026-11-26 00:06 GA4 실시간 보고서에서 page_view·활성 사용자 수신을 확인했습니다. 유입 채널·검색어·인기 페이지 표는 GA4가 데이터를 처리한 뒤(보통 24~48시간) 채워집니다.",
     "report_url": "https://analytics.google.com/analytics/web/",
     "channels": [],
     "keywords": [],
     "pages": [],
-    "referrers": []
+    "referrers": [],
+    "realtime_verified_at": "2026-11-26T00:06:46+09:00"
   },
   "counters": {
     "source": "countapi.mileshilliard.com (visitor-stats.js 브라우저 카운터)",
