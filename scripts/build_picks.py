@@ -146,7 +146,8 @@ def itemlist_ld(theme: dict, items: list[dict], today: str) -> str:
         ],
     }
     body = json.dumps(payload, ensure_ascii=False, indent=2)
-    return "\n".join("  " + line for line in body.splitlines())
+    body = "\n".join("  " + line for line in body.splitlines())
+    return '<script type="application/ld+json">\n' + body + '\n</script>'
 
 
 def replace_block(text: str, start: str, end: str, new: str, where: str) -> str:
