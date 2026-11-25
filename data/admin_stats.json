@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "site": "https://qazwsx1666-hash.github.io/",
-  "updated_at": "2026-11-26T00:09:34+09:00",
-  "updated_by": "Pickle 00:12 마지막 갱신",
+  "updated_at": "2026-11-26T00:10:51+09:00",
+  "updated_by": "Pickle 배포·검증",
   "ga4": {
     "connected": true,
     "account": "qazwsx1666",
@@ -95,14 +95,14 @@
       "explored_invalid": 0,
       "sitemap_status": "가져올 수 없음(11-23 읽기 기록이 남은 스테일 표시로 판단)",
       "clicks": 0,
-      "checked_at": "2026-11-26"
+      "checked_at": "2026-11-25"
     },
     "naver": {
       "collected": 51,
       "errors": 0,
       "restricted": 0,
       "status": "사이트맵 등록됨 · HTTPS 리다이렉션 정상",
-      "checked_at": "2026-11-26"
+      "checked_at": "2026-11-25"
     },
     "requested_total": 33,
     "requested_note": "구글 색인 생성 요청 누적 33건 (11-22 3건 · 11-23 7건 · 11-24 11건 · 11-25 12건). 남은 대기 4건은 11-26 10:00 회차에 요청."
