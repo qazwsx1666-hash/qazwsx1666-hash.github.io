@@ -620,13 +620,16 @@
     });
 
     var stampEl = document.getElementById('counterStamp');
+    var todayKey = kstDate(new Date());
+    var todayLabel = todayKey.slice(4, 6) + '/' + todayKey.slice(6, 8) + ' 오늘';
     var liveOk = LIVE && Object.keys(LIVE).some(function (k) { return LIVE[k].today !== null; });
     stampEl.className = 'pill ' + (liveOk ? 'good' : 'info');
-    stampEl.textContent = liveOk ? '실시간' : (d.updated_at ? '통계 파일 값' : '집계 전');
+    stampEl.textContent = liveOk ? '실시간 · ' + todayLabel : (d.updated_at ? '통계 파일 값' : '집계 전');
 
     document.getElementById('counterNote').textContent =
       '출처: ' + ((d.counters && d.counters.source) || 'countapi 브라우저 카운터') +
       ' · 같은 사람이 여러 섹션을 보면 섹션 수만큼 중복 집계됩니다.' +
+      ' · 누적은 카운터를 넣은 2026-11-22 이후 값입니다.' +
       (liveOk ? '' : ' (카운터 서버 응답이 없어 통계 파일의 마지막 값으로 표시합니다)');
   }
 
