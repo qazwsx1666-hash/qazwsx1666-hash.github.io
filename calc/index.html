@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>생활·금융 계산기 25종 | 금융·투자·세금·직장·건강 무료 계산기</title>
+<meta name="description" content="예적금 이자, 연봉 실수령액, 물타기·배당, 연말정산·취득세, 주휴수당·연차, BMI·수면까지. 금융·투자·세금·직장·건강 5개 분야 25종 계산기를 한곳에서 무료로 쓰세요.">
+<meta name="keywords" content="계산기, 금융 계산기, 예적금 이자 계산기, 실수령액, 연말정산, 취득세, 주휴수당, 연차수당, BMI 계산기, 수면시간 계산기">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#1d4ed8">
+<meta name="google-adsense-account" content="ca-pub-6515548213411698">
+<link rel="canonical" href="https://qazwsx1666-hash.github.io/calc/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="생활·금융 계산기">
+<meta property="og:title" content="생활·금융 계산기 25종 — 금융·투자·세금·직장·건강">
+<meta property="og:description" content="회원가입 없이 바로 쓰는 무료 계산기 25종. 금융·투자·세금·직장·건강 5개 분야.">
+<meta property="og:url" content="https://qazwsx1666-hash.github.io/calc/">
+<meta property="og:image" content="https://qazwsx1666-hash.github.io/finance-tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d4ed8'/%3E%3Ctext x='32' y='45' font-size='32' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%E2%82%A9%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/shell/calc.css?v=20261125a">
+<style>
+  :root{--ink:#0b1524;--sub:#5c6b80;--line:#e3e9f2;--blue:#1d4ed8;--bg:#f7f9fc}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55;
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+    -webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  .hero{padding:30px 0 18px}
+  .hero h1{font-size:clamp(24px,3.6vw,32px);line-height:1.25;letter-spacing:-.035em;margin:0 0 10px}
+  .hero p{margin:0;color:var(--sub);font-size:14.5px;max-width:720px}
+  .hero .meta{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  .hero .meta span{font-size:12.5px;font-weight:600;color:#1e3a8a;background:#e8efff;
+    border:1px solid #d6e2fb;border-radius:999px;padding:4px 11px}
+  .cats{display:grid;gap:14px;grid-template-columns:1fr;padding-bottom:26px}
+  @media (min-width:820px){.cats{grid-template-columns:1fr 1fr;gap:16px}}
+  .cat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px 6px 8px;
+    box-shadow:0 6px 18px rgba(15,23,42,.045)}
+  .cat-head{display:flex;align-items:center;gap:9px;padding:12px 12px 10px;border-bottom:1px solid #eef2f8}
+  .cat-head .em{font-size:19px;line-height:1}
+  .cat-head h2{font-size:16px;margin:0;letter-spacing:-.02em}
+  .cat-head .n{font-size:12px;color:#64748b;font-weight:600}
+  .cat-head .hub{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--blue);text-decoration:none;
+    background:#f1f5ff;border:1px solid #dbe6ff;border-radius:999px;padding:4px 10px;white-space:nowrap}
+  .cat-head .hub:hover{background:#e4ecff}
+  .cat ul{list-style:none;margin:0;padding:4px 4px 0}
+  .cat li a{display:flex;align-items:baseline;gap:8px;padding:8px 9px;border-radius:10px;
+    text-decoration:none;color:inherit}
+  .cat li a:hover{background:#f4f7ff}
+  .cat li b{font-size:14px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+  .cat li span{font-size:12px;color:#7b8899;line-height:1.4}
+  .foot-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;
+    margin-bottom:22px;font-size:13px;color:var(--sub)}
+  .foot-note b{color:var(--ink)}
+  .foot-note a{color:var(--blue)}
+  .space-foot{padding:0 0 40px;font-size:12.5px;color:#7b8899}
+  .space-foot a{color:#4b5a70}
+</style>
+</head>
+<body>
+
+<header class="cbar">
+  <div class="cbar-in">
+    <a class="cbar-portal" href="/">← 포털 홈</a>
+    <a class="cbar-brand" href="/calc/"><span class="cbar-mark" aria-hidden="true">₩</span>생활·금융 계산기</a>
+    <nav class="cbar-tabs" aria-label="계산기 카테고리">
+      <a href="/calc/" class="on">전체</a>
+      <a href="/finance-tools/">금융</a>
+      <a href="/invest-tools/">투자</a>
+      <a href="/tax-tools/">세금</a>
+      <a href="/career-tools/">직장</a>
+      <a href="/health-calc/">건강</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>생활·금융 계산기 25종</h1>
+    <p>돈이 오가는 순간에 필요한 계산만 모았습니다. 금융·투자·세금·직장·건강 5개 분야, 25종 계산기를 회원가입 없이 바로 씁니다.</p>
+    <div class="meta">
+      <span>25종 무료</span><span>현행 요율 반영</span><span>입력값은 브라우저에서만</span>
+    </div>
+  </section>
+
+  <div class="cats">
+
+    <section class="cat" aria-labelledby="c-finance">
+      <div class="cat-head">
+        <span class="em" aria-hidden="true">💰</span>
+        <h2 id="c-finance">금융</h2><span class="n">5종</span>
+        <a class="hub" href="/finance-tools/">허브 →</a>
+      </div>
+      <ul>
+        <li><a href="/finance-tools/savings.html"><b>예적금 이자</b><span>단리·월복리·세후 비교</span></a></li>
+        <li><a href="/finance-tools/salary.html"><b>연봉 실수령액</b><span>4대보험·소득세 공제 후 월급</span></a></li>
+        <li><a href="/finance-tools/refinance.html"><b>대출 갈아타기</b><span>손익분기·중도상환수수료</span></a></li>
+        <li><a href="/finance-tools/severance.html"><b>퇴직금·실업급여</b><span>평균임금·소정급여일수</span></a></li>
+        <li><a href="/finance-tools/housing.html"><b>청약 가점·전월세</b><span>84점 배점·전환율</span></a></li>
+      </ul>
+    </section>
+
+    <section class="cat" aria-labelledby="c-invest">
+      <div class="cat-head">
+        <span class="em" aria-hidden="true">📈</span>
+        <h2 id="c-invest">투자</h2><span class="n">5종</span>
+        <a class="hub" href="/invest-tools/">허브 →</a>
+      </div>
+      <ul>
+        <li><a href="/invest-tools/averaging.html"><b>물타기 평단가</b><span>새 평단가·본전 수익률</span></a></li>
+        <li><a href="/invest-tools/dividend.html"><b>월 배당</b><span>세후 100만 원 필요 투자금</span></a></li>
+        <li><a href="/invest-tools/compound.html"><b>복리 적립</b><span>월 적립 복리 최종 자산</span></a></li>
+        <li><a href="/invest-tools/yield.html"><b>매도가·손절가</b><span>수수료·거래세 반영</span></a></li>
+        <li><a href="/invest-tools/isa-pension.html"><b>ISA·연금</b><span>세액공제·비과세 비교</span></a></li>
+      </ul>
+    </section>
+
+    <section class="cat" aria-labelledby="c-tax">
+      <div class="cat-head">
+        <span class="em" aria-hidden="true">🏠</span>
+        <h2 id="c-tax">세금</h2><span class="n">5종</span>
+        <a class="hub" href="/tax-tools/">허브 →</a>
+      </div>
+      <ul>
+        <li><a href="/tax-tools/yearend-tax.html"><b>연말정산 환급</b><span>13월의 월급 미리보기</span></a></li>
+        <li><a href="/tax-tools/brokerage.html"><b>중개보수(복비)</b><span>법정 상한요율·한도액</span></a></li>
+        <li><a href="/tax-tools/acquisition-tax.html"><b>취득세</b><span>1주택·다주택·85㎡ 농특세</span></a></li>
+        <li><a href="/tax-tools/vat.html"><b>부가가치세</b><span>공급가액·세액 역산</span></a></li>
+        <li><a href="/tax-tools/fuel.html"><b>유류비</b><span>주행거리·연비 기름값</span></a></li>
+      </ul>
+    </section>
+
+    <section class="cat" aria-labelledby="c-career">
+      <div class="cat-head">
+        <span class="em" aria-hidden="true">💼</span>
+        <h2 id="c-career">직장</h2><span class="n">5종</span>
+        <a class="hub" href="/career-tools/">허브 →</a>
+      </div>
+      <ul>
+        <li><a href="/career-tools/char-count.html"><b>자소서 글자수</b><span>공백 포함·제외, 바이트</span></a></li>
+        <li><a href="/career-tools/weekly-pay.html"><b>시급·주휴수당</b><span>주급·월급 세후</span></a></li>
+        <li><a href="/career-tools/annual-leave.html"><b>연차·연차수당</b><span>발생일수·미사용 수당</span></a></li>
+        <li><a href="/career-tools/salary-hour.html"><b>연봉 시급</b><span>1분·1초 가치 환산</span></a></li>
+        <li><a href="/career-tools/unemployment.html"><b>실업급여</b><span>소정급여일수·총 수령액</span></a></li>
+      </ul>
+    </section>
+
+    <section class="cat" aria-labelledby="c-health">
+      <div class="cat-head">
+        <span class="em" aria-hidden="true">💪</span>
+        <h2 id="c-health">건강</h2><span class="n">5종</span>
+        <a class="hub" href="/health-calc/">허브 →</a>
+      </div>
+      <ul>
+        <li><a href="/health-calc/bmi.html"><b>BMI</b><span>비만도·표준체중</span></a></li>
+        <li><a href="/health-calc/bmr-calorie.html"><b>기초대사량</b><span>BMR·TDEE·탄단지</span></a></li>
+        <li><a href="/health-calc/sleep.html"><b>수면시간</b><span>90분 사이클 역산</span></a></li>
+        <li><a href="/health-calc/caffeine.html"><b>카페인</b><span>반감기·취침 안전 시각</span></a></li>
+        <li><a href="/health-calc/water.html"><b>물·단백질</b><span>하루 권장량</span></a></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <section class="foot-note">
+    <p style="margin:0 0 6px"><b>이 계산기들은 금융기관 창구에서 일하는 운영자가 직접 만들었습니다.</b> 요율·세율은 공개된 법령과 고시를 반영했고, 결과는 참고용 추정치입니다. 실제 세액·수령액은 개인 조건과 기관 기준에 따라 달라질 수 있습니다.</p>
+    <p style="margin:0">모든 계산은 이용자의 브라우저에서만 이뤄지며 입력값은 저장·전송되지 않습니다. 자세한 내용은 <a href="/finance-tools/privacy.html">개인정보처리방침</a>을 확인하세요.</p>
+  </section>
+
+  <p class="space-foot">© 2026 생활·금융 계산기 · <a href="/">포털 홈</a> · <a href="/finance-tools/privacy.html">개인정보처리방침</a> · <a href="https://blog.naver.com/speakdiscount" target="_blank" rel="noopener">블로그</a></p>
+</main>
+<script src="/visitor-stats.js" defer></script>
+</body>
+</html>

@@ -30,26 +30,31 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "적정 수면시간·기상 알람 역산 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/sleep.html", "applicationCategory": "HealthApplication", "operatingSystem": "All", "inLanguage": "ko-KR", "description": "90분 수면 사이클로 취침 시각과 기상 시각을 양방향으로 계산합니다.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "건강·다이어트·수면 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "90분 수면 사이클은 정확한가요?", "acceptedAnswer": {"@type": "Answer", "text": "평균값입니다. 사람마다 70~120분으로 차이가 나고, 같은 사람도 밤마다 조금씩 다릅니다. 알람을 맞출 때 기준으로 쓰기 좋은 숫자이고, 워치나 앱으로 자신의 평균 주기를 확인하면 더 정확해집니다."}}, {"@type": "Question", "name": "잠드는 시간 15분은 왜 더하나요?", "acceptedAnswer": {"@type": "Answer", "text": "누워서 실제로 잠들기까지 평균 10~20분이 걸리기 때문입니다. 7시간 30분 수면을 원하면 침대에 7시간 45분 전에 눕는 것이 계산입니다. 스마트폰을 보다 눕거나 잠들기 어려운 편이라면 20~30분으로 늘려 잡으세요."}}, {"@type": "Question", "name": "5주기와 6주기 중 무엇이 좋나요?", "acceptedAnswer": {"@type": "Answer", "text": "성인에게는 5주기(7시간 30분)가 가장 무난합니다. 6주기(9시간)는 평소 수면 부족이 쌓였거나 회복이 필요할 때, 4주기(6시간)는 시간이 없을 때의 최소선입니다. 꾸준히 4주기만 자면 만성 수면 부족이 됩니다."}}, {"@type": "Question", "name": "주말에 몰아서 자도 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "2시간 안쪽의 보충은 괜찮지만 3시간 이상 늦게 일어나면 생체시계가 뒤로 밀려 월요일이 더 힘들어집니다. 부족한 잠은 주말 몰아자기보다 평일 취침을 30분씩 앞당겨 채우는 편이 효과적입니다."}}, {"@type": "Question", "name": "알람을 여러 개 맞추면 덜 피곤한가요?", "acceptedAnswer": {"@type": "Answer", "text": "아닙니다. 5분 간격 알람은 잠을 다시 끊어 얕은 잠을 반복시키고 수면 관성을 키웁니다. 알람은 한 번만, 주기 경계에 맞춰 두는 것이 좋습니다. 일어난 뒤에는 5분 안에 커튼을 열고 물을 마시면 각성이 빨라집니다."}}, {"@type": "Question", "name": "커피를 마시면 잠이 안 오는 이유는 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "카페인은 뇌의 아데노신 수용체를 막아 졸음을 늦춥니다. 반감기가 5시간 안팎이라 오후 3시에 마신 커피의 절반은 밤 8시에도 남아 있습니다. 잠들기 8시간 전부터 카페인을 끊으면 잠드는 시간이 짧아집니다."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "전체 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/"}, {"@type": "ListItem", "position": 2, "name": "적정 수면시간·기상 알람 역산 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/sleep.html"}]}</script>
+<link rel="stylesheet" href="/shell/calc.css?v=20261125a">
 </head>
 <body>
 <a class="skip" href="#main">본문으로 바로가기</a>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="./">
-      <span class="brand-mark" aria-hidden="true">건</span>
-      <span class="brand-name">건강 계산기<small>다이어트·수면 도구 5종</small></span>
-    </a>
-    <span class="header-note">입력값 저장 없음</span>
+<header class="cbar">
+  <div class="cbar-in">
+    <a class="cbar-portal" href="/">← 포털 홈</a>
+    <a class="cbar-brand" href="/calc/"><span class="cbar-mark" aria-hidden="true">₩</span>생활·금융 계산기</a>
+    <nav class="cbar-tabs" aria-label="계산기 카테고리">
+      <a href="/calc/">전체</a>
+      <a href="/finance-tools/">금융</a>
+      <a href="/invest-tools/">투자</a>
+      <a href="/tax-tools/">세금</a>
+      <a href="/career-tools/">직장</a>
+      <a href="/health-calc/" class="on">건강</a>
+    </nav>
   </div>
 </header>
-
-<nav class="calc-nav" aria-label="계산기 바로가기">
-  <div class="wrap calc-nav-inner">
-    <a href="./">전체 계산기</a>
+<nav class="cpills" aria-label="이 허브의 도구">
+  <div class="cpills-in">
+    <a href="./">전체</a>
     <a href="./bmi.html">BMI</a>
     <a href="./bmr-calorie.html">칼로리</a>
-    <a href="./sleep.html" aria-current="page">수면</a>
+    <a href="./sleep.html" class="on">수면</a>
     <a href="./caffeine.html">카페인</a>
     <a href="./water.html">물·단백질</a>
   </div>
@@ -224,7 +229,7 @@
       <a href="./caffeine.html">카페인</a>
       <a href="./water.html">물·단백질</a>
       <a href="./privacy.html">개인정보처리방침</a>
-      <a href="https://qazwsx1666-hash.github.io/">전체 사이트</a>
+      <a href="/calc/">전체 계산기</a>
     </div>
     <p class="copy">© 건강·다이어트·수면 계산기. 모든 계산은 사용자의 브라우저에서만 이뤄집니다.</p>
   </div>

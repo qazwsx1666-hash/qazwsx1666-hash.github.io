@@ -106,32 +106,36 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/shell/calc.css?v=20261125a">
 </head>
 
 <body>
 <a class="skip" href="#main">본문으로 바로가기</a>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="./">
-      <span class="brand-mark" aria-hidden="true">세</span>
-      <span class="brand-name">부동산·세금 계산기<small>생활비 계산기 5종</small></span>
-    </a>
-    <span class="header-note">법정 요율 반영</span>
+<header class="cbar">
+  <div class="cbar-in">
+    <a class="cbar-portal" href="/">← 포털 홈</a>
+    <a class="cbar-brand" href="/calc/"><span class="cbar-mark" aria-hidden="true">₩</span>생활·금융 계산기</a>
+    <nav class="cbar-tabs" aria-label="계산기 카테고리">
+      <a href="/calc/">전체</a>
+      <a href="/finance-tools/">금융</a>
+      <a href="/invest-tools/">투자</a>
+      <a href="/tax-tools/" class="on">세금</a>
+      <a href="/career-tools/">직장</a>
+      <a href="/health-calc/">건강</a>
+    </nav>
   </div>
 </header>
-
-<nav class="calc-nav" aria-label="계산기 바로가기">
-  <div class="wrap calc-nav-inner">
-    <a href="./">전체 계산기</a>
+<nav class="cpills" aria-label="이 허브의 도구">
+  <div class="cpills-in">
+    <a href="./">전체</a>
     <a href="./yearend-tax.html">연말정산</a>
     <a href="./brokerage.html">중개보수</a>
     <a href="./acquisition-tax.html">취득세</a>
-    <a href="./vat.html" aria-current="page">부가가치세</a>
+    <a href="./vat.html" class="on">부가세</a>
     <a href="./fuel.html">유류비</a>
   </div>
 </nav>
-
 <main id="main">
   <div class="wrap">
 
@@ -299,7 +303,7 @@
       <a href="./vat.html">부가가치세</a>
       <a href="./fuel.html">유류비</a>
       <a href="./privacy.html">개인정보처리방침</a>
-      <a href="https://qazwsx1666-hash.github.io/">전체 사이트</a>
+      <a href="/calc/">전체 계산기</a>
     </div>
     <p class="copy">© 부동산·세금 계산기. 모든 계산은 사용자의 브라우저에서만 이뤄집니다.</p>
   </div>

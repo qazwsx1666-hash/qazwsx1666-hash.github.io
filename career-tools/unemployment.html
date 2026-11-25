@@ -89,25 +89,35 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/shell/calc.css?v=20261125a">
 </head>
 <body>
 <a class="skip" href="#main">본문으로 바로 가기</a>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="./index.html">
-      <span class="brand-logo" aria-hidden="true">계</span>
-      <span class="brand-name">직장인 계산기</span>
-    </a>
-    <nav class="nav" aria-label="도구 목록">
-      <a href="./char-count.html">자소서 글자수</a>
-      <a href="./weekly-pay.html">시급·주휴수당</a>
-      <a href="./annual-leave.html">연차·수당</a>
-      <a href="./salary-hour.html">연봉 시급</a>
-      <a href="./unemployment.html" class="is-active" aria-current="page">실업급여</a>
+<header class="cbar">
+  <div class="cbar-in">
+    <a class="cbar-portal" href="/">← 포털 홈</a>
+    <a class="cbar-brand" href="/calc/"><span class="cbar-mark" aria-hidden="true">₩</span>생활·금융 계산기</a>
+    <nav class="cbar-tabs" aria-label="계산기 카테고리">
+      <a href="/calc/">전체</a>
+      <a href="/finance-tools/">금융</a>
+      <a href="/invest-tools/">투자</a>
+      <a href="/tax-tools/">세금</a>
+      <a href="/career-tools/" class="on">직장</a>
+      <a href="/health-calc/">건강</a>
     </nav>
   </div>
 </header>
+<nav class="cpills" aria-label="이 허브의 도구">
+  <div class="cpills-in">
+    <a href="./">전체</a>
+    <a href="./char-count.html">자소서 글자수</a>
+    <a href="./weekly-pay.html">시급·주휴</a>
+    <a href="./annual-leave.html">연차·수당</a>
+    <a href="./salary-hour.html">연봉 시급</a>
+    <a href="./unemployment.html" class="on">실업급여</a>
+  </div>
+</nav>
 
 <main id="main">
   <div class="wrap">

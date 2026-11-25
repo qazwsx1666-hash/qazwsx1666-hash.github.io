@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://qazwsx1666-hash.github.io/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- 공간 허브 (2026-11-25 신설) -->
+  <url><loc>https://qazwsx1666-hash.github.io/calc/</loc><lastmod>2026-11-25</lastmod><priority>1.0</priority></url>
+  <url><loc>https://qazwsx1666-hash.github.io/play/</loc><lastmod>2026-11-25</lastmod><priority>1.0</priority></url>
   <!-- 금융 계산기 -->
   <url><loc>https://qazwsx1666-hash.github.io/finance-tools/</loc><lastmod>2026-11-22</lastmod><priority>1.0</priority></url>
   <url><loc>https://qazwsx1666-hash.github.io/finance-tools/savings.html</loc><lastmod>2026-11-22</lastmod><priority>0.9</priority></url>

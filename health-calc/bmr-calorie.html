@@ -30,25 +30,30 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "기초대사량(BMR)·하루 권장 칼로리(TDEE) 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/bmr-calorie.html", "applicationCategory": "HealthApplication", "operatingSystem": "All", "inLanguage": "ko-KR", "description": "성별·나이·키·체중·활동량으로 기초대사량과 하루 소비 칼로리, 목표별 탄단지 섭취량을 계산합니다.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}, "publisher": {"@type": "Organization", "name": "건강·다이어트·수면 계산기", "url": "https://qazwsx1666-hash.github.io/health-calc/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "기초대사량과 활동대사량은 어떻게 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "기초대사량은 아무것도 하지 않아도 생명 유지에 쓰는 에너지이고, 활동대사량은 걷기·운동·집안일처럼 몸을 움직이며 쓰는 에너지입니다. 둘을 합치고 소화에 쓰는 에너지(약 10%)를 더한 것이 하루 총 소비 칼로리(TDEE)입니다."}}, {"@type": "Question", "name": "하루 1,200kcal 다이어트는 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "단기간에야 체중이 줄지만 오래 유지하기 어렵고 근손실·영양 결핍·생리 불순 위험이 있습니다. 특별한 지시가 없다면 여성 1,200kcal, 남성 1,500kcal 아래로 내려가지 않는 것이 안전합니다. 감량은 하루 500kcal 적자, 주 0.5kg 속도가 현실적입니다."}}, {"@type": "Question", "name": "운동을 하면 칼로리를 더 먹어야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "활동계수에 운동이 이미 반영되어 있으므로 중복해서 더하지 않습니다. 다만 평소보다 운동량이 크게 늘었거나 육체노동을 시작했다면 계수를 한 단계 올리세요. 운동 후 극심한 배고픔이 온다면 단백질과 채소를 먼저 채우는 편이 좋습니다."}}, {"@type": "Question", "name": "계산한 칼로리와 실제 체중 변화가 안 맞아요.", "acceptedAnswer": {"@type": "Answer", "text": "개인차가 ±10%는 흔합니다. 2주 동안 같은 조건으로 체중을 재고 평균을 내 보세요. 변화가 없으면 하루 200kcal를 줄이거나 활동량을 늘리고, 너무 빨리 빠지면 100~200kcal를 되돌립니다. 수면 부족과 스트레스도 소비량과 식욕을 바꿉니다."}}, {"@type": "Question", "name": "단백질은 얼마나 먹어야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "일반 성인은 체중 1kg당 0.9~1.0g이면 충분하고, 운동을 하거나 감량 중이라면 1.6~2.0g까지 올리는 것이 좋습니다. 72kg 기준 115~144g입니다. 한 번에 30g 안팎씩 3~4끼로 나눠 먹고, 신장 질환이 있다면 의사와 상의하세요."}}, {"@type": "Question", "name": "나이가 들면 기초대사량이 왜 줄어드나요?", "acceptedAnswer": {"@type": "Answer", "text": "근육량이 줄고 활동량이 함께 줄기 때문입니다. 최근 연구에서는 20~60세의 기초대사량이 비교적 안정적이고 60세 이후 감소가 뚜렷해진다고 봅니다. 근력 운동으로 근육량을 유지하고 단백질을 충분히 먹으면 감소 속도를 늦출 수 있습니다."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "전체 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/"}, {"@type": "ListItem", "position": 2, "name": "기초대사량(BMR)·하루 권장 칼로리 계산기", "item": "https://qazwsx1666-hash.github.io/health-calc/bmr-calorie.html"}]}</script>
+<link rel="stylesheet" href="/shell/calc.css?v=20261125a">
 </head>
 <body>
 <a class="skip" href="#main">본문으로 바로가기</a>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="./">
-      <span class="brand-mark" aria-hidden="true">건</span>
-      <span class="brand-name">건강 계산기<small>다이어트·수면 도구 5종</small></span>
-    </a>
-    <span class="header-note">입력값 저장 없음</span>
+<header class="cbar">
+  <div class="cbar-in">
+    <a class="cbar-portal" href="/">← 포털 홈</a>
+    <a class="cbar-brand" href="/calc/"><span class="cbar-mark" aria-hidden="true">₩</span>생활·금융 계산기</a>
+    <nav class="cbar-tabs" aria-label="계산기 카테고리">
+      <a href="/calc/">전체</a>
+      <a href="/finance-tools/">금융</a>
+      <a href="/invest-tools/">투자</a>
+      <a href="/tax-tools/">세금</a>
+      <a href="/career-tools/">직장</a>
+      <a href="/health-calc/" class="on">건강</a>
+    </nav>
   </div>
 </header>
-
-<nav class="calc-nav" aria-label="계산기 바로가기">
-  <div class="wrap calc-nav-inner">
-    <a href="./">전체 계산기</a>
+<nav class="cpills" aria-label="이 허브의 도구">
+  <div class="cpills-in">
+    <a href="./">전체</a>
     <a href="./bmi.html">BMI</a>
-    <a href="./bmr-calorie.html" aria-current="page">칼로리</a>
+    <a href="./bmr-calorie.html" class="on">칼로리</a>
     <a href="./sleep.html">수면</a>
     <a href="./caffeine.html">카페인</a>
     <a href="./water.html">물·단백질</a>
@@ -260,7 +265,7 @@
       <a href="./caffeine.html">카페인</a>
       <a href="./water.html">물·단백질</a>
       <a href="./privacy.html">개인정보처리방침</a>
-      <a href="https://qazwsx1666-hash.github.io/">전체 사이트</a>
+      <a href="/calc/">전체 계산기</a>
     </div>
     <p class="copy">© 건강·다이어트·수면 계산기. 모든 계산은 사용자의 브라우저에서만 이뤄집니다.</p>
   </div>

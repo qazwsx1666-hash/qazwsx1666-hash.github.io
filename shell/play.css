@@ -1,0 +1,38 @@
+/* ── 테스트·운세 공간 전용 상단 내비게이션 ──────────────────────────────
+   계산기·추천템 메뉴는 이 공간에 나오지 않습니다. */
+.pbar{position:sticky;top:0;z-index:60;background:linear-gradient(120deg,#7c3aed 0%,#a855f7 48%,#ec4899 100%);
+  color:#fff;box-shadow:0 2px 10px rgba(124,58,237,.22)}
+.pbar-in{max-width:1000px;margin:0 auto;padding:0 16px;min-height:56px;
+  display:flex;align-items:center;gap:12px}
+.pbar-portal{flex:none;font-size:12.5px;font-weight:700;color:#fff;text-decoration:none;
+  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);
+  border-radius:999px;padding:6px 11px;white-space:nowrap}
+.pbar-portal:hover{background:rgba(255,255,255,.3)}
+.pbar-brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff;
+  font-size:15px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.pbar-mark{width:26px;height:26px;border-radius:9px;flex:none;background:rgba(255,255,255,.22);
+  display:grid;place-items:center;font-size:14px;line-height:1}
+.pbar-tabs{display:flex;align-items:center;gap:4px;margin-left:auto;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none}
+.pbar-tabs::-webkit-scrollbar{display:none}
+.pbar-tabs a{font-size:13.5px;font-weight:600;color:rgba(255,255,255,.9);text-decoration:none;
+  padding:7px 12px;border-radius:999px;white-space:nowrap}
+.pbar-tabs a:hover{background:rgba(255,255,255,.16);color:#fff}
+.pbar-tabs a.on{background:#fff;color:#7c3aed}
+@media (max-width:720px){
+  .pbar-in{flex-wrap:wrap;gap:6px 10px;padding:9px 12px 7px}
+  .pbar-brand{font-size:14px}
+  .pbar-tabs{margin-left:0;width:100%;order:3;gap:2px;padding-top:2px}
+  .pbar-tabs a{padding:6px 9px;font-size:13px}
+}
+
+/* 허브 안 도구 알약 바 */
+.ppills{background:#faf7ff;border-bottom:1px solid #f0e8fb}
+.ppills-in{max-width:1000px;margin:0 auto;padding:8px 16px;display:flex;gap:6px;
+  overflow-x:auto;scrollbar-width:none}
+.ppills-in::-webkit-scrollbar{display:none}
+.ppills a{font-size:13px;font-weight:500;color:#6b5b86;text-decoration:none;
+  background:#fff;border:1px solid #ece2fa;border-radius:999px;padding:6px 12px;white-space:nowrap}
+.ppills a:hover{border-color:#d7bdf7;color:#7c3aed}
+.ppills a.on{border-color:#a855f7;background:#f3e8ff;color:#7c3aed;font-weight:700}
+@media (max-width:720px){.ppills-in{padding:7px 12px}}
