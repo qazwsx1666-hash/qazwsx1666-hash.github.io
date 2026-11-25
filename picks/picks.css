@@ -51,10 +51,10 @@ a:hover { text-decoration: none; }
 .notice {
   background: #f7f8fa;
   border-bottom: 1px solid var(--line);
-  padding: 9px 0;
+  padding: 10px 0;
   font-size: 12.5px;
   line-height: 1.5;
-  color: #6b7684;
+  color: #4e5968;
   text-align: center;
 }
 .notice b { color: var(--ink-2); font-weight: 700; }
@@ -107,9 +107,9 @@ main { padding: 34px 0 56px; }
 .pcard:hover { border-color: #d5dae0; transform: translateY(-2px); }
 
 .thumb {
-  aspect-ratio: 16 / 11;
+  height: 140px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 46px; line-height: 1;
+  font-size: 52px; line-height: 1;
   background: linear-gradient(155deg, #f8fafc 0%, #eef3f9 100%);
 }
 .thumb span { transform: translateY(-1px); }
@@ -124,7 +124,7 @@ main { padding: 34px 0 56px; }
 }
 .pcard h3 { font-size: 15px; font-weight: 700; letter-spacing: -0.025em; }
 .line { flex: 1; font-size: 13px; color: var(--ink-2); }
-.price { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
+.price { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; }
 .price s { margin-right: 6px; font-size: 12px; font-weight: 500; color: var(--ink-3); }
 .price .off { margin-right: 4px; font-size: 12px; font-weight: 800; color: var(--red); }
 
