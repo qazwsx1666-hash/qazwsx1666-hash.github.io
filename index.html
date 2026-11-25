@@ -26,8 +26,8 @@
   body{margin:0;background:radial-gradient(120% 90% at 50% 0%,#ffffff 0%,#eef3fb 55%,#e7eef9 100%);
     color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
     line-height:1.55;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1000px;margin:0 auto;padding:clamp(26px,6vh,64px) 20px 24px;
-    min-height:100svh;display:flex;flex-direction:column}
+  .wrap{max-width:1000px;margin:0 auto;padding:clamp(26px,6vh,64px) 20px 28px;
+    min-height:100svh;display:flex;flex-direction:column;justify-content:center}
   .head{text-align:center;margin-bottom:clamp(20px,3.6vh,34px)}
   .kicker{display:inline-block;margin:0;font-size:12px;font-weight:700;letter-spacing:.08em;
     color:#3b5bdb;background:#e8efff;border:1px solid #d5e2ff;border-radius:999px;padding:5px 12px}
@@ -35,15 +35,15 @@
   .sub{margin:0;color:var(--sub);font-size:clamp(13.5px,1.7vw,15px)}
   .doors{list-style:none;margin:0;padding:0;display:grid;gap:14px}
   @media (min-width:780px){.doors{grid-template-columns:repeat(3,1fr);gap:16px}}
-  .door{position:relative;display:flex;flex-direction:column;min-height:150px;padding:20px 20px 18px;
+  .door{position:relative;display:flex;flex-direction:column;min-height:188px;padding:24px 22px 20px;
     border-radius:20px;background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit;
     box-shadow:0 10px 26px rgba(15,23,42,.055);overflow:hidden;
     transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
   .door::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--accent)}
   .door:hover,.door:focus-visible{transform:translateY(-3px);border-color:var(--accent);
     box-shadow:0 16px 34px rgba(15,23,42,.11);outline:none}
-  .door .ico{font-size:29px;line-height:1}
-  .door h2{font-size:19px;letter-spacing:-.02em;margin:8px 0 4px}
+  .door .ico{font-size:34px;line-height:1}
+  .door h2{font-size:20px;letter-spacing:-.02em;margin:10px 0 5px}
   .door .desc{margin:0;font-size:13.5px;color:var(--sub)}
   .door .go{margin-top:auto;padding-top:14px;font-size:13.5px;font-weight:800;color:var(--accent)}
   .door .go span{display:inline-block;transition:transform .16s ease}
@@ -51,7 +51,7 @@
   .d-calc{--accent:#1d4ed8}
   .d-play{--accent:#9333ea}
   .d-picks{--accent:#d97706}
-  .blog{margin-top:auto;padding-top:clamp(22px,4vh,34px);text-align:center;font-size:13px;color:var(--sub)}
+  .blog{margin:clamp(24px,5vh,40px) 0 0;text-align:center;font-size:13px;color:var(--sub)}
   .blog a{color:#3b5bdb;font-weight:600;text-decoration:none;border-bottom:1px solid #c7d5ff}
   footer{text-align:center;padding-top:14px;font-size:12px;color:#8595ac}
   footer a{color:#8595ac}
