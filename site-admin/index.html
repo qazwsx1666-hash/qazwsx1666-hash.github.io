@@ -319,6 +319,7 @@
   // ── 데이터 ──────────────────────────────────────────────
   var DATA = null;
   var LIVE = null;          // 실시간 카운터
+  var LIVE_FAILED = false;
   var LAST_LOAD = null;
 
   var SECTIONS = [
@@ -367,18 +368,43 @@
     });
   }
 
+  function withTimeout(promise, ms) {
+    return new Promise(function (resolve) {
+      var done = false;
+      var t = setTimeout(function () {
+        if (done) return;
+        done = true;
+        resolve(null);
+      }, ms);
+      promise.then(function (v) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        resolve(v);
+      }, function () {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        resolve(null);
+      });
+    });
+  }
+
   function getCounter(key) {
-    return fetch(COUNTER_API + key, { cache: 'no-store', mode: 'cors' })
-      .then(function (r) {
-        if (r.status === 404) return 0;
-        if (!r.ok) throw new Error('http ' + r.status);
-        return r.json();
-      })
-      .then(function (d) {
-        var n = parseInt(d && d.value, 10);
-        return isNaN(n) ? 0 : n;
-      })
-      .catch(function () { return null; });
+    return withTimeout(
+      fetch(COUNTER_API + key, { cache: 'no-store', mode: 'cors' })
+        .then(function (r) {
+          if (r.status === 404) return 0;
+          if (!r.ok) throw new Error('http ' + r.status);
+          return r.json();
+        })
+        .then(function (d) {
+          var n = parseInt(d && d.value, 10);
+          return isNaN(n) ? 0 : n;
+        })
+        .catch(function () { return null; }),
+      7000
+    );
   }
 
   function load() {
@@ -386,6 +412,20 @@
     stamp.textContent = '불러오는 중…';
 
     var today = kstDate(new Date());
+
+    // ① 통계 파일은 먼저 읽고 바로 그린다(카운터 응답을 기다리지 않는다)
+    withTimeout(getJSON('../../data/admin_stats.json?v=' + Date.now()).catch(function () { return null; }), 8000)
+      .then(function (doc) {
+        DATA = doc;
+        LAST_LOAD = new Date();
+        render();
+        if (!doc) {
+          stamp.textContent = '통계 파일을 불러오지 못했습니다 · ' +
+            kstLabel(new Date().toISOString());
+        }
+      });
+
+    // ② 카운터는 도착하는 대로 반영한다
     var jobs = SECTIONS.map(function (s) {
       return Promise.all([
         getCounter('ghq1666-' + s.key + '-d-' + today),
@@ -393,19 +433,19 @@
       ]);
     });
 
-    Promise.all([getJSON('../../data/admin_stats.json?v=' + Date.now()).catch(function () { return null; }), Promise.all(jobs)])
-      .then(function (res) {
-        DATA = res[0];
-        LIVE = {};
+    withTimeout(Promise.all(jobs), 9000)
+      .then(function (rows) {
+        var live = {};
         SECTIONS.forEach(function (s, i) {
-          LIVE[s.key] = { today: res[1][i][0], total: res[1][i][1] };
+          var row = rows && rows[i];
+          live[s.key] = { today: row ? row[0] : null, total: row ? row[1] : null };
         });
-        LAST_LOAD = new Date();
-        render();
-      })
-      .catch(function (e) {
-        stamp.textContent = '데이터를 불러오지 못했습니다';
-        console.error(e);
+        LIVE = live;
+        LIVE_FAILED = !rows;
+        renderCounters(DATA || {});
+        if (!stamp.textContent || stamp.textContent === '불러오는 중…') {
+          stamp.textContent = '갱신 ' + kstLabel(new Date().toISOString());
+        }
       });
   }
 
@@ -500,11 +540,20 @@
     }
   }
 
+  function pick(key, field) {
+    if (LIVE && LIVE[key] && LIVE[key][field] !== null && LIVE[key][field] !== undefined) {
+      return LIVE[key][field];
+    }
+    var sec = DATA && DATA.counters && DATA.counters.sections && DATA.counters.sections[key];
+    if (sec && sec[field] !== null && sec[field] !== undefined) return sec[field];
+    return null;
+  }
+
   function sumToday() {
     var n = 0, ok = false;
     SECTIONS.forEach(function (s) {
-      var v = LIVE && LIVE[s.key] ? LIVE[s.key].today : null;
-      if (v !== null && v !== undefined) { n += v; ok = true; }
+      var v = pick(s.key, 'today');
+      if (v !== null) { n += v; ok = true; }
     });
     return ok ? n : null;
   }
@@ -512,22 +561,23 @@
   function sumTotal() {
     var n = 0, ok = false;
     SECTIONS.forEach(function (s) {
-      var v = LIVE && LIVE[s.key] ? LIVE[s.key].total : null;
-      if (v !== null && v !== undefined) { n += v; ok = true; }
+      var v = pick(s.key, 'total');
+      if (v !== null) { n += v; ok = true; }
     });
     return ok ? n : null;
   }
 
   function renderCounters(d) {
+    if (!document.getElementById('kpis')) return;
     var kpis = document.getElementById('kpis');
     kpis.innerHTML = '';
     var today = sumToday();
     var total = sumTotal();
     var peak = 0, peakName = '—';
     var rows = SECTIONS.map(function (s) {
-      var v = LIVE && LIVE[s.key] ? LIVE[s.key].today : null;
+      var v = pick(s.key, 'today');
       if (v && v > peak) { peak = v; peakName = s.label; }
-      return { label: s.label, value: v, total: LIVE && LIVE[s.key] ? LIVE[s.key].total : null };
+      return { label: s.label, value: v };
     });
 
     [['오늘 방문(섹션 합)', today, '중복 포함'],
@@ -558,14 +608,14 @@
     });
 
     var stampEl = document.getElementById('counterStamp');
-    var live300 = LIVE && Object.keys(LIVE).some(function (k) { return LIVE[k].today !== null; });
-    stampEl.className = 'pill ' + (live300 ? 'good' : 'wait');
-    stampEl.textContent = live300 ? '실시간' : '불러오지 못함';
+    var liveOk = LIVE && Object.keys(LIVE).some(function (k) { return LIVE[k].today !== null; });
+    stampEl.className = 'pill ' + (liveOk ? 'good' : 'info');
+    stampEl.textContent = liveOk ? '실시간' : (d.updated_at ? '통계 파일 값' : '집계 전');
 
     document.getElementById('counterNote').textContent =
       '출처: ' + ((d.counters && d.counters.source) || 'countapi 브라우저 카운터') +
       ' · 같은 사람이 여러 섹션을 보면 섹션 수만큼 중복 집계됩니다.' +
-      (live300 ? '' : ' (카운터 서버 응답 없음 — 통계 파일 값으로 표시)');
+      (liveOk ? '' : ' (카운터 서버 응답이 없어 통계 파일의 마지막 값으로 표시합니다)');
   }
 
   function renderTrend(d) {
