@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "site": "https://qazwsx1666-hash.github.io/",
+  "updated_at": "2026-11-25T23:57:16+09:00",
+  "updated_by": "Pickle 배포 직전 집계",
+  "ga4": {
+    "connected": true,
+    "account": "qazwsx1666",
+    "property": "qazwsx1666-hash.github.io",
+    "measurement_id": "G-HQVLV2QSHG",
+    "stream_id": "16414151324",
+    "stream_url": "https://qazwsx1666-hash.github.io",
+    "tag_installed_at": "2026-11-25T23:57:16+09:00",
+    "data_status": "waiting",
+    "data_status_label": "수집 대기 중 (0건)",
+    "data_note": "태그를 2026-11-25 밤에 설치했습니다. GA4는 태그 설치 후 보통 24~48시간 뒤부터 보고서에 잡히며, 그 전에는 0건으로 표시됩니다.",
+    "report_url": "https://analytics.google.com/analytics/web/",
+    "channels": [],
+    "keywords": [],
+    "pages": [],
+    "referrers": []
+  },
+  "counters": {
+    "source": "countapi.mileshilliard.com (visitor-stats.js 브라우저 카운터)",
+    "note": "브라우저당 하루 1회 집계. 같은 사람이 여러 섹션을 보면 섹션 수만큼 중복 집계됩니다.",
+    "date": "20261125",
+    "fetched_at": "2026-11-25T23:56:52+09:00",
+    "sections": {
+      "root": {
+        "label": "포털 홈",
+        "today": 34,
+        "total": 36
+      },
+      "invest": {
+        "label": "재테크 계산기",
+        "today": 14,
+        "total": 14
+      },
+      "career": {
+        "label": "직장·연봉 계산기",
+        "today": 15,
+        "total": 16
+      },
+      "health": {
+        "label": "건강 계산기",
+        "today": 16,
+        "total": 15
+      },
+      "tax": {
+        "label": "세금 계산기",
+        "today": 7,
+        "total": 6
+      },
+      "fortune": {
+        "label": "운세·사주",
+        "today": 0,
+        "total": 0
+      },
+      "viral": {
+        "label": "심리테스트",
+        "today": 4,
+        "total": 3
+      }
+    },
+    "history": [
+      {
+        "date": "2026-11-25",
+        "root": 30,
+        "invest": 14,
+        "career": 15,
+        "health": 16,
+        "tax": 6,
+        "fortune": 0,
+        "viral": 4
+      },
+      {
+        "date": "20261125",
+        "root": 34,
+        "invest": 14,
+        "career": 15,
+        "health": 16,
+        "tax": 7,
+        "fortune": 0,
+        "viral": 4
+      }
+    ]
+  },
+  "indexing": {
+    "total_urls": 61,
+    "total_urls_note": "루트 사이트맵(sitemap.xml) 기준 61 URL — /finance-tools/ 7개 포함",
+    "google": {
+      "indexed": 20,
+      "explored_valid": 16,
+      "explored_invalid": 0,
+      "sitemap_status": "가져올 수 없음(11-23 읽기 기록이 남은 스테일 표시로 판단)",
+      "clicks": 0,
+      "checked_at": "2026-11-25"
+    },
+    "naver": {
+      "collected": 51,
+      "errors": 0,
+      "restricted": 0,
+      "status": "사이트맵 등록됨 · HTTPS 리다이렉션 정상",
+      "checked_at": "2026-11-25"
+    },
+    "requested_total": 33,
+    "requested_note": "구글 색인 생성 요청 누적 33건 (11-22 3건 · 11-23 7건 · 11-24 11건 · 11-25 12건). 남은 대기 4건은 11-26 10:00 회차에 요청."
+  },
+  "monetization": {
+    "blog": {
+      "name": "돈이 되는 노트 [DONE DAE NO]",
+      "url": "https://blog.naver.com/speakdiscount",
+      "account": "teaman1666 / TYPE A",
+      "post_count": 2,
+      "visitors": null,
+      "visitors_note": "네이버 블로그 통계는 11-26 10:00 회차부터 수집해 반영",
+      "posts": [
+        {
+          "title": "2026년 연말정산 환급금 미리 계산하는 법, 놓치기 쉬운 공제 체크리스트",
+          "url": "https://blog.naver.com/speakdiscount/224492080778",
+          "published": "2026-11-25",
+          "category": "생활금융·연말정산"
+        },
+        {
+          "title": "아파트 경매 입찰 전 꼭 확인하는 권리분석 3단계 & 수협·시중은행 경락잔금대출 한도 계산법",
+          "url": "https://blog.naver.com/speakdiscount/224492176949",
+          "published": "2026-11-25",
+          "category": "부동산·경매 노트"
+        }
+      ]
+    },
+    "kmong": {
+      "id": "879074",
+      "title": "아파트 경매 권리분석 수익률 계산기 (엑셀+가이드)",
+      "price": 19000,
+      "status": "심사 중 (승인 전)",
+      "status_note": "2026-11-25 22:36 제출 · 영업일 7일 이내 결과",
+      "url": "https://kmong.com/gig/879074"
+    },
+    "littly": {
+      "url": "https://litt.ly/speakdiscount",
+      "status": "초안 저장 (비공개)",
+      "status_note": "수익 계좌 인증만 남음 · 2026-11-26 10:30 진행 예약",
+      "price": 19900,
+      "list_price": 29000
+    },
+    "adsense": {
+      "publisher_id": "pub-6515548213411698",
+      "status": "검토 대기",
+      "status_note": "2026-11-22 10:08 사이트 검토 요청 · 보통 며칠~2주"
+    },
+    "coupang_partners": {
+      "status": "재심사 대기",
+      "status_note": "KMC 본인인증 후 재신청 예정 · 2026-11-26 10:30 진행 예약"
+    }
+  }
+}

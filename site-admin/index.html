@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>사이트 관리자 · 김경훈</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0d1526">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d1526'/%3E%3Ctext x='32' y='45' font-size='30' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%F0%9F%94%92%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#0d1526; --ink2:#33415c; --sub:#5b6b82; --line:#e3e9f2; --bg:#f4f7fc;
+    --card:#ffffff; --accent:#2f6bff; --accent-soft:#eaf1ff;
+    --good:#12835c; --good-soft:#e6f7ef; --warn:#b26a00; --warn-soft:#fff4e0;
+    --wait:#5b6b82; --wait-soft:#eef2f8; --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+    font-size:15px; line-height:1.55; letter-spacing:-0.01em;
+    padding:0 0 env(safe-area-inset-bottom);
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+
+  /* ── 잠금 화면 ── */
+  .gate{
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+    background:radial-gradient(120% 90% at 50% 0%, #1a2743 0%, #0d1526 62%);
+  }
+  .gate-card{
+    width:100%; max-width:360px; background:#fff; border-radius:22px; padding:28px 24px 22px;
+    box-shadow:0 24px 60px rgba(4,10,24,.35); text-align:center;
+  }
+  .gate-card .lock{font-size:30px;line-height:1}
+  .gate-card h1{font-size:18px;margin:12px 0 6px;font-weight:800}
+  .gate-card p{margin:0 0 18px;font-size:13.5px;color:var(--sub)}
+  .pin-input{
+    width:100%; padding:14px 16px; font-size:22px; letter-spacing:.42em; text-align:center;
+    border:1.5px solid var(--line); border-radius:14px; background:#fbfcfe; color:var(--ink);
+    font-variant-numeric:tabular-nums; outline:none;
+  }
+  .pin-input:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px var(--accent-soft)}
+  .pin-btn{
+    width:100%; margin-top:12px; padding:14px; border:0; border-radius:14px; cursor:pointer;
+    background:var(--accent); color:#fff; font-size:15.5px; font-weight:700;
+  }
+  .pin-btn:active{transform:translateY(1px)}
+  .pin-err{margin:10px 0 0;font-size:13px;color:#c0392b;min-height:18px}
+  .gate-foot{margin:16px 0 0;font-size:11.5px;color:#8a97a9}
+
+  /* ── 앱 ── */
+  .app[hidden], .gate[hidden]{display:none !important}
+  header.top{
+    position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.4) blur(10px);
+    background:rgba(13,21,38,.92); color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .top-in{max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:10px}
+  .top-in h1{font-size:16px;font-weight:800;margin:0;letter-spacing:-.02em}
+  .top-in .stamp{font-size:11.5px;color:rgba(255,255,255,.62);margin-left:auto;text-align:right;line-height:1.35}
+  .icon-btn{
+    border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.07); color:#fff;
+    border-radius:10px; padding:6px 10px; font-size:12.5px; cursor:pointer; white-space:nowrap;
+  }
+  .icon-btn:active{background:rgba(255,255,255,.16)}
+
+  main{padding:18px 0 40px}
+  section{margin:0 0 22px}
+  .sec-head{display:flex;align-items:baseline;gap:8px;margin:0 0 10px}
+  .sec-head h2{font-size:15.5px;margin:0;font-weight:800;letter-spacing:-.02em}
+  .sec-head .num{
+    display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:7px;
+    background:var(--ink);color:#fff;font-size:11.5px;font-weight:800;flex:0 0 auto;transform:translateY(-1px)
+  }
+  .sec-head .hint{font-size:11.5px;color:var(--sub)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .card + .card{margin-top:10px}
+  .card h3{font-size:13.5px;margin:0 0 10px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+  .pill{
+    display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;
+    font-size:11.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap
+  }
+  .pill.good{background:var(--good-soft);color:var(--good)}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .pill.wait{background:var(--wait-soft);color:var(--wait)}
+  .pill.info{background:var(--accent-soft);color:var(--accent)}
+  .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9}
+
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .kpi{background:#fbfcfe;border:1px solid var(--line);border-radius:14px;padding:12px 12px 10px}
+  .kpi .k{font-size:11.5px;color:var(--sub);margin:0 0 3px}
+  .kpi .v{font-size:22px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.15}
+  .kpi .v small{font-size:12px;font-weight:700;color:var(--sub);margin-left:2px}
+  .kpi .d{font-size:11px;color:var(--sub);margin-top:2px}
+
+  .bars{margin:6px 0 0}
+  .bar-row{display:grid;grid-template-columns:104px 1fr 46px;align-items:center;gap:8px;margin:7px 0}
+  .bar-row .lbl{font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar-track{height:10px;background:#eef2f8;border-radius:999px;overflow:hidden}
+  .bar-fill{height:100%;background:linear-gradient(90deg,#4f86ff,#2f6bff);border-radius:999px}
+  .bar-row.zero .bar-fill{background:#dfe6f1}
+  .bar-row .val{font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink2);font-weight:700}
+
+  .empty{
+    border:1px dashed #cfd8e6; background:#fafbfe; border-radius:14px; padding:18px 16px; text-align:center;
+  }
+  .empty .big{font-size:15px;font-weight:800;margin:0 0 4px}
+  .empty p{margin:0;font-size:12.5px;color:var(--sub)}
+  .empty .acts{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:9px 14px;border-radius:11px;font-size:12.5px;font-weight:700;
+    background:var(--ink);color:#fff;border:0;cursor:pointer
+  }
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--sub);font-weight:700;font-size:11.5px}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+  .progress{height:10px;border-radius:999px;background:#eef2f8;overflow:hidden;margin:8px 0 6px}
+  .progress > span{display:block;height:100%;background:linear-gradient(90deg,#39b083,#12835c)}
+  .meta{font-size:11.5px;color:var(--sub)}
+
+  .ch-list{list-style:none;padding:0;margin:0}
+  .ch-item{
+    display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)
+  }
+  .ch-item:last-child{border-bottom:0;padding-bottom:0}
+  .ch-item .ico{
+    flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:#f1f5fc;display:flex;
+    align-items:center;justify-content:center;font-size:16px
+  }
+  .ch-item .body{flex:1;min-width:0}
+  .ch-item .nm{font-size:13.5px;font-weight:800;margin:0 0 2px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .ch-item .nm a{font-weight:800}
+  .ch-item .sub{font-size:12px;color:var(--sub);margin:0}
+  .ch-item .sub b{color:var(--ink2);font-variant-numeric:tabular-nums}
+
+  .posts{margin:8px 0 0;padding:0;list-style:none}
+  .posts li{font-size:12.5px;padding:7px 0;border-top:1px dashed var(--line);display:flex;gap:8px}
+  .posts li:first-child{border-top:0}
+  .posts .cat{flex:0 0 auto;font-size:11px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 6px;height:19px}
+
+  footer{padding:22px 0 34px;color:var(--sub);font-size:11.5px;border-top:1px solid var(--line);margin-top:6px}
+  footer p{margin:0 0 6px}
+  .warnbox{background:#fff8e8;border:1px solid #f3e0b5;border-radius:12px;padding:11px 13px;font-size:12px;color:#7a5a12;margin-top:10px}
+
+  @media (max-width:560px){
+    .kpis{grid-template-columns:repeat(3,1fr);gap:8px}
+    .kpi{padding:10px 9px}
+    .kpi .v{font-size:19px}
+    .bar-row{grid-template-columns:78px 1fr 40px}
+    .top-in h1{font-size:14.5px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────── 잠금 화면 ─────────── -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <div class="lock">🔒</div>
+    <h1>사이트 관리자</h1>
+    <p>비밀번호 6자리를 입력하세요</p>
+    <form id="pinForm" autocomplete="off">
+      <input class="pin-input" id="pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="••••••" aria-label="비밀번호 6자리" autocomplete="off">
+      <button class="pin-btn" type="submit">열기</button>
+      <p class="pin-err" id="pinErr"></p>
+    </form>
+    <p class="gate-foot">이 페이지는 검색에 노출되지 않습니다.</p>
+  </div>
+</div>
+
+<!-- ─────────── 대시보드 ─────────── -->
+<div class="app" id="app" hidden>
+  <header class="top">
+    <div class="top-in">
+      <h1>📊 사이트 관리자</h1>
+      <div class="stamp" id="stamp"></div>
+      <button class="icon-btn" id="refreshBtn" type="button">새로고침</button>
+      <button class="icon-btn" id="lockBtn" type="button">잠그기</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ① 유입 · 방문자 -->
+    <section>
+      <div class="sec-head"><span class="num">1</span><h2>유입 경로 · 방문자</h2><span class="hint" id="gaPill"></span></div>
+
+      <div class="card" id="gaCard">
+        <h3>Google 애널리틱스(GA4) <span class="pill wait" id="gaStatus">확인 중</span></h3>
+        <div id="gaBody"></div>
+      </div>
+
+      <div class="card">
+        <h3>방문자 수 <span class="pill info" id="counterStamp">—</span></h3>
+        <div class="kpis" id="kpis"></div>
+        <div class="bars" id="sectionBars"></div>
+        <p class="meta" id="counterNote" style="margin:10px 0 0"></p>
+      </div>
+
+      <div class="card">
+        <h3>일자별 방문 추이 <span class="pill wait">매일 10:00 자동 집계</span></h3>
+        <div class="bars" id="trend"></div>
+        <p class="meta" id="trendNote" style="margin:10px 0 0"></p>
+      </div>
+    </section>
+
+    <!-- ② 색인 -->
+    <section>
+      <div class="sec-head"><span class="num">2</span><h2>검색 색인 · 수집 현황</h2></div>
+      <div class="card">
+        <h3>Google Search Console <span class="pill wait" id="gIdxPill">—</span></h3>
+        <div class="kpis" id="gKpis"></div>
+        <div class="progress"><span id="gProgress" style="width:0%"></span></div>
+        <p class="meta" id="gMeta"></p>
+      </div>
+      <div class="card">
+        <h3>네이버 서치어드바이저 <span class="pill good" id="nIdxPill">—</span></h3>
+        <div class="kpis" id="nKpis"></div>
+        <p class="meta" id="nMeta"></p>
+      </div>
+    </section>
+
+    <!-- ③ 수익화 -->
+    <section>
+      <div class="sec-head"><span class="num">3</span><h2>수익화 채널</h2></div>
+      <div class="card">
+        <ul class="ch-list" id="moneyList"></ul>
+      </div>
+    </section>
+
+    <footer>
+      <p id="footMeta">—</p>
+      <p>① 유입·방문자 데이터: GA4(연결 직후) + 브라우저 방문 카운터 · ② 색인: 구글 서치콘솔 / 네이버 서치어드바이저 · ③ 수익화: 각 채널 계정 상태</p>
+      <div class="warnbox">
+        이 페이지는 검색 노출을 막아 둔 개인용 화면입니다. 잠금은 가벼운 확인 절차이며, 통계 파일(<code>data/admin_stats.json</code>) 자체에는 비밀번호나 개인정보(주민번호·계좌번호 등)를 넣지 않습니다.
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── 잠금 ────────────────────────────────────────────────
+  // 가벼운 확인용 해시(6자리 PIN). 실제 보안 장치가 아니다.
+  var PIN_HASH = 'ed3d52a50af3a57d94802f68307db71230b8af2b937cec7f9746a7c6b3edd76b';
+  var UNLOCK_KEY = 'siteAdminUnlocked';
+
+  var gate = document.getElementById('gate');
+  var app = document.getElementById('app');
+  var pinInput = document.getElementById('pin');
+  var pinErr = document.getElementById('pinErr');
+
+  function hex(buf) {
+    return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+      return ('00' + b.toString(16)).slice(-2);
+    }).join('');
+  }
+
+  function sha256(text) {
+    if (!(window.crypto && window.crypto.subtle && window.TextEncoder)) {
+      return Promise.reject(new Error('unsupported'));
+    }
+    return window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(hex);
+  }
+
+  function unlocked() {
+    try { return sessionStorage.getItem(UNLOCK_KEY) === '1'; } catch (e) { return false; }
+  }
+
+  function openApp() {
+    gate.hidden = true;
+    app.hidden = false;
+    load();
+  }
+
+  function lock() {
+    try { sessionStorage.removeItem(UNLOCK_KEY); } catch (e) {}
+    app.hidden = true;
+    gate.hidden = false;
+    pinInput.value = '';
+    pinErr.textContent = '';
+  }
+
+  document.getElementById('pinForm').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var v = (pinInput.value || '').trim();
+    if (!/^\d{6}$/.test(v)) { pinErr.textContent = '6자리 숫자를 입력하세요.'; return; }
+    sha256(v).then(function (h) {
+      if (h === PIN_HASH) {
+        try { sessionStorage.setItem(UNLOCK_KEY, '1'); } catch (e) {}
+        openApp();
+      } else {
+        pinErr.textContent = '비밀번호가 맞지 않습니다.';
+        pinInput.value = '';
+        pinInput.focus();
+      }
+    }).catch(function () {
+      pinErr.textContent = '이 브라우저에서는 잠금 해시를 계산할 수 없습니다.';
+    });
+  });
+
+  document.getElementById('lockBtn').addEventListener('click', lock);
+  document.getElementById('refreshBtn').addEventListener('click', load);
+
+  if (unlocked()) openApp();
+
+  // ── 데이터 ──────────────────────────────────────────────
+  var DATA = null;
+  var LIVE = null;          // 실시간 카운터
+  var LAST_LOAD = null;
+
+  var SECTIONS = [
+    { key: 'root', label: '포털 홈' },
+    { key: 'invest', label: '재테크 계산기' },
+    { key: 'career', label: '직장·연봉 계산기' },
+    { key: 'health', label: '건강 계산기' },
+    { key: 'tax', label: '세금 계산기' },
+    { key: 'fortune', label: '운세·사주' },
+    { key: 'viral', label: '심리테스트' }
+  ];
+  var COUNTER_API = 'https://countapi.mileshilliard.com/api/v1/get/';
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+
+  function fmt(n) {
+    if (n === null || n === undefined || isNaN(n)) return '—';
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function kstDate(d) {
+    var t = new Date(d.getTime() + 9 * 3600 * 1000);
+    function p(x) { return (x < 10 ? '0' : '') + x; }
+    return String(t.getUTCFullYear()) + p(t.getUTCMonth() + 1) + p(t.getUTCDate());
+  }
+
+  function kstLabel(iso) {
+    if (!iso) return '—';
+    var d = new Date(iso);
+    if (isNaN(d)) return iso;
+    var t = new Date(d.getTime() + 9 * 3600 * 1000);
+    function p(x) { return (x < 10 ? '0' : '') + x; }
+    return t.getUTCFullYear() + '.' + p(t.getUTCMonth() + 1) + '.' + p(t.getUTCDate()) +
+      ' ' + p(t.getUTCHours()) + ':' + p(t.getUTCMinutes());
+  }
+
+  function getJSON(path) {
+    return fetch(path, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    });
+  }
+
+  function getCounter(key) {
+    return fetch(COUNTER_API + key, { cache: 'no-store', mode: 'cors' })
+      .then(function (r) {
+        if (r.status === 404) return 0;
+        if (!r.ok) throw new Error('http ' + r.status);
+        return r.json();
+      })
+      .then(function (d) {
+        var n = parseInt(d && d.value, 10);
+        return isNaN(n) ? 0 : n;
+      })
+      .catch(function () { return null; });
+  }
+
+  function load() {
+    var stamp = document.getElementById('stamp');
+    stamp.textContent = '불러오는 중…';
+
+    var today = kstDate(new Date());
+    var jobs = SECTIONS.map(function (s) {
+      return Promise.all([
+        getCounter('ghq1666-' + s.key + '-d-' + today),
+        getCounter('ghq1666-' + s.key + '-tt')
+      ]);
+    });
+
+    Promise.all([getJSON('../../data/admin_stats.json?v=' + Date.now()).catch(function () { return null; }), Promise.all(jobs)])
+      .then(function (res) {
+        DATA = res[0];
+        LIVE = {};
+        SECTIONS.forEach(function (s, i) {
+          LIVE[s.key] = { today: res[1][i][0], total: res[1][i][1] };
+        });
+        LAST_LOAD = new Date();
+        render();
+      })
+      .catch(function (e) {
+        stamp.textContent = '데이터를 불러오지 못했습니다';
+        console.error(e);
+      });
+  }
+
+  // ── 렌더 ────────────────────────────────────────────────
+  function render() {
+    var d = DATA || {};
+    var stamp = document.getElementById('stamp');
+    stamp.textContent = '갱신 ' + (LAST_LOAD ? kstLabel(LAST_LOAD.toISOString()) : '—') +
+      (d.updated_at ? ' · 집계 ' + kstLabel(d.updated_at) : '');
+
+    renderGA(d.ga4 || {});
+    renderCounters(d);
+    renderTrend(d);
+    renderIndexing(d.indexing || {});
+    renderMoney(d.monetization || {});
+
+    document.getElementById('footMeta').textContent =
+      '사이트: ' + (d.site || 'https://qazwsx1666-hash.github.io/') +
+      ' · 통계 파일 갱신: ' + (d.updated_at ? kstLabel(d.updated_at) : '—') +
+      (d.updated_by ? ' (' + d.updated_by + ')' : '');
+  }
+
+  function renderGA(ga) {
+    var status = document.getElementById('gaStatus');
+    var pillTop = document.getElementById('gaPill');
+    var body = document.getElementById('gaBody');
+    body.innerHTML = '';
+
+    var connected = !!ga.connected;
+    status.className = 'pill ' + (connected ? 'good' : 'wait');
+    status.textContent = connected ? '연결됨' : '미연결';
+    pillTop.innerHTML = '';
+    if (connected) {
+      var p = el('span', 'pill info', 'G-' + (ga.measurement_id || '').replace(/^G-/, ''));
+      pillTop.appendChild(p);
+    }
+
+    var facts = el('div', 'kpis');
+    facts.style.marginBottom = '12px';
+    [['측정 ID', ga.measurement_id || '—'],
+     ['속성', ga.property || '—'],
+     ['데이터', ga.data_status === 'waiting' ? '0건 (대기)' : (ga.data_status || '—')]
+    ].forEach(function (row) {
+      var k = el('div', 'kpi');
+      k.appendChild(el('p', 'k', row[0]));
+      var v = el('div', 'v');
+      v.style.fontSize = row[0] === '측정 ID' ? '13px' : '14px';
+      v.style.wordBreak = 'break-all';
+      v.textContent = row[1];
+      k.appendChild(v);
+      facts.appendChild(k);
+    });
+    body.appendChild(facts);
+
+    var hasData = (ga.channels && ga.channels.length) || (ga.keywords && ga.keywords.length) || (ga.pages && ga.pages.length);
+
+    if (!hasData) {
+      var box = el('div', 'empty');
+      box.appendChild(el('p', 'big', ga.data_status_label || '수집 대기 중 (0건)'));
+      box.appendChild(el('p', null, ga.data_note || 'GA4 데이터가 아직 없습니다.'));
+      var acts = el('div', 'acts');
+      var a = el('a', 'btn', 'GA4 실시간 열기 →');
+      a.href = ga.report_url || 'https://analytics.google.com/analytics/web/';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      acts.appendChild(a);
+      box.appendChild(acts);
+      body.appendChild(box);
+      return;
+    }
+
+    // 채널
+    if (ga.channels && ga.channels.length) {
+      body.appendChild(el('h3', null, '유입 채널'));
+      body.appendChild(barChart(ga.channels.map(function (c) {
+        return { label: c.name, value: c.users || c.sessions || 0 };
+      })));
+    }
+    // 검색어
+    if (ga.keywords && ga.keywords.length) {
+      body.appendChild(el('h3', null, '검색어'));
+      body.appendChild(barChart(ga.keywords.map(function (k) {
+        return { label: k.term, value: k.users || 0 };
+      })));
+    }
+    // 인기 페이지
+    if (ga.pages && ga.pages.length) {
+      body.appendChild(el('h3', null, '인기 페이지'));
+      body.appendChild(barChart(ga.pages.map(function (p) {
+        return { label: p.path, value: p.views || 0 };
+      })));
+    }
+  }
+
+  function sumToday() {
+    var n = 0, ok = false;
+    SECTIONS.forEach(function (s) {
+      var v = LIVE && LIVE[s.key] ? LIVE[s.key].today : null;
+      if (v !== null && v !== undefined) { n += v; ok = true; }
+    });
+    return ok ? n : null;
+  }
+
+  function sumTotal() {
+    var n = 0, ok = false;
+    SECTIONS.forEach(function (s) {
+      var v = LIVE && LIVE[s.key] ? LIVE[s.key].total : null;
+      if (v !== null && v !== undefined) { n += v; ok = true; }
+    });
+    return ok ? n : null;
+  }
+
+  function renderCounters(d) {
+    var kpis = document.getElementById('kpis');
+    kpis.innerHTML = '';
+    var today = sumToday();
+    var total = sumTotal();
+    var peak = 0;
+    var rows = SECTIONS.map(function (s) {
+      var v = LIVE && LIVE[s.key] ? LIVE[s.key].today : null;
+      if (v && v > peak) peak = v;
+      return { label: s.label, value: v, total: LIVE && LIVE[s.key] ? LIVE[s.key].total : null };
+    });
+
+    [['오늘 방문(섹션 합)', today, '중복 포함'],
+     ['오늘 가장 많이 본 곳', peak, '섹션 1곳'],
+     ['누적 방문(섹션 합)', total, '중복 포함']
+    ].forEach(function (r) {
+      var k = el('div', 'kpi');
+      k.appendChild(el('p', 'k', r[0]));
+      var v = el('div', 'v', fmt(r[1]));
+      k.appendChild(v);
+      k.appendChild(el('div', 'd', r[2]));
+      kpis.appendChild(k);
+    });
+
+    var bars = document.getElementById('sectionBars');
+    bars.innerHTML = '';
+    var max = Math.max.apply(null, rows.map(function (r) { return r.value || 0; }).concat([1]));
+    rows.forEach(function (r) {
+      var row = el('div', 'bar-row' + ((r.value || 0) === 0 ? ' zero' : ''));
+      row.appendChild(el('div', 'lbl', r.label));
+      var track = el('div', 'bar-track');
+      var fill = el('div', 'bar-fill');
+      fill.style.width = Math.max(2, Math.round(((r.value || 0) / max) * 100)) + '%';
+      track.appendChild(fill);
+      row.appendChild(track);
+      row.appendChild(el('div', 'val', fmt(r.value)));
+      bars.appendChild(row);
+    });
+
+    var stampEl = document.getElementById('counterStamp');
+    var live300 = LIVE && Object.keys(LIVE).some(function (k) { return LIVE[k].today !== null; });
+    stampEl.className = 'pill ' + (live300 ? 'good' : 'wait');
+    stampEl.textContent = live300 ? '실시간' : '불러오지 못함';
+
+    document.getElementById('counterNote').textContent =
+      '출처: ' + ((d.counters && d.counters.source) || 'countapi 브라우저 카운터') +
+      ' · 같은 사람이 여러 섹션을 보면 섹션 수만큼 중복 집계됩니다.' +
+      (live300 ? '' : ' (카운터 서버 응답 없음 — 통계 파일 값으로 표시)');
+  }
+
+  function renderTrend(d) {
+    var box = document.getElementById('trend');
+    var note = document.getElementById('trendNote');
+    box.innerHTML = '';
+    var hist = (d.counters && d.counters.history) || [];
+    var rows = hist.slice(-7).map(function (h) {
+      var sum = 0;
+      Object.keys(h).forEach(function (k) {
+        if (k !== 'date' && typeof h[k] === 'number') sum += h[k];
+      });
+      return { label: String(h.date).slice(4, 6) + '/' + String(h.date).slice(6, 8), value: sum };
+    });
+
+    if (!rows.length) {
+      var e = el('div', 'empty');
+      e.appendChild(el('p', 'big', '집계 전'));
+      e.appendChild(el('p', null, '매일 10:00 회차가 방문자 수를 통계 파일에 기록합니다.'));
+      box.appendChild(e);
+      note.textContent = '';
+      return;
+    }
+
+    var max = Math.max.apply(null, rows.map(function (r) { return r.value; }).concat([1]));
+    rows.forEach(function (r) {
+      var row = el('div', 'bar-row');
+      row.appendChild(el('div', 'lbl', r.label));
+      var track = el('div', 'bar-track');
+      var fill = el('div', 'bar-fill');
+      fill.style.width = Math.max(2, Math.round((r.value / max) * 100)) + '%';
+      track.appendChild(fill);
+      row.appendChild(track);
+      row.appendChild(el('div', 'val', fmt(r.value)));
+      box.appendChild(row);
+    });
+    note.textContent = '섹션 방문 합계 · 최근 ' + rows.length + '일 (집계 시작 2026-11-25)';
+  }
+
+  function barChart(items) {
+    var box = el('div', 'bars');
+    var max = Math.max.apply(null, items.map(function (i) { return i.value || 0; }).concat([1]));
+    items.forEach(function (i) {
+      var row = el('div', 'bar-row');
+      row.appendChild(el('div', 'lbl', i.label));
+      var t = el('div', 'bar-track');
+      var f = el('div', 'bar-fill');
+      f.style.width = Math.max(2, Math.round(((i.value || 0) / max) * 100)) + '%';
+      t.appendChild(f);
+      row.appendChild(t);
+      row.appendChild(el('div', 'val', fmt(i.value)));
+      box.appendChild(row);
+    });
+    return box;
+  }
+
+  function renderIndexing(ix) {
+    var g = ix.google || {};
+    var n = ix.naver || {};
+    var total = ix.total_urls || null;
+
+    var gp = document.getElementById('gIdxPill');
+    gp.className = 'pill ' + (g.indexed ? 'good' : 'wait');
+    gp.textContent = g.checked_at ? g.checked_at + ' 기준' : '—';
+
+    var gk = document.getElementById('gKpis');
+    gk.innerHTML = '';
+    [['색인된 페이지', g.indexed, total ? '/ ' + total : ''],
+     ['탐색경로 유효', g.explored_valid, '잘못됨 ' + (g.explored_invalid || 0)],
+     ['검색 클릭', g.clicks === 0 ? 0 : g.clicks, '누적']
+    ].forEach(function (r) {
+      var k = el('div', 'kpi');
+      k.appendChild(el('p', 'k', r[0]));
+      var v = el('div', 'v', fmt(r[1]));
+      if (r[2]) {
+        var s = el('small', null, ' ' + r[2]);
+        v.appendChild(s);
+      }
+      k.appendChild(v);
+      gk.appendChild(k);
+    });
+
+    if (total) {
+      var pct = Math.round(((g.indexed || 0) / total) * 100);
+      var bar = document.getElementById('gProgress');
+      bar.style.width = pct + '%';
+      document.getElementById('gMeta').textContent =
+        '전체 ' + total + ' URL 중 ' + (g.indexed || 0) + '건 색인 (' + pct + '%) · 색인 생성 요청 누적 ' +
+        (ix.requested_total || 0) + '건' + (ix.requested_note ? ' — ' + ix.requested_note : '');
+    } else {
+      document.getElementById('gMeta').textContent = ix.total_urls_note || '';
+    }
+
+    var np = document.getElementById('nIdxPill');
+    np.className = 'pill ' + ((n.errors || 0) === 0 ? 'good' : 'warn');
+    np.textContent = (n.errors || 0) === 0 ? '오류 0건' : '오류 ' + n.errors + '건';
+
+    var nk = document.getElementById('nKpis');
+    nk.innerHTML = '';
+    [['수집 완료', n.collected, '건'],
+     ['수집 오류', n.errors || 0, '건'],
+     ['수집 제한', n.restricted || 0, '건']
+    ].forEach(function (r) {
+      var k = el('div', 'kpi');
+      k.appendChild(el('p', 'k', r[0]));
+      var v = el('div', 'v', fmt(r[1]));
+      v.appendChild(el('small', null, ' ' + r[2]));
+      k.appendChild(v);
+      nk.appendChild(k);
+    });
+    document.getElementById('nMeta').textContent =
+      (n.status ? n.status + ' · ' : '') + (n.checked_at ? n.checked_at + ' 기준' : '');
+  }
+
+  function renderMoney(m) {
+    var list = document.getElementById('moneyList');
+    list.innerHTML = '';
+
+    function item(icon, name, nameHref, pillText, pillClass, sub, extra) {
+      var li = el('li', 'ch-item');
+      li.appendChild(el('div', 'ico', icon));
+      var body = el('div', 'body');
+      var nm = el('p', 'nm');
+      if (nameHref) {
+        var a = el('a', null, name);
+        a.href = nameHref;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        nm.appendChild(a);
+      } else {
+        nm.appendChild(document.createTextNode(name));
+      }
+      var pill = el('span', 'pill ' + (pillClass || 'wait'), pillText);
+      nm.appendChild(pill);
+      body.appendChild(nm);
+      if (sub) {
+        var s = el('p', 'sub');
+        s.innerHTML = sub;
+        body.appendChild(s);
+      }
+      if (extra) body.appendChild(extra);
+      li.appendChild(body);
+      list.appendChild(li);
+      return li;
+    }
+
+    // 네이버 블로그
+    var b = m.blog || {};
+    var posts = el('ul', 'posts');
+    (b.posts || []).forEach(function (p) {
+      var li = el('li');
+      li.appendChild(el('span', 'cat', p.category || '글'));
+      var a = el('a', null, p.title);
+      a.href = p.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      li.appendChild(a);
+      posts.appendChild(li);
+    });
+    item('📝', b.name || '네이버 블로그', b.url,
+      (b.post_count || 0) + '편 발행', 'good',
+      '방문자 <b>' + (b.visitors === null || b.visitors === undefined ? '집계 전' : fmt(b.visitors) + '명') + '</b>' +
+      (b.visitors_note ? ' · ' + b.visitors_note : '') +
+      ' · 글마다 검색 유입은 2~3일 뒤부터 잡힙니다.',
+      posts);
+
+    // 크몽
+    var k = m.kmong || {};
+    item('🛒', '크몽 #' + (k.id || '—'), k.url || null, k.status || '—', 'wait',
+      (k.title ? k.title + ' · ' : '') + (k.price ? '<b>' + fmt(k.price) + '원</b> · ' : '') + (k.status_note || ''));
+
+    // 리틀리
+    var l = m.littly || {};
+    item('🔗', '리틀리 (litt.ly)', l.url || null, l.status || '—', 'wait',
+      (l.price ? '판매가 <b>' + fmt(l.price) + '원</b>' + (l.list_price ? ' / 정가 ' + fmt(l.list_price) + '원' : '') + ' · ' : '') +
+      (l.status_note || ''));
+
+    // 애드센스
+    var a2 = m.adsense || {};
+    item('💰', 'Google 애드센스', 'https://www.google.com/adsense/', a2.status || '—', 'wait',
+      (a2.publisher_id ? '게시자 <b>' + a2.publisher_id + '</b> · ' : '') + (a2.status_note || ''));
+
+    // 쿠팡 파트너스
+    var c = m.coupang_partners || {};
+    item('📦', '쿠팡 파트너스', 'https://partners.coupang.com/', c.status || '—', 'wait', c.status_note || '');
+  }
+})();
+</script>
+</body>
+</html>
