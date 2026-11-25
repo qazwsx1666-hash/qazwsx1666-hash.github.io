@@ -82,8 +82,6 @@ def badges(item: dict) -> str:
         out.append(f'<span class="chip chip-why">{esc(item["badge"])}</span>')
     if item.get("link"):
         out.append('<span class="chip chip-ad">광고</span>')
-    else:
-        out.append('<span class="chip chip-pending">간편링크 준비 중</span>')
     return "".join(out)
 
 
