@@ -314,8 +314,6 @@
   document.getElementById('lockBtn').addEventListener('click', lock);
   document.getElementById('refreshBtn').addEventListener('click', load);
 
-  if (unlocked()) openApp();
-
   // ── 데이터 ──────────────────────────────────────────────
   var DATA = null;
   var LIVE = null;          // 실시간 카운터
@@ -823,6 +821,8 @@
     var c = m.coupang_partners || {};
     item('📦', '쿠팡 파트너스', 'https://partners.coupang.com/', c.status || '—', 'wait', c.status_note || '');
   }
+  // 잠금이 이미 풀려 있으면 바로 연다 (상수·함수 선언이 모두 끝난 뒤에 실행)
+  if (unlocked()) openApp();
 })();
 </script>
 </body>
