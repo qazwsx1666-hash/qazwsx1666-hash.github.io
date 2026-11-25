@@ -523,15 +523,15 @@
     kpis.innerHTML = '';
     var today = sumToday();
     var total = sumTotal();
-    var peak = 0;
+    var peak = 0, peakName = '—';
     var rows = SECTIONS.map(function (s) {
       var v = LIVE && LIVE[s.key] ? LIVE[s.key].today : null;
-      if (v && v > peak) peak = v;
+      if (v && v > peak) { peak = v; peakName = s.label; }
       return { label: s.label, value: v, total: LIVE && LIVE[s.key] ? LIVE[s.key].total : null };
     });
 
     [['오늘 방문(섹션 합)', today, '중복 포함'],
-     ['오늘 가장 많이 본 곳', peak, '섹션 1곳'],
+     ['가장 많이 본 곳', peak, peakName],
      ['누적 방문(섹션 합)', total, '중복 포함']
     ].forEach(function (r) {
       var k = el('div', 'kpi');
@@ -573,13 +573,20 @@
     var note = document.getElementById('trendNote');
     box.innerHTML = '';
     var hist = (d.counters && d.counters.history) || [];
-    var rows = hist.slice(-7).map(function (h) {
+    var seen = {};
+    var rows = [];
+    hist.forEach(function (h) {
+      var key = String(h.date || '').replace(/\D/g, '');
+      if (key.length !== 8 || seen[key]) return;
+      seen[key] = true;
       var sum = 0;
       Object.keys(h).forEach(function (k) {
         if (k !== 'date' && typeof h[k] === 'number') sum += h[k];
       });
-      return { label: String(h.date).slice(4, 6) + '/' + String(h.date).slice(6, 8), value: sum };
+      rows.push({ key: key, label: key.slice(4, 6) + '/' + key.slice(6, 8), value: sum });
     });
+    rows.sort(function (a, b) { return a.key < b.key ? -1 : 1; });
+    rows = rows.slice(-7);
 
     if (!rows.length) {
       var e = el('div', 'empty');
