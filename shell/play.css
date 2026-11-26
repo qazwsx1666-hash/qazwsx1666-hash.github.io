@@ -25,8 +25,8 @@
 .pbar-tabs a:hover{background:#eef0f4;color:#0b1220}
 .pbar-tabs a.on{background:#0b1220;color:#fff}
 @media (max-width:720px){
-  .pbar-in{flex-wrap:wrap;gap:4px 10px;padding:8px 16px 6px}
-  .pbar-portal{display:none}
+  .pbar-in{flex-wrap:wrap;gap:2px 10px;padding:8px 16px 6px}
+  .pbar-portal{display:inline-block;font-size:11px}
   .pbar-brand{font-size:13.5px}
   .pbar-tabs{margin-left:0;width:100%;order:3;gap:0;padding:2px 0 4px}
   .pbar-tabs a{padding:6px 9px;font-size:12.5px}
