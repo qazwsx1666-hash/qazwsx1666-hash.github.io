@@ -65,8 +65,9 @@ def price_block(item: dict) -> str:
         parts: list[str] = []
         if item.get("discount"):
             parts.append(f'<span class="off">-{int(item["discount"])}%</span>')
-        if item.get("list_price"):
-            parts.append(f"<s>{won(item['list_price'])}</s>")
+        list_price = item.get("list_price")
+        if list_price and list_price > item["price"]:
+            parts.append(f"<s>{won(list_price)}</s>")
         parts.append(f"<b>{won(item['price'])}</b>")
         return "".join(parts)
     return f"<b>{esc(item.get('price_hint')) or '가격 미정'}</b>"
