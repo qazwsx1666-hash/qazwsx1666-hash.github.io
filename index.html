@@ -15,7 +15,7 @@ gtag('config', 'G-HQVLV2QSHG');
 <title>생활 도구 포털 | 계산기 25종 · 테스트·운세 10종 · 추천템</title>
 <meta name="description" content="생활·금융 계산기 25종, 심리테스트·운세 10종, 가성비 추천템 7개 테마까지 한곳에 모았습니다. 오늘 필요한 도구를 세 공간 중에서 골라 바로 쓰세요. 회원가입도 앱 설치도 없이 무료이고, 입력한 값은 브라우저에서만 처리됩니다.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#0d1526">
+<meta name="theme-color" content="#f7f8fa">
 <meta name="google-adsense-account" content="ca-pub-6515548213411698">
 <meta name="naver-site-verification" content="a288e15e503ff6ce97c0d14f70442973f646e53e">
 <link rel="canonical" href="https://qazwsx1666-hash.github.io/">
@@ -27,58 +27,22 @@ gtag('config', 'G-HQVLV2QSHG');
 <meta property="og:url" content="https://qazwsx1666-hash.github.io/">
 <meta property="og:image" content="https://qazwsx1666-hash.github.io/finance-tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d1526'/%3E%3Ctext x='32' y='46' font-size='34' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%E2%8A%95%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cg fill='none' stroke='white' stroke-width='4' stroke-linejoin='round'%3E%3Cpath d='M18 18h10v10H18zM36 18h10v10H36zM18 36h10v10H18zM36 36h10v10H36z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="/assets/portal.css?v=20261126a">
 <style>
-  :root{--ink:#0d1526;--sub:#5b6b82;--line:#e3e9f2;--bg:#f4f7fc}
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{margin:0;background:radial-gradient(120% 90% at 50% 0%,#ffffff 0%,#eef3fb 55%,#e7eef9 100%);
-    color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
-    line-height:1.55;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1000px;margin:0 auto;padding:clamp(26px,6vh,64px) 20px 28px;
-    min-height:100svh;display:flex;flex-direction:column;justify-content:center}
-  .head{text-align:center;margin-bottom:clamp(20px,3.6vh,34px)}
-  .kicker{display:inline-block;margin:0;font-size:12px;font-weight:700;letter-spacing:.08em;
-    color:#3b5bdb;background:#e8efff;border:1px solid #d5e2ff;border-radius:999px;padding:5px 12px}
-  h1{font-size:clamp(25px,4.4vw,38px);line-height:1.26;letter-spacing:-.035em;margin:14px 0 10px}
-  .sub{margin:0;color:var(--sub);font-size:clamp(13.5px,1.7vw,15px)}
-  .doors{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-  @media (min-width:780px){.doors{grid-template-columns:repeat(3,1fr);gap:16px}}
-  .door{position:relative;display:flex;flex-direction:column;min-height:188px;padding:24px 22px 20px;
-    border-radius:20px;background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit;
-    box-shadow:0 10px 26px rgba(15,23,42,.055);overflow:hidden;
-    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
-  .door::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--accent)}
-  .door:hover,.door:focus-visible{transform:translateY(-3px);border-color:var(--accent);
-    box-shadow:0 16px 34px rgba(15,23,42,.11);outline:none}
-  .door .ico{font-size:34px;line-height:1}
-  .door h2{font-size:20px;letter-spacing:-.02em;margin:10px 0 5px}
-  .door .desc{margin:0;font-size:13.5px;color:var(--sub)}
-  .door .go{margin-top:auto;padding-top:14px;font-size:13.5px;font-weight:800;color:var(--accent)}
-  .door .go span{display:inline-block;transition:transform .16s ease}
-  .door:hover .go span{transform:translateX(3px)}
-  .d-calc{--accent:#1d4ed8}
-  .d-play{--accent:#9333ea}
-  .d-picks{--accent:#d97706}
-  .blog{margin:clamp(24px,5vh,40px) 0 0;text-align:center;font-size:13px;color:var(--sub)}
-  .blog a{color:#3b5bdb;font-weight:600;text-decoration:none;border-bottom:1px solid #c7d5ff}
-  footer{text-align:center;padding-top:14px;font-size:12px;color:#8595ac}
-  footer a{color:#8595ac}
-  /* 모바일: 3개 카드가 한 화면에 들어오도록 압축 */
+  .pg-hero h1 .dim{color:var(--ink-3);font-weight:700}
   @media (max-width:560px){
-    .wrap{padding:18px 16px 18px}
-    .head{margin-bottom:16px}
-    .kicker{font-size:11px;padding:4px 10px}
-    h1{font-size:25px;margin:10px 0 7px;line-height:1.28}
-    .sub{font-size:12.5px}
-    .doors{gap:10px}
-    .door{min-height:0;padding:15px 16px 13px;border-radius:16px}
-    .door .ico{font-size:25px}
-    .door h2{font-size:17px;margin:6px 0 2px}
-    .door .desc{font-size:12.5px}
-    .door .go{padding-top:7px;font-size:12.5px}
-    .blog{margin-top:16px;font-size:11.5px}
-    footer{padding-top:8px;font-size:11px}
+    .pg-hero{padding:24px 0 16px}
+    .pg-title{font-size:27px;line-height:1.26;margin:12px 0 10px}
+    .pg-lead{font-size:13px}
+    .pg-trust{margin-top:14px;font-size:11px;gap:3px 8px}
+    .pg-door{padding:18px 18px 14px}
+    .pg-door h2{font-size:17.5px;margin:12px 0 4px}
+    .pg-door-desc{font-size:12.5px;margin-bottom:14px}
+    .pg-door-foot{padding-top:11px}
+    .pg-tile{width:34px;height:34px;border-radius:10px}
+    .pg-tile svg{width:18px;height:18px}
   }
 </style>
 
@@ -86,46 +50,100 @@ gtag('config', 'G-HQVLV2QSHG');
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "생활 도구 세 공간", "url": "https://qazwsx1666-hash.github.io/", "numberOfItems": 3, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "생활·금융 계산기 25종", "url": "https://qazwsx1666-hash.github.io/calc/"}, {"@type": "ListItem", "position": 2, "name": "심리테스트·운세 10종", "url": "https://qazwsx1666-hash.github.io/play/"}, {"@type": "ListItem", "position": 3, "name": "생활 준비물 추천템 7개 테마", "url": "https://qazwsx1666-hash.github.io/picks/"}]}</script>
 </head>
 <body>
-<main class="wrap">
-  <div class="head">
-    <p class="kicker">완전 무료 사이트</p>
-    <h1>오늘 필요한 도구,<br>세 곳 중에서 고르세요</h1>
-    <p class="sub">계산기 25종 · 테스트·운세 10종 · 생활 추천템 큐레이션</p>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+    <path d="M4.5 4.5h5v5h-5zM14.5 4.5h5v5h-5zM4.5 14.5h5v5h-5zM14.5 14.5h5v5h-5z"/>
+  </symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4.5" y="3.5" width="15" height="17" rx="2.6"/>
+    <path d="M8 8h8M8.4 12h1.2M11.4 12h1.2M14.4 12h1.2M8.4 15.8h1.2M11.4 15.8h1.2M14.4 15.8h1.2"/>
+  </symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.6"/><path d="M15.4 8.6l-1.9 4.9-4.9 1.9 1.9-4.9z"/>
+  </symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5.2 8h13.6l-1.1 12H6.3z"/><path d="M9 8V6.6a3 3 0 0 1 6 0V8"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h13M13 6.5L18.5 12 13 17.5"/>
+  </symbol>
+</svg>
+
+<header class="pg-header">
+  <div class="pg-header-in">
+    <span class="pg-brand">
+      <span class="pg-mark" aria-hidden="true"><svg><use href="#i-grid"/></svg></span>
+      <span class="pg-brand-txt"><b>생활 도구 포털</b><span>계산 · 테스트 · 추천</span></span>
+    </span>
+    <span class="pg-header-meta">무료 · 회원가입 없음</span>
   </div>
+</header>
 
-  <ul class="doors">
-    <li>
-      <a class="door d-calc" href="/calc/">
-        <span class="ico" aria-hidden="true">🧮</span>
-        <h2>생활·금융 계산기</h2>
-        <p class="desc">금융·투자·세금·직장·건강 <strong>25종</strong> 계산기</p>
-        <span class="go">계산기 열기 <span aria-hidden="true">→</span></span>
-      </a>
-    </li>
-    <li>
-      <a class="door d-play" href="/play/">
-        <span class="ico" aria-hidden="true">🔮</span>
-        <h2>심리테스트·운세</h2>
-        <p class="desc">성격테스트·사주·궁합·로또 <strong>10종</strong></p>
-        <span class="go">테스트 열기 <span aria-hidden="true">→</span></span>
-      </a>
-    </li>
-    <li>
-      <a class="door d-picks" href="/picks/">
-        <span class="ico" aria-hidden="true">🛒</span>
-        <h2>가성비 추천템</h2>
-        <p class="desc">쿠팡 파트너스 테마 <strong>7개</strong> 큐레이션</p>
-        <span class="go">추천템 보기 <span aria-hidden="true">→</span></span>
-      </a>
-    </li>
-  </ul>
+<main>
+  <div class="pg-wrap">
+    <section class="pg-hero">
+      <p class="pg-eyebrow">Utility portal</p>
+      <h1 class="pg-title">오늘 필요한 도구,<br><span class="dim">세 곳 중에서</span> 고르세요</h1>
+      <p class="pg-lead">계산기 25종, 테스트·운세 10종, 생활 추천템 7개 테마. 로그인도 설치도 없이 지금 바로 씁니다.</p>
+      <p class="pg-trust"><span>완전 무료</span><span>회원가입 없음</span><span>입력값은 브라우저에서만 처리</span></p>
+    </section>
 
-  <p class="blog">운영 기록은 <a href="https://blog.naver.com/speakdiscount" target="_blank" rel="noopener">네이버 블로그</a>에 남기고 있습니다.</p>
+    <ul class="pg-doors">
+      <li>
+        <a class="pg-door" href="/calc/">
+          <span class="pg-door-top">
+            <span class="pg-door-label">01 · Financial tools</span>
+            <span class="pg-tile" aria-hidden="true"><svg><use href="#i-calc"/></svg></span>
+          </span>
+          <h2>생활·금융 계산기</h2>
+          <p class="pg-door-desc">예적금·연봉·세금부터 건강까지, 돈이 오가는 순간에 쓰는 계산 25종</p>
+          <span class="pg-door-foot">
+            <span class="pg-door-count">25종 계산기</span>
+            <span class="pg-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="pg-door" href="/play/">
+          <span class="pg-door-top">
+            <span class="pg-door-label">02 · Tests &amp; fortune</span>
+            <span class="pg-tile" aria-hidden="true"><svg><use href="#i-compass"/></svg></span>
+          </span>
+          <h2>심리테스트·운세</h2>
+          <p class="pg-door-desc">1분 성격테스트부터 사주·궁합·로또까지, 결과는 그대로 복사해 공유</p>
+          <span class="pg-door-foot">
+            <span class="pg-door-count">10종 테스트</span>
+            <span class="pg-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="pg-door" href="/picks/">
+          <span class="pg-door-top">
+            <span class="pg-door-label">03 · Curated picks</span>
+            <span class="pg-tile" aria-hidden="true"><svg><use href="#i-bag"/></svg></span>
+          </span>
+          <h2>가성비 추천템</h2>
+          <p class="pg-door-desc">계산기로 확인한 결과에 맞춰, 실제로 살 것만 골라 둔 7개 테마</p>
+          <span class="pg-door-foot">
+            <span class="pg-door-count">7개 테마</span>
+            <span class="pg-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+      </li>
+    </ul>
 
-  <footer>
-    © 2026 생활 도구 포털 · <a href="/finance-tools/privacy.html">개인정보처리방침</a>
-  </footer>
+    <p class="pg-note">운영 기록은 <a href="https://blog.naver.com/speakdiscount" target="_blank" rel="noopener">네이버 블로그</a>에 남기고 있습니다.</p>
+  </div>
 </main>
+
+<footer class="pg-foot">
+  <div class="pg-wrap pg-foot-in">
+    <span>© 2026 생활 도구 포털</span>
+    <span><a href="/finance-tools/privacy.html">개인정보처리방침</a><span class="sep">·</span><a href="https://blog.naver.com/speakdiscount" target="_blank" rel="noopener">블로그</a></span>
+  </div>
+</footer>
 <script src="/visitor-stats.js" defer></script>
 </body>
 </html>

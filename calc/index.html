@@ -16,7 +16,7 @@ gtag('config', 'G-HQVLV2QSHG');
 <meta name="description" content="예적금 이자, 연봉 실수령액, 물타기·배당, 연말정산·취득세, 주휴수당·연차, BMI·수면까지. 금융·투자·세금·직장·건강 5개 분야 25종 계산기를 한곳에서 무료로 쓰세요. 현행 요율을 반영하고 계산 근거도 함께 보여 줍니다.">
 <meta name="keywords" content="계산기, 금융 계산기, 예적금 이자 계산기, 실수령액, 연말정산, 취득세, 주휴수당, 연차수당, BMI 계산기, 수면시간 계산기">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#1d4ed8">
+<meta name="theme-color" content="#f7f8fa">
 <meta name="google-adsense-account" content="ca-pub-6515548213411698">
 <link rel="canonical" href="https://qazwsx1666-hash.github.io/calc/">
 <meta property="og:type" content="website">
@@ -28,45 +28,68 @@ gtag('config', 'G-HQVLV2QSHG');
 <meta property="og:image" content="https://qazwsx1666-hash.github.io/finance-tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d4ed8'/%3E%3Ctext x='32' y='45' font-size='32' font-family='-apple-system,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3E%E2%82%A9%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="/shell/calc.css?v=20261125a">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="/shell/calc.css?v=20261126a">
+<link rel="stylesheet" href="/assets/portal.css?v=20261126a">
 <style>
-  :root{--ink:#0b1524;--sub:#5c6b80;--line:#e3e9f2;--blue:#1d4ed8;--bg:#f7f9fc}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55;
-    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
-    -webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-  .hero{padding:30px 0 18px}
-  .hero h1{font-size:clamp(24px,3.6vw,32px);line-height:1.25;letter-spacing:-.035em;margin:0 0 10px}
-  .hero p{margin:0;color:var(--sub);font-size:14.5px;max-width:720px}
-  .hero .meta{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
-  .hero .meta span{font-size:12.5px;font-weight:600;color:#1e3a8a;background:#e8efff;
-    border:1px solid #d6e2fb;border-radius:999px;padding:4px 11px}
-  .cats{display:grid;gap:14px;grid-template-columns:1fr;padding-bottom:26px}
-  @media (min-width:820px){.cats{grid-template-columns:1fr 1fr;gap:16px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  @media (max-width:400px){.wrap{padding:0 16px}}
+
+  .cats{display:grid;gap:12px;grid-template-columns:1fr;padding-bottom:24px}
+  @media (min-width:820px){.cats{grid-template-columns:1fr 1fr;gap:14px}
     .cat:last-child{grid-column:1/-1}
-    .cat:last-child ul{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}}
-  .cat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px 6px 8px;
-    box-shadow:0 6px 18px rgba(15,23,42,.045)}
-  .cat-head{display:flex;align-items:center;gap:9px;padding:12px 12px 10px;border-bottom:1px solid #eef2f8}
-  .cat-head .em{font-size:19px;line-height:1}
-  .cat-head h2{font-size:16px;margin:0;letter-spacing:-.02em}
-  .cat-head .n{font-size:12px;color:#64748b;font-weight:600}
-  .cat-head .hub{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--blue);text-decoration:none;
-    background:#f1f5ff;border:1px solid #dbe6ff;border-radius:999px;padding:4px 10px;white-space:nowrap}
-  .cat-head .hub:hover{background:#e4ecff}
-  .cat ul{list-style:none;margin:0;padding:4px 4px 0}
-  .cat li a{display:flex;align-items:baseline;gap:8px;padding:8px 9px;border-radius:10px;
-    text-decoration:none;color:inherit}
-  .cat li a:hover{background:#f4f7ff}
-  .cat li b{font-size:14px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
-  .cat li span{font-size:12px;color:#7b8899;line-height:1.4}
-  .foot-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;
-    margin-bottom:22px;font-size:13px;color:var(--sub)}
-  .foot-note b{color:var(--ink)}
-  .foot-note a{color:var(--blue)}
-  .space-foot{padding:0 0 40px;font-size:12.5px;color:#7b8899}
-  .space-foot a{color:#4b5a70}
+    .cat:last-child ul{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}}
+  .cat{background:#fff;border:1px solid var(--line);border-radius:18px;
+    box-shadow:0 1px 2px rgba(11,18,32,.04);overflow:hidden}
+  .cat-head{display:flex;align-items:center;gap:11px;padding:15px 18px 13px;
+    border-bottom:1px solid var(--line-soft)}
+  .cat-ic{width:34px;height:34px;flex:none;border-radius:10px;background:var(--tint);
+    color:#17357d;display:grid;place-items:center}
+  .cat-ic svg{width:18px;height:18px}
+  .cat-head h2{font-size:15.5px;margin:0;letter-spacing:-.03em;font-weight:700}
+  .cat-head .n{font-size:11px;color:var(--ink-3);font-weight:600;letter-spacing:.02em}
+  .cat-head .hub{margin-left:auto;display:inline-flex;align-items:center;gap:4px;
+    font-size:11.5px;font-weight:600;color:var(--ink-3);text-decoration:none;white-space:nowrap}
+  .cat-head .hub:hover{color:var(--ink)}
+  .cat-head .hub svg{width:11px;height:11px}
+  .cat ul{list-style:none;margin:0;padding:6px}
+  .cat li a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+    text-decoration:none;color:inherit;transition:background .14s ease}
+  .cat li a:hover{background:#f6f7f9}
+  .cat li .nm{font-size:13.5px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;flex:none}
+  .cat li .ds{font-size:11.5px;color:var(--ink-3);line-height:1.4;min-width:0;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cat li .chev{width:12px;height:12px;margin-left:auto;flex:none;color:#c9ced8}
+  .cat li a:hover .chev{color:var(--ink-2)}
+
+  .promo{display:flex;align-items:flex-start;gap:14px;background:#fff;
+    border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:2px 0 20px}
+  .promo-pl{font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink-3);flex:none;padding-top:5px;min-width:64px}
+  .promo-tx p{margin:0 0 6px;font-size:13px;color:var(--ink-2);line-height:1.6}
+  .promo-tx b{color:var(--ink);font-weight:700}
+  .promo-tx a{font-size:12.5px;font-weight:600;color:#17357d;text-decoration:none;
+    border-bottom:1px solid rgba(23,53,125,.28);padding-bottom:1px}
+  .promo-tx a:hover{border-bottom-color:#17357d}
+
+  .foot-note{border-top:1px solid var(--line);padding:18px 0 0;margin-bottom:18px;
+    font-size:12px;line-height:1.7;color:var(--ink-3)}
+  .foot-note b{color:var(--ink-2);font-weight:600}
+  .foot-note a{color:var(--ink-2)}
+  .space-foot{padding:0 0 40px;font-size:11.5px;color:var(--ink-3);
+    display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px}
+  .space-foot a{color:var(--ink-2)}
+  .space-foot .sep{color:#c9ced8;margin:0 6px}
+
+  @media (max-width:560px){
+    .pg-hero{padding:22px 0 16px}
+    .cat-head{padding:13px 14px 11px}
+    .cat li a{padding:9px 10px}
+    .cat li .ds{font-size:11px}
+    .promo{flex-direction:column;gap:6px;padding:16px 18px}
+    .promo-pl{padding-top:0}
+    .pg-note{font-size:12px}
+  }
 </style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "생활·금융 계산기 25종", "url": "https://qazwsx1666-hash.github.io/calc/", "inLanguage": "ko-KR", "description": "금융·투자·세금·직장·건강 5개 분야 25종 무료 계산기 모음", "isPartOf": {"@type": "WebSite", "name": "생활 도구 포털", "url": "https://qazwsx1666-hash.github.io/"}}</script>
@@ -74,6 +97,30 @@ gtag('config', 'G-HQVLV2QSHG');
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "포털 홈", "item": "https://qazwsx1666-hash.github.io/"}, {"@type": "ListItem", "position": 2, "name": "생활·금융 계산기", "item": "https://qazwsx1666-hash.github.io/calc/"}]}</script>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-money" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.8" y="6.5" width="18.4" height="11" rx="2.4"/><circle cx="12" cy="12" r="2.7"/><path d="M6.4 10.2v.01M17.6 13.8v.01"/>
+  </symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19h16"/><path d="M6.2 15.2l4-4.2 3 2.6L19 7.6"/><path d="M15.6 7.6H19v3.4"/>
+  </symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.4 3.6h7.4l3.8 3.8v13H6.4z"/><path d="M13.6 3.6v4h4.2"/><path d="M9.4 12h5.2M9.4 15.4h3.6"/>
+  </symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.4" y="7.4" width="17.2" height="12.2" rx="2.4"/><path d="M9 7.4V6a1.6 1.6 0 0 1 1.6-1.6h2.8A1.6 1.6 0 0 1 15 6v1.4"/><path d="M3.4 12.4h17.2"/>
+  </symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20.2s-7.2-4.5-7.2-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.2 2.8c0 4.9-7.2 9.4-7.2 9.4z"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h13M13 6.5L18.5 12 13 17.5"/>
+  </symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 6l6 6-6 6"/>
+  </symbol>
+</svg>
 
 <header class="cbar">
   <div class="cbar-in">
@@ -91,96 +138,98 @@ gtag('config', 'G-HQVLV2QSHG');
 </header>
 
 <main class="wrap">
-  <section class="hero">
-    <h1>생활·금융 계산기 25종</h1>
-    <p>돈이 오가는 순간에 필요한 계산만 모았습니다. 금융·투자·세금·직장·건강 5개 분야, 25종 계산기</p>
-    <div class="meta">
-      <span>완전 무료 사이트</span><span>현행 요율 반영</span><span>25종 계산기</span>
-    </div>
+  <section class="pg-hero">
+    <p class="pg-eyebrow">Calculators · 5 categories</p>
+    <h1 class="pg-title">생활·금융 계산기 25종</h1>
+    <p class="pg-lead">돈이 오가는 순간에 필요한 계산만 모았습니다. 금융·투자·세금·직장·건강 5개 분야, 25종 계산기.</p>
+    <p class="pg-trust"><span>완전 무료</span><span>현행 요율 반영</span><span>브라우저에서만 계산</span></p>
   </section>
 
   <div class="cats">
 
     <section class="cat" aria-labelledby="c-finance">
       <div class="cat-head">
-        <span class="em" aria-hidden="true">💰</span>
+        <span class="cat-ic" aria-hidden="true"><svg><use href="#i-money"/></svg></span>
         <h2 id="c-finance">금융</h2><span class="n">5종</span>
-        <a class="hub" href="/finance-tools/">허브 →</a>
+        <a class="hub" href="/finance-tools/">허브 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <ul>
-        <li><a href="/finance-tools/savings.html"><b>예적금 이자</b><span>단리·월복리·세후 비교</span></a></li>
-        <li><a href="/finance-tools/salary.html"><b>연봉 실수령액</b><span>4대보험·소득세 공제 후 월급</span></a></li>
-        <li><a href="/finance-tools/refinance.html"><b>대출 갈아타기</b><span>손익분기·중도상환수수료</span></a></li>
-        <li><a href="/finance-tools/severance.html"><b>퇴직금·실업급여</b><span>평균임금·소정급여일수</span></a></li>
-        <li><a href="/finance-tools/housing.html"><b>청약 가점·전월세</b><span>84점 배점·전환율</span></a></li>
+        <li><a href="/finance-tools/savings.html"><b class="nm">예적금 이자</b><span class="ds">단리·월복리·세후 비교</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/finance-tools/salary.html"><b class="nm">연봉 실수령액</b><span class="ds">4대보험·소득세 공제 후 월급</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/finance-tools/refinance.html"><b class="nm">대출 갈아타기</b><span class="ds">손익분기·중도상환수수료</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/finance-tools/severance.html"><b class="nm">퇴직금·실업급여</b><span class="ds">평균임금·소정급여일수</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/finance-tools/housing.html"><b class="nm">청약 가점·전월세</b><span class="ds">84점 배점·전환율</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
       </ul>
     </section>
 
     <section class="cat" aria-labelledby="c-invest">
       <div class="cat-head">
-        <span class="em" aria-hidden="true">📈</span>
+        <span class="cat-ic" aria-hidden="true"><svg><use href="#i-chart"/></svg></span>
         <h2 id="c-invest">투자</h2><span class="n">5종</span>
-        <a class="hub" href="/invest-tools/">허브 →</a>
+        <a class="hub" href="/invest-tools/">허브 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <ul>
-        <li><a href="/invest-tools/averaging.html"><b>물타기 평단가</b><span>새 평단가·본전 수익률</span></a></li>
-        <li><a href="/invest-tools/dividend.html"><b>월 배당</b><span>세후 100만 원 필요 투자금</span></a></li>
-        <li><a href="/invest-tools/compound.html"><b>복리 적립</b><span>월 적립 복리 최종 자산</span></a></li>
-        <li><a href="/invest-tools/yield.html"><b>매도가·손절가</b><span>수수료·거래세 반영</span></a></li>
-        <li><a href="/invest-tools/isa-pension.html"><b>ISA·연금</b><span>세액공제·비과세 비교</span></a></li>
+        <li><a href="/invest-tools/averaging.html"><b class="nm">물타기 평단가</b><span class="ds">새 평단가·본전 수익률</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/invest-tools/dividend.html"><b class="nm">월 배당</b><span class="ds">세후 100만 원 필요 투자금</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/invest-tools/compound.html"><b class="nm">복리 적립</b><span class="ds">월 적립 복리 최종 자산</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/invest-tools/yield.html"><b class="nm">매도가·손절가</b><span class="ds">수수료·거래세 반영</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/invest-tools/isa-pension.html"><b class="nm">ISA·연금</b><span class="ds">세액공제·비과세 비교</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
       </ul>
     </section>
 
     <section class="cat" aria-labelledby="c-tax">
       <div class="cat-head">
-        <span class="em" aria-hidden="true">🏠</span>
+        <span class="cat-ic" aria-hidden="true"><svg><use href="#i-receipt"/></svg></span>
         <h2 id="c-tax">세금</h2><span class="n">5종</span>
-        <a class="hub" href="/tax-tools/">허브 →</a>
+        <a class="hub" href="/tax-tools/">허브 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <ul>
-        <li><a href="/tax-tools/yearend-tax.html"><b>연말정산 환급</b><span>13월의 월급 미리보기</span></a></li>
-        <li><a href="/tax-tools/brokerage.html"><b>중개보수(복비)</b><span>법정 상한요율·한도액</span></a></li>
-        <li><a href="/tax-tools/acquisition-tax.html"><b>취득세</b><span>1주택·다주택·85㎡ 농특세</span></a></li>
-        <li><a href="/tax-tools/vat.html"><b>부가가치세</b><span>공급가액·세액 역산</span></a></li>
-        <li><a href="/tax-tools/fuel.html"><b>유류비</b><span>주행거리·연비 기름값</span></a></li>
+        <li><a href="/tax-tools/yearend-tax.html"><b class="nm">연말정산 환급</b><span class="ds">13월의 월급 미리보기</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/tax-tools/brokerage.html"><b class="nm">중개보수(복비)</b><span class="ds">법정 상한요율·한도액</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/tax-tools/acquisition-tax.html"><b class="nm">취득세</b><span class="ds">1주택·다주택·85㎡ 농특세</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/tax-tools/vat.html"><b class="nm">부가가치세</b><span class="ds">공급가액·세액 역산</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/tax-tools/fuel.html"><b class="nm">유류비</b><span class="ds">주행거리·연비 기름값</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
       </ul>
     </section>
 
     <section class="cat" aria-labelledby="c-career">
       <div class="cat-head">
-        <span class="em" aria-hidden="true">💼</span>
+        <span class="cat-ic" aria-hidden="true"><svg><use href="#i-briefcase"/></svg></span>
         <h2 id="c-career">직장</h2><span class="n">5종</span>
-        <a class="hub" href="/career-tools/">허브 →</a>
+        <a class="hub" href="/career-tools/">허브 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <ul>
-        <li><a href="/career-tools/char-count.html"><b>자소서 글자수</b><span>공백 포함·제외, 바이트</span></a></li>
-        <li><a href="/career-tools/weekly-pay.html"><b>시급·주휴수당</b><span>주급·월급 세후</span></a></li>
-        <li><a href="/career-tools/annual-leave.html"><b>연차·연차수당</b><span>발생일수·미사용 수당</span></a></li>
-        <li><a href="/career-tools/salary-hour.html"><b>연봉 시급</b><span>1분·1초 가치 환산</span></a></li>
-        <li><a href="/career-tools/unemployment.html"><b>실업급여</b><span>소정급여일수·총 수령액</span></a></li>
+        <li><a href="/career-tools/char-count.html"><b class="nm">자소서 글자수</b><span class="ds">공백 포함·제외, 바이트</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/career-tools/weekly-pay.html"><b class="nm">시급·주휴수당</b><span class="ds">주급·월급 세후</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/career-tools/annual-leave.html"><b class="nm">연차·연차수당</b><span class="ds">발생일수·미사용 수당</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/career-tools/salary-hour.html"><b class="nm">연봉 시급</b><span class="ds">1분·1초 가치 환산</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/career-tools/unemployment.html"><b class="nm">실업급여</b><span class="ds">소정급여일수·총 수령액</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
       </ul>
     </section>
 
     <section class="cat" aria-labelledby="c-health">
       <div class="cat-head">
-        <span class="em" aria-hidden="true">💪</span>
+        <span class="cat-ic" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
         <h2 id="c-health">건강</h2><span class="n">5종</span>
-        <a class="hub" href="/health-calc/">허브 →</a>
+        <a class="hub" href="/health-calc/">허브 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <ul>
-        <li><a href="/health-calc/bmi.html"><b>BMI</b><span>비만도·표준체중</span></a></li>
-        <li><a href="/health-calc/bmr-calorie.html"><b>기초대사량</b><span>BMR·TDEE·탄단지</span></a></li>
-        <li><a href="/health-calc/sleep.html"><b>수면시간</b><span>90분 사이클 역산</span></a></li>
-        <li><a href="/health-calc/caffeine.html"><b>카페인</b><span>반감기·취침 안전 시각</span></a></li>
-        <li><a href="/health-calc/water.html"><b>물·단백질</b><span>하루 권장량</span></a></li>
+        <li><a href="/health-calc/bmi.html"><b class="nm">BMI</b><span class="ds">비만도·표준체중</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/health-calc/bmr-calorie.html"><b class="nm">기초대사량</b><span class="ds">BMR·TDEE·탄단지</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/health-calc/sleep.html"><b class="nm">수면시간</b><span class="ds">90분 사이클 역산</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/health-calc/caffeine.html"><b class="nm">카페인</b><span class="ds">반감기·취침 안전 시각</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        <li><a href="/health-calc/water.html"><b class="nm">물·단백질</b><span class="ds">하루 권장량</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
       </ul>
     </section>
 
   </div>
 
-  <aside style="background:#fff;border:1px solid #dbe6ff;border-radius:16px;padding:16px 18px;margin-bottom:22px;box-shadow:0 6px 18px rgba(29,78,216,.06)">
-    <p style="margin:0 0 6px;font-size:13.5px;color:#1e3a8a;font-weight:700">아파트 경매 권리분석·수익률 계산기 패키지</p>
-    <p style="margin:0;font-size:13px;color:#5c6b80">등기 12칸으로 말소기준권리와 인수보증금을 판정하고, 경락잔금대출 한도·취득세·양도세까지 한 번에 계산하는 엑셀 5시트 + 실전 가이드 PDF 8쪽입니다. <a href="https://litt.ly/speakdiscount" target="_blank" rel="noopener" style="color:#1d4ed8;font-weight:700;white-space:nowrap">리틀리에서 구성 보기 →</a></p>
+  <aside class="promo">
+    <span class="promo-pl">Partner</span>
+    <div class="promo-tx">
+      <p><b>아파트 경매 권리분석·수익률 계산기 패키지</b><br>등기 12칸으로 말소기준권리와 인수보증금을 판정하고, 경락잔금대출 한도·취득세·양도세까지 한 번에 계산하는 엑셀 5시트 + 실전 가이드 PDF 8쪽입니다.</p>
+      <a href="https://litt.ly/speakdiscount" target="_blank" rel="noopener">리틀리에서 구성 보기</a>
+    </div>
   </aside>
 
   <section class="foot-note">
@@ -188,7 +237,7 @@ gtag('config', 'G-HQVLV2QSHG');
     <p style="margin:0">모든 계산은 이용자의 브라우저에서만 이뤄지며 입력값은 저장·전송되지 않습니다. 자세한 내용은 <a href="/finance-tools/privacy.html">개인정보처리방침</a>을 확인하세요.</p>
   </section>
 
-  <p class="space-foot">© 2026 생활·금융 계산기 · <a href="/">포털 홈</a> · <a href="/finance-tools/privacy.html">개인정보처리방침</a> · <a href="https://blog.naver.com/speakdiscount" target="_blank" rel="noopener">블로그</a></p>
+  <p class="space-foot">© 2026 생활·금융 계산기<span class="sep">·</span><a href="/">포털 홈</a><span class="sep">·</span><a href="/finance-tools/privacy.html">개인정보처리방침</a><span class="sep">·</span><a href="https://blog.naver.com/speakdiscount" target="_blank" rel="noopener">블로그</a></p>
 </main>
 <script src="/visitor-stats.js" defer></script>
 </body>

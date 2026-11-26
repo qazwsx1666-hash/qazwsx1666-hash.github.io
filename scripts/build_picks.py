@@ -147,18 +147,30 @@ def replace_block(text: str, start: str, end: str, new: str, where: str) -> str:
     return pattern.sub(start + "\n" + new + "\n    " + end, text, count=1)
 
 
+THEME_ICONS = {
+    "yearend-tax": "receipt",
+    "start-alone": "home",
+    "desk-it": "monitor",
+    "winter-home": "snow",
+    "kitchen-living": "pot",
+    "health-diet": "heart",
+    "gift-outdoor": "gift",
+}
+
+
 def theme_cards(themes: list[dict], data: dict) -> str:
     rows = []
     for theme in themes:
         items = visible_items(data, theme)
+        icon = THEME_ICONS.get(theme.get("slug", ""), "bag")
         rows.append(
             '      <a class="theme" href="./{href}">\n'
-            '        <div class="em" aria-hidden="true">{emoji}</div>\n'
+            '        <span class="tile" aria-hidden="true"><svg><use href="#i-{icon}"/></svg></span>\n'
             '        <div class="tx"><h3>{title}</h3><p>{summary}</p></div>\n'
-            '        <div class="n">{count}개 →</div>\n'
+            '        <div class="n">{count}개<svg aria-hidden="true"><use href="#i-chev"/></svg></div>\n'
             "      </a>".format(
                 href=esc(theme["page"].rsplit("/", 1)[-1]),
-                emoji=esc(theme.get("emoji") or "🛍️"),
+                icon=icon,
                 title=esc(theme["title"]),
                 summary=esc(theme.get("summary")),
                 count=len(items),
