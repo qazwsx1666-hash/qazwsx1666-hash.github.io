@@ -36,11 +36,12 @@ SEARCH_BASE = "https://www.coupang.com/np/search?q="
 
 CARD_TMPL = """\
       <article class="pcard" data-id="{id}">
-        <div class="thumb" aria-hidden="true"><span>{emoji}</span></div>
+        {thumb}
         <div class="body">
           {badge}
           <h3 class="name">{name}</h3>
           <p class="line">{note}</p>
+          {rate}
           <p class="price">{price}</p>
           {action}
         </div>
@@ -71,6 +72,28 @@ def price_block(item: dict) -> str:
     return f"<b>{esc(item.get('price_hint')) or '가격 미정'}</b>"
 
 
+def thumb_block(item: dict) -> str:
+    """상품 이미지가 있으면 실제 사진, 없으면 예전처럼 이모지."""
+    image = (item.get("image") or "").strip()
+    if image:
+        return (
+            '<div class="thumb"><img src="' + esc(image) + '" alt="" '
+            'loading="lazy" decoding="async" referrerpolicy="no-referrer" '
+            'width="240" height="240"></div>'
+        )
+    return f'<div class="thumb is-emoji" aria-hidden="true"><span>{esc(item.get("emoji") or "🛍️")}</span></div>'
+
+
+def rate_block(item: dict) -> str:
+    """리뷰 수는 파트너스 기준 확인 시점 값."""
+    try:
+        rating = float(item["rating"])
+        reviews = int(item["reviews"])
+    except (KeyError, TypeError, ValueError):
+        return ""
+    return f'<p class="rate">★ {rating:.1f}<span>리뷰 {reviews:,}</span></p>'
+
+
 def badge(item: dict) -> str:
     """카드 배지는 1개만 — 상품의 badge, 없으면 category."""
     label = item.get("badge") or item.get("category")
@@ -96,7 +119,8 @@ def action_block(item: dict) -> str:
 def render_card(item: dict) -> str:
     return CARD_TMPL.format(
         id=esc(item["id"]),
-        emoji=esc(item.get("emoji") or "🛍️"),
+        thumb=thumb_block(item),
+        rate=rate_block(item),
         badge=badge(item),
         name=esc(item["name"]),
         price=price_block(item),
