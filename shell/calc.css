@@ -42,7 +42,7 @@
   background:#fff;border:1px solid rgba(15,23,42,.08);border-radius:999px;padding:6px 12px;white-space:nowrap;
   letter-spacing:-.015em}
 .cpills a:hover{border-color:rgba(15,23,42,.18);color:#0b1220}
-.cpills a.on{border-color:#0b1220;background:#0b1220;color:#fff;font-weight:600}
+.cpills a.on{border-color:transparent;background:#eef0f4;color:#0b1220;font-weight:600}
 @media (max-width:720px){.cpills-in{padding:8px 16px}}
 
 /* 계산기 공간 안에서만 쓰는 포털로 돌아가는 안내 (본문 하단) */
