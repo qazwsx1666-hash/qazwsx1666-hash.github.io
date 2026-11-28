@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "site": "https://qazwsx1666-hash.github.io/",
-  "updated_at": "2026-11-27T10:23:53+09:00",
+  "updated_at": "2026-11-28T10:31:03+09:00",
   "updated_by": "10:00 색인 점검 회차",
   "ga4": {
     "connected": true,
@@ -13,16 +13,16 @@
     "tag_installed_at": "2026-11-25T23:57:16+09:00",
     "data_status": "collecting",
     "data_status_label": "수집 중",
-    "data_note": "2026-11-27 10:15~10:22 GA4에서 지난 7일/전일 수치를 확인했습니다. 태그는 11-25 23:57 설치라 실제 데이터는 11-26부터 쌓였습니다. 전일(11-26) 총 사용자 27명·세션 36·이벤트 209, 유입은 세션 기준 Direct 27·Organic Social 8·Referral 1입니다. 단 미국 데이터센터 대역 판독(Boardman 12, Prineville 1, Altoona/Forest City/Springfield 각 1)이 다수를 차지해 실제 국내 방문은 서울 8·화성 1 수준으로 봅니다.",
+    "data_note": "2026-11-28 10:31 GA4에서 전일·최근 7일 수치를 확인했습니다. 전일(11-27) 활성 사용자 6명·이벤트 27·조회수 7 (11-26 27명 대비 -77.8%). 최근 7일 세션 42건 중 Direct 32·Organic Social 9·Referral 1입니다. 국가는 미국 18·한국 13·독일 1, 시/군/구는 Boardman 12·서울 8·인천 2로 미국 데이터센터 대역(Boardman 등)이 여전히 섞여 있습니다.",
     "report_url": "https://analytics.google.com/analytics/web/",
     "channels": [
       {
         "name": "Direct",
-        "users": 27
+        "users": 32
       },
       {
         "name": "Organic Social",
-        "users": 8
+        "users": 9
       },
       {
         "name": "Referral",
@@ -33,7 +33,7 @@
     "pages": [
       {
         "path": "/",
-        "views": 33
+        "views": 37
       },
       {
         "path": "/calc/",
@@ -52,26 +52,26 @@
         "views": 5
       },
       {
-        "path": "/picks/yearend-tax.html",
+        "path": "/picks/",
         "views": 5
       },
       {
-        "path": "/picks/gift-outdoor.html",
+        "path": "/picks/yearend-tax.html",
         "views": 5
       }
     ],
     "referrers": [
       {
         "name": "(direct)",
-        "users": 20
+        "users": 32
+      },
+      {
+        "name": "ig",
+        "users": 4
       },
       {
         "name": "facebook.com",
         "users": 3
-      },
-      {
-        "name": "ig",
-        "users": 1
       },
       {
         "name": "affiliate-admin.coupang.net",
@@ -87,49 +87,49 @@
       }
     ],
     "realtime_verified_at": "2026-11-26T00:06:46+09:00",
-    "last_checked_at": "2026-11-27T10:22:00+09:00",
-    "channels_note": "세션수 기준(11-26). 사용자수로는 Direct 20·Organic Social 6·Unassigned 4·Referral 1."
+    "last_checked_at": "2026-11-28T10:31:00+09:00",
+    "channels_note": "세션수 기준(최근 7일 11-21~11-27). 첫 사용자 소스는 (direct) 25·facebook.com 3·ig 2·coupang 1·blog.naver.com 1·m.facebook.com 1."
   },
   "counters": {
     "source": "countapi.mileshilliard.com (visitor-stats.js 브라우저 카운터)",
     "note": "브라우저당 하루 1회 집계. 같은 사람이 여러 섹션을 보면 섹션 수만큼 중복 집계됩니다.",
-    "date": "20261127",
-    "fetched_at": "2026-11-27T10:23:53+09:00",
+    "date": "20261128",
+    "fetched_at": "2026-11-28T10:31:03+09:00",
     "sections": {
       "root": {
         "label": "포털 홈",
-        "today": 20,
-        "total": 112
+        "today": 18,
+        "total": 129
       },
       "invest": {
         "label": "재테크 계산기",
-        "today": 0,
-        "total": 16
+        "today": 3,
+        "total": 19
       },
       "career": {
         "label": "직장·연봉 계산기",
-        "today": 0,
-        "total": 16
+        "today": 4,
+        "total": 20
       },
       "health": {
         "label": "건강 계산기",
-        "today": 14,
-        "total": 24
+        "today": 4,
+        "total": 28
       },
       "tax": {
         "label": "세금 계산기",
-        "today": 0,
-        "total": 8
+        "today": 4,
+        "total": 12
       },
       "fortune": {
         "label": "운세·사주",
-        "today": 0,
-        "total": 1
+        "today": 4,
+        "total": 5
       },
       "viral": {
         "label": "심리테스트",
-        "today": 0,
-        "total": 5
+        "today": 4,
+        "total": 9
       }
     },
     "history": [
@@ -155,13 +155,23 @@
       },
       {
         "date": "20261127",
-        "root": 20,
+        "root": 24,
         "invest": 0,
         "career": 0,
         "health": 14,
         "tax": 0,
         "fortune": 0,
         "viral": 0
+      },
+      {
+        "date": "20261128",
+        "root": 18,
+        "invest": 3,
+        "career": 4,
+        "health": 4,
+        "tax": 4,
+        "fortune": 4,
+        "viral": 4
       }
     ]
   },
@@ -169,31 +179,31 @@
     "total_urls": 61,
     "total_urls_note": "루트 사이트맵(sitemap.xml) 기준 61 URL — /finance-tools/ 7개 포함",
     "google": {
-      "indexed": 31,
-      "explored_valid": 22,
+      "indexed": 39,
+      "explored_valid": 25,
       "explored_invalid": 0,
-      "sitemap_status": "가져올 수 없음(11-27 재제출·마지막 읽은 날짜 2026.11.27, 발견 0)",
+      "sitemap_status": "가져올 수 없음(11-28 재제출·마지막 읽은 날짜 2026.11.28·발견 0)",
       "clicks": 0,
-      "checked_at": "2026-11-27"
+      "checked_at": "2026-11-28"
     },
     "naver": {
       "collected": 51,
       "errors": 0,
       "restricted": 1,
-      "status": "사이트맵 등록됨 · HTTPS 리다이렉션 정상 · 수집제한 1건(favicon.ico 400, 11-24)",
-      "checked_at": "2026-11-27"
+      "status": "사이트맵 등록됨 · HTTPS 리다이렉션 정상 · 사이트 진단(11-26 기준) 색인 0·수집제한 1·색인제외 0·SEO 0. 수집제한 1건은 favicon.ico 400이었고 11-28 커밋 dc396c2로 루트에 favicon.ico를 추가해 다음 수집에서 해소될 예정.",
+      "checked_at": "2026-11-28"
     },
-    "requested_total": 44,
-    "requested_note": "구글 색인 생성 요청 누적 44건 (11-22 3건 · 11-23 7건 · 11-24 11건 · 11-25 12건 · 11-27 11건). 남은 미요청 17건은 다음 회차로."
+    "requested_total": 56,
+    "requested_note": "구글 색인 생성 요청 누적 56건 (11-22 3 · 11-23 7 · 11-24 11 · 11-25 12 · 11-27 11 · 11-28 12). 11-28 회차에 대기열 17건 전부 처리 — 12건 요청, 5건은 이미 색인됨(finance-tools savings·salary·refinance·severance·housing). 대기열에는 /picks/about-affiliate.html(404)로 적혀 있었으나 실제 페이지 주소는 /about-affiliate.html이며 이 주소로 요청 완료."
   },
   "monetization": {
     "blog": {
       "name": "돈이 되는 노트 [DONE DAE NO]",
       "url": "https://blog.naver.com/speakdiscount",
       "account": "teaman1666 / TYPE A",
-      "post_count": 36,
-      "visitors": 108,
-      "visitors_note": "네이버 블로그 통계 기준 전일(11-26) 순방문자 108명 · 조회수 125 · 공감 14 · 댓글 4. 유입 대부분 네이버 통합검색(모바일 42.5%·PC 38.75%).",
+      "post_count": 42,
+      "visitors": 57,
+      "visitors_note": "네이버 블로그 통계 기준 전일(11-27) 순방문자 57명 · 조회수 66 · 공감 8 · 댓글 1 · 이웃증감 0. 유입은 네이버 통합검색 모바일 56%·PC 20%, 블로그 모바일 10%, 메인 홈판 4%, 블로그검색 모바일 4%.",
       "posts": [
         {
           "title": "2026년 연말정산 환급금 미리 계산하는 법, 놓치기 쉬운 공제 체크리스트",
